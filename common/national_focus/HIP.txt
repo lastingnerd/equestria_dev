@@ -1,0 +1,667 @@
+focus_tree = {
+	id = hippogriff_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			original_tag = HIP
+		}
+	}
+	
+	continuous_focus_position = { x = 20 y = 1000 }
+	
+	default = no
+	
+	############################
+	#### ZEBRICAN MANDATE   ####
+	############################
+	
+	focus = {
+		id = HIP_invest_in_the_mandate
+		icon = GFX_goal_generic_consumer_goods
+		x = 3
+		y = 0
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			NUM = {
+				is_subject_of = ROOT
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_invest_in_the_mandate"#Auto-logging
+			custom_effect_tooltip = unlocks_decisions_to_invest_in_mandate
+		}
+	}
+	
+	focus = {
+		id = HIP_local_royal_rule
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		prerequisite = { focus = HIP_invest_in_the_mandate }
+		mutually_exclusive = { focus = HIP_federate_the_mandate focus = HIP_impose_hippogriff_rule }
+		x = -3
+		y = 1
+		relative_position_id = HIP_invest_in_the_mandate
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			NUM = {
+				is_subject_of = ROOT
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_local_royal_rule"#Auto-logging
+			
+		}
+	}
+	
+	focus = {
+		id = HIP_federate_the_mandate
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = HIP_invest_in_the_mandate }
+		mutually_exclusive = { focus = HIP_local_royal_rule focus = HIP_impose_hippogriff_rule }
+		x = -1
+		y = 1
+		relative_position_id = HIP_invest_in_the_mandate
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			NUM = {
+				is_subject_of = ROOT
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_federate_the_mandate"#Auto-logging
+						
+		}
+	}
+	
+	focus = {
+		id = HIP_impose_hippogriff_rule
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = HIP_invest_in_the_mandate }
+		mutually_exclusive = { focus = HIP_local_royal_rule focus = HIP_federate_the_mandate }
+		x = 2
+		y = 1
+		relative_position_id = HIP_invest_in_the_mandate
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			NUM = {
+				is_subject_of = ROOT
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_impose_hippogriff_rule"#Auto-logging
+						
+		}
+	}
+	
+	focus = {
+		id = HIP_hippogriff_settelments
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = HIP_impose_hippogriff_rule }
+		x = 1
+		y = 1
+		relative_position_id = HIP_impose_hippogriff_rule
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			NUM = {
+				is_subject_of = ROOT
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_hippogriff_settelments"#Auto-logging
+						
+		}
+	}
+	
+	focus = {
+		id = HIP_encourage_colonialisation
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = HIP_hippogriff_settelments }
+		x = 1
+		y = 1
+		relative_position_id = HIP_hippogriff_settelments
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			NUM = {
+				is_subject_of = ROOT
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_impose_hippogriff_rule"#Auto-logging
+						
+		}
+	}
+	
+	focus = {
+		id = HIP_wignot_accords
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = HIP_local_royal_rule focus = HIP_federate_the_mandate }
+		x = 1
+		y = 1
+		relative_position_id = HIP_local_royal_rule
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			NUM = {
+				is_subject_of = ROOT
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_wignot_accords"#Auto-logging
+						
+		}
+	}
+	
+	focus = {
+		id = HIP_develop_north_zebrican_industries
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = HIP_local_royal_rule focus = HIP_federate_the_mandate focus = HIP_impose_hippogriff_rule }
+		x = 2
+		y = 1
+		relative_position_id = HIP_federate_the_mandate
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			OR = {
+				AND = {
+					710 = { is_fully_controlled_by = NUM }
+					NUM = {
+						is_subject_of = ROOT
+					}
+				}
+				710 = { is_fully_controlled_by = ROOT }
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_develop_north_zebrican_industries"#Auto-logging
+			710 = {
+				if = {
+					limit = {
+						NUM = { has_focus_tree = generic_focus }
+					}
+					add_resource = {
+						type = steel
+						amount = 16
+					}				
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = HIP_develop_north_zebrican_industries_2
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = HIP_develop_north_zebrican_industries }
+		x = -1
+		y = 1
+		relative_position_id = HIP_develop_north_zebrican_industries
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			OR = {
+				AND = {
+					711 = { is_fully_controlled_by = NUM }
+					NUM = {
+						is_subject_of = ROOT
+					}
+				}
+				711 = { is_fully_controlled_by = ROOT }
+			}	
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_develop_north_zebrican_industries_2"#Auto-logging
+			711 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = HIP_north_zebrican_mines
+		icon = GFX_goal_construction_engineering
+		prerequisite = { focus = HIP_develop_north_zebrican_industries }
+		x = 1
+		y = 1
+		relative_position_id = HIP_develop_north_zebrican_industries
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			OR = {
+				AND = {
+					698 = { is_fully_controlled_by = NUM }
+					NUM = {
+						is_subject_of = ROOT
+					}
+				}
+				698 = { is_fully_controlled_by = ROOT }
+			}			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_north_zebrican_mines"#Auto-logging
+			698 = {
+				add_resource = {
+					type = tungsten
+					amount = 10
+				}
+				add_resource = {
+					type = crystals
+					amount = 14
+				}
+			}		
+		}
+	}
+	
+	focus = {
+		id = HIP_trans_zebrican_railway
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = HIP_develop_north_zebrican_industries_2 }
+		prerequisite = { focus = HIP_north_zebrican_mines }
+		x = 1
+		y = 1
+		relative_position_id = HIP_develop_north_zebrican_industries_2
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			NUM = {
+				is_subject_of = ROOT
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		complete_tooltip = {
+			NUM = {			
+				random_state = {
+					limit = {
+						has_state_flag = HIP_trans_zebrican_railway_Inf1
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_state = {
+					limit = {
+						has_state_flag = HIP_trans_zebrican_railway_Inf2
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_trans_zebrican_railway"#Auto-logging
+			NUM = {
+				random_owned_controlled_state = {
+					limit = {
+						is_fully_controlled_by = PREV						
+						free_building_slots = {
+							building = infrastructure
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = HIP_trans_zebrican_railway_Inf1
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_fully_controlled_by = PREV						
+						free_building_slots = {
+							building = infrastructure
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+					set_state_flag = HIP_trans_zebrican_railway_Inf2
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = HIP_welth_of_the_north
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = HIP_north_zebrican_mines }
+		prerequisite = { focus = HIP_encourage_colonialisation }
+		x = 1
+		y = 1
+		relative_position_id = HIP_north_zebrican_mines
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			OR = {
+				AND = {
+					710 = { is_fully_controlled_by = NUM }
+					NUM = {
+						is_subject_of = ROOT
+					}
+				}
+				710 = { is_fully_controlled_by = ROOT }
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_welth_of_the_north"#Auto-logging
+			710 = {
+				add_resource = {
+					type = oil
+					amount = 21
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}		
+		}
+	}
+	
+	focus = {
+		id = HIP_expand_the_mandate
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = HIP_invest_in_the_mandate }
+		x = 4
+		y = 1
+		relative_position_id = HIP_invest_in_the_mandate
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			NUM = {
+				is_subject_of = ROOT
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_expand_the_mandate"#Auto-logging
+						
+		}
+	}
+	
+	focus = {
+		id = HIP_fortify_the_mandate
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = HIP_develop_north_zebrican_industries }
+		x = -2
+		y = 2
+		relative_position_id = HIP_develop_north_zebrican_industries
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			NUM = {
+				is_subject_of = ROOT
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_develop_north_zebrican_industries_2"#Auto-logging
+						
+		}
+	}
+
+	############################
+	#### ZEBRICAN MANDATE   ####
+	############################
+
+	focus = {
+		id = HIP_expand_port_seascale
+		icon = GFX_goal_generic_consumer_goods
+		#prerequisite = { focus = HIP_invest_in_the_mandate }
+		x = 20
+		y = 0
+		relative_position_id = HIP_invest_in_the_mandate
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_invest_in_the_mandate"#Auto-logging
+			687 = {
+				custom_effect_tooltip = expand_inf_and_nav_base
+			}			
+		}
+	}
+}

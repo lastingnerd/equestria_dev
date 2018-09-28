@@ -20,10 +20,13 @@ set_technology = {
 	early_submarine = 1
 	basic_submarine = 1
 	early_destroyer = 1
+	basic_destroyer = 1
 	early_light_cruiser = 1
 	basic_light_cruiser = 1
 	early_heavy_cruiser = 1
+	basic_heavy_cruiser = 1
 	early_battleship = 1
+	basic_battleship = 1
 	early_battlecruiser = 1
 	early_carrier = 1
 	basic_carrier = 1
@@ -36,15 +39,7 @@ set_technology = {
 	motorised_infantry = 1
 }
 
-add_ideas = {
-	modern_society
-	proper_science_base
-	
-}
-
 set_country_flag = proper_science_base_unclocked
-
-give_guarantee = EQS
 
 set_convoys = 269
 set_politics = {
@@ -76,12 +71,15 @@ set_politics = {
 
 
 add_ideas = {
-
+	modern_society
+	proper_science_base
+	HIP_recovering_ecomony_1
+	HIP_zebrican_crisis
 }
 
 puppet = NUM
 
-set_stability = 0.75
+set_stability = 0.7
 set_war_support = 0.35
 
 create_country_leader = {
@@ -91,6 +89,6 @@ create_country_leader = {
 	desc = "POLITICS_NOVO_DESC"
 	ideology = conservatism
 	traits = {
-		
+		popular_leader
 	}
 }

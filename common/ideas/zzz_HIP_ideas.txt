@@ -1,0 +1,137 @@
+ideas = {
+
+	country = {
+		HIP_recovering_ecomony_1 = {
+			name = HIP_recovering_ecomony
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = great_depression
+			
+			modifier = {
+				consumer_goods_factor = 0.25
+				industrial_capacity_factory = -0.5
+				industrial_capacity_dockyard = -0.5
+				production_speed_buildings_factor = -0.5
+				research_time_factor = 0.3
+			}
+		}
+
+		HIP_recovering_ecomony_2 = {
+			name = HIP_recovering_ecomony
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = great_depression
+			
+			modifier = {
+				consumer_goods_factor = 0.10
+				industrial_capacity_factory = -0.25
+				industrial_capacity_dockyard = -0.25
+				production_speed_buildings_factor = -0.25
+				research_time_factor = 0.15
+			}
+		}
+
+		HIP_recovering_ecomony_3 = {
+			name = HIP_recovering_ecomony
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = great_depression
+			
+			modifier = {
+				consumer_goods_factor = 0.05
+				industrial_capacity_factory = -0.10
+				industrial_capacity_dockyard = -0.10
+				production_speed_buildings_factor = -0.10
+			}
+		}
+
+		HIP_zebrican_crisis = {
+			name = HIP_recovering_ecomony
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = great_depression
+			
+			modifier = {
+				stability_factor = -0.15
+			}
+		}
+	}
+
+	political_advisor = {
+
+	}
+
+
+	army_chief = {
+
+	}
+
+	air_chief = {
+
+	}
+
+	navy_chief = {
+
+	}
+
+	high_command = {
+
+	}
+
+	theorist = {
+
+	}
+
+
+	tank_manufacturer = {
+
+	}
+
+	materiel_manufacturer = {
+
+	}
+
+	industrial_concern = {
+
+	}
+
+	aircraft_manufacturer = {
+
+	}
+
+	naval_manufacturer = {
+
+	}
+}
