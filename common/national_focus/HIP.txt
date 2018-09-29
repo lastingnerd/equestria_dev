@@ -394,9 +394,19 @@ focus_tree = {
 		}
 
 		available = {
-			NUM = {
-				is_subject_of = ROOT
-			}
+			OR = {
+				NUM = {
+					is_subject_of = ROOT
+					has_full_control_of_state = 697
+					has_full_control_of_state = 710
+					has_full_control_of_state = 711
+				}
+				AND = {
+					has_full_control_of_state = 697
+					has_full_control_of_state = 710
+					has_full_control_of_state = 711	
+				}
+			}		
 		}
 		
 		bypass = {
@@ -409,7 +419,15 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[Root.GetName]: Focus HIP_hippogriff_settelments"#Auto-logging
-			
+			697 = { add_extra_state_shared_building_slots = 2 }
+			710 = { add_extra_state_shared_building_slots = 1 }
+			711 = { add_extra_state_shared_building_slots = 1 }
+			NUM = {
+				add_autonomy_ratio = {
+					value = -0.05
+					localization = HIP_develop_north_zebrican_industries_2
+				}
+			}
 		}
 	}
 	
@@ -434,7 +452,9 @@ focus_tree = {
 		}
 		
 		bypass = {
-
+			NUM = {
+				exists = no
+			}
 		}
 
 		cancel_if_invalid = yes
@@ -442,8 +462,14 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			log = "[Root.GetName]: Focus HIP_impose_hippogriff_rule"#Auto-logging
-			
+			log = "[Root.GetName]: Focus HIP_encourage_colonialisation"#Auto-logging
+			NUM = {
+				add_ideas = HIP_encourage_colonialisation_idea
+				add_autonomy_ratio = {
+					value = -0.05
+					localization = HIP_develop_north_zebrican_industries_2
+				}
+			}
 		}
 	}
 	
@@ -538,7 +564,7 @@ focus_tree = {
 			}
 			NUM = {
 				add_autonomy_ratio = {
-					value = -0.025
+					value = -0.05
 					localization = HIP_develop_north_zebrican_industries
 				}
 			}
@@ -596,7 +622,7 @@ focus_tree = {
 			}
 			NUM = {
 				add_autonomy_ratio = {
-					value = -0.025
+					value = -0.05
 					localization = HIP_develop_north_zebrican_industries_2
 				}
 			}
@@ -651,7 +677,7 @@ focus_tree = {
 			}
 			NUM = {
 				add_autonomy_ratio = {
-					value = -0.025
+					value = -0.05
 					localization = HIP_north_zebrican_mines
 				}
 			}					
@@ -710,7 +736,7 @@ focus_tree = {
 					}
 				}
 				add_autonomy_ratio = {
-					value = -0.025
+					value = -0.05
 					localization = HIP_trans_zebrican_railway
 				}
 			}
@@ -752,7 +778,7 @@ focus_tree = {
 					set_state_flag = HIP_trans_zebrican_railway_Inf2
 				}
 				add_autonomy_ratio = {
-					value = -0.025
+					value = -0.05
 					localization = HIP_trans_zebrican_railway
 				}
 			}
@@ -810,7 +836,7 @@ focus_tree = {
 			}
 			NUM = {
 				add_autonomy_ratio = {
-					value = -0.025
+					value = -0.05
 					localization = HIP_welth_of_the_north
 				}
 			}
@@ -847,7 +873,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[Root.GetName]: Focus HIP_expand_the_mandate"#Auto-logging
-						
+			unlock_decision_category_tooltip = HIP_expand_the_mandate_catagory
 		}
 	}
 	
@@ -881,7 +907,44 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[Root.GetName]: Focus HIP_develop_north_zebrican_industries_2"#Auto-logging
-						
+			army_experience = 5
+			if = {
+				limit = { 
+					OR = {
+						controls_state = 697 
+						NUM = { controls_state = 697 }
+					}
+				}
+				697 = {
+					add_building_construction = { type = bunker province = 18681 level = 3 instant_build = yes }
+				}
+			}
+			if = {
+				limit = { 
+					OR = {
+						controls_state = 698 
+						NUM = { controls_state = 698 }
+					}
+				}
+				698 = {
+					add_building_construction = { type = bunker province = 18718 level = 2 instant_build = yes }
+					add_building_construction = { type = bunker province = 18710 level = 2 instant_build = yes }
+				}
+			}
+			if = {
+				limit = { 
+					OR = {
+						controls_state = 711 
+						NUM = { controls_state = 711 }
+					}
+				}
+				711 = {
+					add_building_construction = { type = bunker province = 18694 level = 2 instant_build = yes }
+					add_building_construction = { type = bunker province = 18685 level = 2 instant_build = yes }
+					add_building_construction = { type = bunker province = 18674 level = 2 instant_build = yes }
+					add_building_construction = { type = bunker province = 18652 level = 2 instant_build = yes }
+				}
+			}
 		}
 	}
 

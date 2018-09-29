@@ -7,3 +7,12 @@ HIP_develop_the_mandate_catagory = {
 		base = 2
 	}
 }
+HIP_expand_the_mandate_catagory = {
+	allowed = {
+		original_tag = HIP
+	}
+	icon = generic_industry
+	priority = {
+		base = 3
+	}
+}

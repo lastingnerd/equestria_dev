@@ -1,4 +1,5 @@
 ﻿add_namespace = hippogriff
+add_namespace = hippogriff_border_conflict
 
 #For NUM - Hippogriffs have made us a monarchy.
 country_event = {
@@ -194,7 +195,6 @@ country_event = {
 				create_country_leader = {
 					name = "Nimbus Cloudstriker"
 					expire = "1965.1.1"
-					portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
 					ideology = moderatism
 					traits = {
 
@@ -212,7 +212,6 @@ country_event = {
 				create_country_leader = {
 					name = "Nimbus Cloudstriker"
 					expire = "1965.1.1"
-					portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
 					ideology = fascism_ideology
 					traits = {
 
@@ -230,7 +229,6 @@ country_event = {
 				create_country_leader = {
 					name = "Chrismon Seaweed"
 					expire = "1965.1.1"
-					portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
 					ideology = marxism
 					traits = {
 
@@ -245,7 +243,6 @@ country_event = {
 				create_country_leader = {
 					name = "Nimbus Cloudstriker"
 					expire = "1965.1.1"
-					portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
 					ideology = conservatism
 					traits = {
 
@@ -320,9 +317,13 @@ country_event = {
 			factor = 1
 		}
 		NUM = {
+			set_country_flag = wingnot_accords_5
 			add_stability = 0.1
 			add_timed_idea = { idea = HIP_wingnot_accords days = 1800 }
 			remove_ideas = NUM_call_for_freedom
+			hidden_effect = {
+				country_event = hippogriff.6
+			}
 		}
 	}
 
@@ -333,8 +334,147 @@ country_event = {
 		}
 		set_global_flag = wingnot_accords_prommissed
 		NUM = {
+			set_country_flag = wingnot_accords_10
 			add_timed_idea = { idea = HIP_wingnot_accords days = 3600 }
 			remove_ideas = NUM_call_for_freedom
+			hidden_effect = {
+				country_event = hippogriff.6
+			}
 		}
 	}
 }
+
+#The Wingnot Accords - For NUM
+country_event = {
+	id = hippogriff.6
+	title = hippogriff.6.t
+	desc = hippogriff.6.d
+	immediate = {log = "[Root.GetName]: event hippogriff.6"}#Auto-logging
+	#picture = 
+
+	is_triggered_only = yes
+	
+	option = {#5 yaers
+		name = hippogriff.6.a
+		trigger = {
+			has_country_flag = wingnot_accords_5
+		}
+		effect_tooltip = {
+			add_stability = 0.1
+			add_timed_idea = { idea = HIP_wingnot_accords days = 1800 }
+			remove_ideas = NUM_call_for_freedom
+		}
+	}
+
+	option = {#10 years
+		name = hippogriff.6.b
+		trigger = {
+			has_country_flag = wingnot_accords_10
+		}
+		effect_tooltip = {
+			add_timed_idea = { idea = HIP_wingnot_accords days = 3600 }
+			remove_ideas = NUM_call_for_freedom
+		}		
+	}
+}
+
+#Demmand Nation to Submit
+country_event = {
+	id = hippogriff_border_conflict.1
+	title = hippogriff_border_conflict.1.t
+	desc = hippogriff_border_conflict.1.d
+	immediate = {log = "[Root.GetName]: event hippogriff_border_conflict.1"}#Auto-logging
+	#picture = 
+
+	is_triggered_only = yes
+	
+	option = { # Accept demands
+		name = hippogriff_border_conflict.1.a
+		ai_chance = {
+			base = 5
+			modifier = {
+				factor = 0
+				OR = {
+					any_other_country = {
+						OR = {
+							is_in_faction_with = ROOT
+							has_guaranteed = ROOT
+						}
+					}
+					FROM = { surrender_progress > 0.2 }
+				}
+			}
+		}
+		FROM = {
+			country_event = { days = 1 id = hippogriff_border_conflict.2 }
+		}
+		custom_effect_tooltip = GAME_OVER_TT
+	}
+
+	option = { # Refuse
+		name = hippogriff_border_conflict.1.b
+		ai_chance = {
+			base = 5
+			modifier = {
+				add = 10
+				OR = {
+					any_other_country = {
+						is_in_faction_with = ROOT
+					}
+				}
+			}
+			modifier = {
+				add = 5
+				any_other_country = {
+					has_guaranteed = ROOT
+				}
+			}
+		}
+
+		FROM = {
+			country_event = { days = 1 id = hippogriff_border_conflict.3 }
+			effect_tooltip = {
+				create_wargoal = {
+					type = annex_everything
+					target = ROOT
+				}	
+			}
+		}
+	}
+}
+
+# Nation Submits
+country_event = {
+	id = hippogriff_border_conflict.2
+	title = hippogriff_border_conflict.2.t
+	desc = hippogriff_border_conflict.2.d
+	#picture = GFX_report_event_soviet_invasion_map
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = hippogriff_border_conflict.2.a
+		NUM = {
+			annex_country = { target = FROM }
+		}		
+	}
+}
+
+# Nation Submits
+country_event = {
+	id = hippogriff_border_conflict.3
+	title = hippogriff_border_conflict.3.t
+	desc = hippogriff_border_conflict.3.d
+	#picture = GFX_report_event_soviet_invasion_map
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = hippogriff_border_conflict.3.a
+		create_wargoal = {
+			type = annex_everything
+			target = FROM
+		}		
+	}
+}
+

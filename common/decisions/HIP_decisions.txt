@@ -2,6 +2,8 @@ HIP_develop_the_mandate_catagory = {
 	HIP_encourage_investors = {
 		cost = 25
 
+		allowed = { original_tag = HIP }
+
 		fire_only_once = yes
 
 		target_trigger  = {
@@ -42,6 +44,8 @@ HIP_develop_the_mandate_catagory = {
 	HIP_zebrican_relief_fund = {
 		cost = 25
 
+		allowed = { original_tag = HIP }
+
 		target_trigger  = {
 			FROM = {
 				tag = NUM
@@ -78,5 +82,185 @@ HIP_develop_the_mandate_catagory = {
 			
 		}
 		days_remove = 90
+	}
+
+	HIP_invite_foreign_investors = {
+		cost = 25
+
+		allowed = { original_tag = HIP }
+
+		target_trigger  = {
+			FROM = {
+				tag = NUM
+			}
+		}
+
+		ai_will_do = {
+			factor = 50
+		}
+
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = HIP_invest_in_the_mandate
+		}
+		
+		available = {
+			NUM = {
+				is_subject_of = ROOT
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				add_offsite_building = { type = industrial_complex level = 1 }
+			}
+		}
+
+		modifier = {
+			consumer_goods_factor = -0.05			
+		}
+		days_remove = 90
+	}
+
+	HIP_found_the_zebrican_railway_company = {
+		cost = 25
+
+		allowed = { original_tag = HIP }
+
+		target_trigger  = {
+			FROM = {
+				tag = NUM
+			}
+		}
+
+		ai_will_do = {
+			factor = 50
+		}
+
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = HIP_invest_in_the_mandate
+		}
+		
+		available = {
+			NUM = {
+				is_subject_of = ROOT
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				random_owned_controlled_state = {
+					limit = {
+						is_fully_controlled_by = PREV						
+						free_building_slots = {
+							building = infrastructure
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+
+		modifier = {
+			production_speed_buildings_factor = 0.1
+		}
+		days_remove = 90
+	}
+}
+
+HIP_expand_the_mandate_catagory = {
+	HIP_expand_mandate_decision = {
+
+		icon = decision_generic_ignite_civil_war
+
+		allowed = { original_tag = HIP } #Activated from effect
+
+		target_trigger = {
+			FROM = {
+				OR = {
+					tag = CAB
+					tag = WAR
+					tag = MUL
+					tag = RAM
+					tag = KMA
+				}
+			}
+		}
+
+		visible = {
+			has_completed_focus = HIP_expand_the_mandate
+			FROM = {
+				any_owned_state = {
+					any_neighbor_state = {
+						is_owned_by = NUM
+					}
+				}
+			}
+		}
+		
+		available = {
+			NUM = {
+				is_subject_of = ROOT
+			}
+			FROM = {
+				NOT = {					
+					is_in_faction_with = ROOT
+					has_war_with = ROOT				
+				}
+				is_subject = no				
+			}
+			custom_trigger_tooltip = {
+				tooltip = is_not_both_harmony_tt
+				NOT = {
+					AND = {
+						has_government = democratic
+						FROM = { has_government = democratic }
+					}				
+				}
+			}			
+		}
+
+		cost = 150
+
+		ai_will_do = {
+			base = 10
+		}
+
+		days_remove = 20
+
+		fire_only_once = yes
+
+		war_with_target_on_remove = yes
+
+		complete_effect = {
+			FROM = {
+				country_event = { id = hippogriff_border_conflict.1 }
+			}
+			every_state = {
+				limit = {
+					is_core_of = FROM
+					NOT = {
+						OR = {
+							is_core_of = NUM
+							is_claimed_by = NUM
+						}
+					}
+				}
+				add_claim_by = NUM
+			}
+		}
+
+		remove_effect = {
+			
+		}
 	}
 }

@@ -148,7 +148,7 @@ ideas = {
 
 		HIP_wingnot_accords = {
 			name = HIP_wingnot_accords
-			picture = generic_pp_unity_bonus
+			picture = generic_constitutional_guarantees
 			allowed = {
 				always = no
 			}
@@ -165,6 +165,28 @@ ideas = {
 			
 			modifier = {
 				stability_factor = 0.05
+			}
+		}
+
+		HIP_encourage_colonialisation_idea = {
+			picture = CZE_planning_bonus
+			allowed = {
+				always = no
+			}
+			
+			removal_cost = -1
+			
+			allowed_civil_war = {
+				is_subject = yes
+			}
+
+			available = {
+				is_subject = yes
+			}
+			
+			modifier = {
+				stability_factor = -0.1
+				MONTHLY_POPULATION = 0.15
 			}
 		}
 	}

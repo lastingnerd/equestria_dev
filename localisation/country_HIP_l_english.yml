@@ -25,12 +25,19 @@
  HIP_zebrican_relief_fund_idea:0 "Zebrican Relief Fund"
  HIP_encourage_investors_idea:0 "Hippogriff Investment"
  HIP_hippogriff_harmony:0 "Hippogriff Harmony"
+ HIP_wingnot_accords:0 "Wingnot Accords"
+ HIP_encourage_colonialisation_idea:0 "Hippogriff Colonists"
 
 
  ### DECISIONS ###
  HIP_develop_the_mandate_catagory:0 "Invest in the Mandate"
  HIP_zebrican_relief_fund:0 "Zebrican Relief Fund"
  HIP_encourage_investors:0 "Encourage Zebrican Investment"
+ HIP_invite_foreign_investors:0 "Invite Foreign Investors"
+ HIP_found_the_zebrican_railway_company:0 "Found the Zebrican Railway Company"
+
+ HIP_expand_the_mandate_catagory:0 "Expand the Mandate"
+ HIP_expand_mandate_decision:0 "Incorporate [From.GetNameDef] into the Mandate"
 
  ### EVENTS ###
 
@@ -365,3 +372,5 @@
  HIP_federate_the_mandate_tt:0 "We shall divide the mandate into different states that will form a loose federation under our guidance."
  HIP_impose_hippogriff_rule_tt:0 "Hippogriffs will take full control of the Mandate."
  HIP_wingnot_accords_tt:0 "We will negotiate the terms of how long the Mandate will remain a subject. Once that time is up, we will have to release them or face the consequences."
+
+ is_not_both_harmony_tt:0 "Both nations are not §Yharmony§!."
