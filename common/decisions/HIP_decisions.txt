@@ -1,0 +1,74 @@
+HIP_develop_the_mandate_catagory = {
+	HIP_encourage_investors = {
+		cost = 25
+
+		fire_only_once = yes
+
+		target_trigger  = {
+			FROM = {
+				tag = NUM
+			}
+		}
+
+		visible = {
+			has_completed_focus = HIP_invest_in_the_mandate
+		}
+		
+		available = {
+			NUM = {
+				is_subject_of = ROOT
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				add_timed_idea = {
+					idea = HIP_encourage_investors_idea
+					days = 90
+				}
+			}
+		}
+
+		modifier = {
+			production_speed_buildings_factor = 0.1
+		}
+		days_remove = 90
+	}
+
+	HIP_zebrican_relief_fund = {
+		cost = 25
+
+		target_trigger  = {
+			FROM = {
+				tag = NUM
+			}
+		}
+
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = HIP_invest_in_the_mandate
+		}
+		
+		available = {
+			NUM = {
+				is_subject_of = ROOT
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				add_timed_idea = {
+					idea = HIP_zebrican_relief_fund_idea
+					days = 90
+				}
+			}
+		}
+
+		modifier = {
+			consumer_goods_factor = -0.05
+			
+		}
+		days_remove = 90
+	}
+}

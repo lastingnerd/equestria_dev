@@ -20,9 +20,17 @@
  ### IDEAS ###
  HIP_recovering_ecomony:0 "Recovering Ecomony"
  HIP_recovering_ecomony_desc:0 "A decade in hiding has left our ecomony devistated. Rebuilding will be a long, slow process."
+ HIP_zebrican_crisis:0 "The Zebrican Crisis"
+ HIP_zebrican_crisis_desc:0 "The zebras to the south didn't have a chance against the Storm King. With the fall of the Storm Empire, their homelands have fallen into turmoil. Bandits, pirates plague the land and seas, praying on innocent zebras, hippogriffs and whoever may be get in their way. This disaster lead to the creation of the Zebrican Mandate, a safe zone under the protection of Hippogriffia."
+ HIP_zebrican_relief_fund_idea:0 "Zebrican Relief Fund"
+ HIP_encourage_investors_idea:0 "Hippogriff Investment"
+
 
  ### DECISIONS ###
- 
+ HIP_develop_the_mandate_catagory:0 "Invest in the Mandate"
+ HIP_zebrican_relief_fund:0 "Zebrican Relief Fund"
+ HIP_encourage_investors:0 "Encourage Zebrican Investment"
+
  ### EVENTS ###
 
  ### ADVISORS ###
@@ -350,4 +358,4 @@
  
 
  ### TOOLTIPS ###
- 
+ HIP_invest_in_the_mandate_tt:0 "Unlocks §Ydecisions§! to invest in the Zebrican Mandate. Providing both of us with §Ydevelopment bonuses§!."

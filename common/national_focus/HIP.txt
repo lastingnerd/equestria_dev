@@ -46,7 +46,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[Root.GetName]: Focus HIP_invest_in_the_mandate"#Auto-logging
-			custom_effect_tooltip = unlocks_decisions_to_invest_in_mandate
+			custom_effect_tooltip = HIP_invest_in_the_mandate_tt
 		}
 	}
 	
@@ -81,7 +81,9 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[Root.GetName]: Focus HIP_local_royal_rule"#Auto-logging
-			
+			NUM = {
+				add_stability = 0.1
+			}
 		}
 	}
 	
@@ -116,7 +118,9 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[Root.GetName]: Focus HIP_federate_the_mandate"#Auto-logging
-						
+			NUM = {
+				add_stability = 0.1
+			}			
 		}
 	}
 	
@@ -151,7 +155,9 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[Root.GetName]: Focus HIP_impose_hippogriff_rule"#Auto-logging
-						
+			NUM = {
+				add_stability = -0.15
+			}
 		}
 	}
 	
