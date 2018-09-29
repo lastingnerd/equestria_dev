@@ -50,11 +50,11 @@ set_politics = {
 		}
 
 		fascism = {
-			popularity = 1
+			popularity = 0
 		}
 
 		communism = {
-			popularity = 1
+			popularity = 2
 			#banned = no #default is no
 		}
 
@@ -75,11 +75,24 @@ add_ideas = {
 	proper_science_base
 	HIP_recovering_ecomony_1
 	HIP_zebrican_crisis
+	HIP_hippogriff_harmony
 }
 
-puppet = NUM
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = NUM
+		autonomous_state = autonomy_colony
+		freedom_level = 0.35
+	}
+	else = {
+		puppet = NUM
+	}
+}
 
-set_stability = 0.7
+set_stability = 0.5
 set_war_support = 0.35
 
 create_country_leader = {
@@ -91,4 +104,43 @@ create_country_leader = {
 	traits = {
 		popular_leader
 	}
+}
+
+create_country_leader = {
+	name = "Stratus Skyranger"
+	picture = "stratus_skyranger.dds"
+	expire = "1965.1.1"
+	ideology = fascism_ideology
+	traits = {
+		
+	}
+}
+
+create_field_marshal = {
+	name = "Stratus Skyranger"
+	picture = "stratus_skyranger.tga"
+	traits = { defensive_doctrine career_officer }
+	skill = 4
+	attack_skill = 3
+	defense_skill = 4
+	planning_skill = 4
+	logistics_skill = 3
+}
+
+create_corps_commander = {
+	name = "Sky Beak"
+	picture = "sky_beak.tga"
+	traits = { armor_officer politically_connected  }
+	skill = 4
+	attack_skill = 3
+	defense_skill = 4
+	planning_skill = 3
+	logistics_skill = 3
+}
+
+create_navy_leader = {
+	name = "Seaspray"
+	picture = "seaspray.tga"
+	traits = { blockade_runner superior_tactician }
+	skill = 5
 }

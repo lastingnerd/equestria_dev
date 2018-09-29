@@ -27,7 +27,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 5
 		}
 
 		available = {
@@ -62,13 +62,14 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 2
 		}
 
 		available = {
 			NUM = {
 				is_subject_of = ROOT
 			}
+			NOT = { has_government = communism }
 		}
 		
 		bypass = {
@@ -81,9 +82,66 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[Root.GetName]: Focus HIP_local_royal_rule"#Auto-logging
+			#####
+			##### REMEMBER TO EDIT EVENT hippogriff.1
+			#####
 			NUM = {
 				add_stability = 0.1
+				if = {
+					limit = {
+						has_government = neutrality
+					}
+					set_politics = {
+						ruling_party = neutrality
+						elections_allowed = no
+					}
+					create_country_leader = {
+						name = "King Zaru Maqar"
+						expire = "1965.1.1"
+						#portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+						ideology = despotism
+						traits = {
+
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						has_government = fascism
+					}
+					set_politics = {
+						ruling_party = fascism
+						elections_allowed = no
+					}
+					create_country_leader = {
+						name = "King Zaru Maqar"
+						expire = "1965.1.1"
+						#portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+						ideology = rexism
+						traits = {
+
+						}
+					}
+				}
+				else = {
+					set_politics = {
+						ruling_party = democratic
+						elections_allowed = no
+					}
+					create_country_leader = {
+						name = "King Zaru Maqar"
+						expire = "1965.1.1"
+						#portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+						ideology = conservatism
+						traits = {
+
+						}
+					}
+				}
+				
+				country_event = hippogriff.1
 			}
+			custom_effect_tooltip = HIP_local_royal_rule_tt
 		}
 	}
 	
@@ -99,7 +157,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 3
 		}
 
 		available = {
@@ -118,9 +176,83 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[Root.GetName]: Focus HIP_federate_the_mandate"#Auto-logging
+			#####
+			##### REMEMBER TO EDIT EVENT hippogriff.2
+			#####
 			NUM = {
 				add_stability = 0.1
-			}			
+				if = {
+					limit = {
+						has_government = neutrality
+					}
+					set_politics = {
+						ruling_party = neutrality
+						elections_allowed = yes
+					}
+					create_country_leader = {
+						name = "Federal Council"
+						expire = "1965.1.1"
+						#portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+						ideology = moderatism
+						traits = {
+
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						has_government = fascism
+					}
+					set_politics = {
+						ruling_party = fascism
+						elections_allowed = no
+					}
+					create_country_leader = {
+						name = "Federal Council"
+						expire = "1965.1.1"
+						#portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+						ideology = fascism_ideology
+						traits = {
+
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						has_government = communism
+					}
+					set_politics = {
+						ruling_party = communism
+						elections_allowed = no
+					}
+					create_country_leader = {
+						name = "Federal Council"
+						expire = "1965.1.1"
+						#portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+						ideology = marxism
+						traits = {
+
+						}
+					}
+				}
+				else = {
+					set_politics = {
+						ruling_party = democratic
+						elections_allowed = yes
+					}
+					create_country_leader = {
+						name = "Federal Council"
+						expire = "1965.1.1"
+						#portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+						ideology = liberalism
+						traits = {
+
+						}
+					}
+				}
+				country_event = hippogriff.2
+			}
+			custom_effect_tooltip = HIP_federate_the_mandate_tt
 		}
 	}
 	
@@ -136,7 +268,11 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 1
+			modifier = {
+				factor = 5
+				has_government = fascism
+			}
 		}
 
 		available = {
@@ -155,9 +291,91 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[Root.GetName]: Focus HIP_impose_hippogriff_rule"#Auto-logging
+			#####
+			##### REMEMBER TO EDIT EVENT hippogriff.3
+			#####
+			if = {
+				limit = { has_dlc = "Together for Victory" }
+				set_autonomy = {
+					target = NUM
+					autonomy_state = autonomy_puppet
+				}
+			}
 			NUM = {
 				add_stability = -0.15
+				add_political_power = 50				
+				if = {
+					limit = {
+						has_government = neutrality
+					}
+					set_politics = {
+						ruling_party = neutrality
+						elections_allowed = no
+					}
+					create_country_leader = {
+						name = "Nimbus Cloudstriker"
+						expire = "1965.1.1"
+						portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+						ideology = moderatism
+						traits = {
+
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						has_government = fascism
+					}
+					set_politics = {
+						ruling_party = fascism
+						elections_allowed = no
+					}
+					create_country_leader = {
+						name = "Nimbus Cloudstriker"
+						expire = "1965.1.1"
+						portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+						ideology = fascism_ideology
+						traits = {
+
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						has_government = communism
+					}
+					set_politics = {
+						ruling_party = communism
+						elections_allowed = no
+					}
+					create_country_leader = {
+						name = "Chrismon Seaweed"
+						expire = "1965.1.1"
+						portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+						ideology = marxism
+						traits = {
+
+						}
+					}
+				}
+				else = {
+					set_politics = {
+						ruling_party = democratic
+						elections_allowed = no
+					}
+					create_country_leader = {
+						name = "Nimbus Cloudstriker"
+						expire = "1965.1.1"
+						portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+						ideology = conservatism
+						traits = {
+
+						}
+					}
+				}
+				country_event = hippogriff.3
 			}
+			custom_effect_tooltip = HIP_impose_hippogriff_rule_tt
 		}
 	}
 	
@@ -172,7 +390,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 1
 		}
 
 		available = {
@@ -191,7 +409,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[Root.GetName]: Focus HIP_hippogriff_settelments"#Auto-logging
-						
+			
 		}
 	}
 	
@@ -206,7 +424,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 1
 		}
 
 		available = {
@@ -225,12 +443,12 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[Root.GetName]: Focus HIP_impose_hippogriff_rule"#Auto-logging
-						
+			
 		}
 	}
 	
 	focus = {
-		id = HIP_wignot_accords
+		id = HIP_wingnot_accords
 		icon = GFX_goal_generic_improve_relations
 		prerequisite = { focus = HIP_local_royal_rule focus = HIP_federate_the_mandate }
 		x = 1
@@ -240,12 +458,13 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 1
 		}
 
 		available = {
 			NUM = {
 				is_subject_of = ROOT
+				has_idea = NUM_call_for_freedom
 			}
 		}
 		
@@ -258,8 +477,9 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			log = "[Root.GetName]: Focus HIP_wignot_accords"#Auto-logging
-						
+			log = "[Root.GetName]: Focus HIP_wingnot_accords"#Auto-logging
+			country_event = hippogriff.5
+			custom_effect_tooltip = HIP_wingnot_accords_tt
 		}
 	}
 	
@@ -274,7 +494,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 1
 		}
 
 		available = {
@@ -316,6 +536,12 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			NUM = {
+				add_autonomy_ratio = {
+					value = -0.025
+					localization = HIP_develop_north_zebrican_industries
+				}
+			}
 		}
 	}
 	
@@ -330,7 +556,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 1
 		}
 
 		available = {
@@ -368,6 +594,12 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			NUM = {
+				add_autonomy_ratio = {
+					value = -0.025
+					localization = HIP_develop_north_zebrican_industries_2
+				}
+			}
 		}
 	}
 	
@@ -382,7 +614,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 1
 		}
 
 		available = {
@@ -416,7 +648,13 @@ focus_tree = {
 					type = crystals
 					amount = 14
 				}
-			}		
+			}
+			NUM = {
+				add_autonomy_ratio = {
+					value = -0.025
+					localization = HIP_north_zebrican_mines
+				}
+			}					
 		}
 	}
 	
@@ -432,7 +670,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 1
 		}
 
 		available = {
@@ -450,7 +688,7 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		complete_tooltip = {
-			NUM = {			
+			NUM = {
 				random_state = {
 					limit = {
 						has_state_flag = HIP_trans_zebrican_railway_Inf1
@@ -470,6 +708,10 @@ focus_tree = {
 						level = 2
 						instant_build = yes
 					}
+				}
+				add_autonomy_ratio = {
+					value = -0.025
+					localization = HIP_trans_zebrican_railway
 				}
 			}
 		}
@@ -509,6 +751,10 @@ focus_tree = {
 					}
 					set_state_flag = HIP_trans_zebrican_railway_Inf2
 				}
+				add_autonomy_ratio = {
+					value = -0.025
+					localization = HIP_trans_zebrican_railway
+				}
 			}
 		}
 	}
@@ -525,7 +771,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 1
 		}
 
 		available = {
@@ -561,7 +807,13 @@ focus_tree = {
 					level = 2
 					instant_build = yes
 				}
-			}		
+			}
+			NUM = {
+				add_autonomy_ratio = {
+					value = -0.025
+					localization = HIP_welth_of_the_north
+				}
+			}
 		}
 	}
 	
@@ -576,7 +828,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 1
 		}
 
 		available = {
@@ -610,7 +862,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 1
 		}
 
 		available = {
@@ -633,14 +885,15 @@ focus_tree = {
 		}
 	}
 
-	############################
-	#### ZEBRICAN MANDATE   ####
-	############################
+	################################
+	#### SEAPONIES/HIPPOGRIFFS  ####
+	################################
 
 	focus = {
-		id = HIP_expand_port_seascale
+		id = HIP_seapony_primacy
 		icon = GFX_goal_generic_consumer_goods
 		#prerequisite = { focus = HIP_invest_in_the_mandate }
+		mutually_exclusive = { focus = HIP_hippogriff_primacy }
 		x = 20
 		y = 0
 		relative_position_id = HIP_invest_in_the_mandate
@@ -648,7 +901,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			factor = 2
 		}
 
 		available = {
@@ -664,10 +917,39 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			log = "[Root.GetName]: Focus HIP_invest_in_the_mandate"#Auto-logging
-			687 = {
-				custom_effect_tooltip = expand_inf_and_nav_base
-			}			
+			log = "[Root.GetName]: Focus HIP_seapony_primacy"#Auto-logging		
+		}
+	}
+
+	focus = {
+		id = HIP_hippogriff_primacy
+		icon = GFX_goal_generic_consumer_goods
+		mutually_exclusive = { focus = HIP_seapony_primacy }
+		#prerequisite = { focus = HIP_invest_in_the_mandate }
+		x = 4
+		y = 0
+		relative_position_id = HIP_seapony_primacy
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 3
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_seapony_primacy"#Auto-logging		
 		}
 	}
 }

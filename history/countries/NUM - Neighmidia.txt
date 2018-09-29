@@ -60,8 +60,29 @@ set_politics = {
 
 
 add_ideas = {
-
+	HIP_zebrican_crisis
 }
 
-set_stability = 0.5
-set_war_support = 0.3
+set_stability = 0.4
+set_war_support = 0.2
+
+create_country_leader = {
+	name = "Nimbus Cloudstriker"
+	expire = "1965.1.1"
+	picture = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+	ideology = conservatism
+	traits = {
+
+	}
+}
+
+create_corps_commander = {
+	name = "Nimbus Cloudstriker"
+	portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+	traits = { desert_fox }
+	skill = 3
+	attack_skill = 1
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 3
+}

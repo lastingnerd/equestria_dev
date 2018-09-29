@@ -1,0 +1,340 @@
+﻿add_namespace = hippogriff
+
+#For NUM - Hippogriffs have made us a monarchy.
+country_event = {
+	id = hippogriff.1
+	immediate = {log = "[Root.GetName]: event hippogriff.1"}#Auto-logging
+	title = hippogriff.1.t
+	desc = hippogriff.1.d
+
+	#picture = GFX_event_equestria_fail
+
+	is_triggered_only = yes
+
+	option = {
+		name = hippogriff.1.a
+		effect_tooltip = {
+			add_stability = 0.1
+			if = {
+				limit = {
+					has_government = neutrality
+				}
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}
+				create_country_leader = {
+					name = "King Zaru Maqar"
+					expire = "1965.1.1"
+					#portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+					ideology = despotism
+					traits = {
+
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_government = fascism
+				}
+				set_politics = {
+					ruling_party = fascism
+					elections_allowed = no
+				}
+				create_country_leader = {
+					name = "King Zaru Maqar"
+					expire = "1965.1.1"
+					#portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+					ideology = rexism
+					traits = {
+
+					}
+				}
+			}
+			else = {
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = no
+				}
+				create_country_leader = {
+					name = "King Zaru Maqar"
+					expire = "1965.1.1"
+					#portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+					ideology = conservatism
+					traits = {
+
+					}
+				}
+			}
+		}
+	}
+}
+
+#For NUM - Hippogriffs have made us a Federation.
+country_event = {
+	id = hippogriff.2
+	immediate = {log = "[Root.GetName]: event hippogriff.2"}#Auto-logging
+	title = hippogriff.2.t
+	desc = hippogriff.2.d
+
+	#picture = GFX_event_equestria_fail
+
+	is_triggered_only = yes
+
+	option = {
+		name = hippogriff.2.a
+		effect_tooltip = {
+			add_stability = 0.1	
+			if = {
+				limit = {
+					has_government = neutrality
+				}
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = yes
+				}
+				create_country_leader = {
+					name = "Federal Council"
+					expire = "1965.1.1"
+					#portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+					ideology = moderatism
+					traits = {
+
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_government = fascism
+				}
+				set_politics = {
+					ruling_party = fascism
+					elections_allowed = no
+				}
+				create_country_leader = {
+					name = "Federal Council"
+					expire = "1965.1.1"
+					#portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+					ideology = fascism_ideology
+					traits = {
+
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_government = communism
+				}
+				set_politics = {
+					ruling_party = communism
+					elections_allowed = no
+				}
+				create_country_leader = {
+					name = "Federal Council"
+					expire = "1965.1.1"
+					#portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+					ideology = marxism
+					traits = {
+
+					}
+				}
+			}
+			else = {
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
+				}
+				create_country_leader = {
+					name = "Federal Council"
+					expire = "1965.1.1"
+					#portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+					ideology = liberalism
+					traits = {
+
+					}
+				}
+			}
+		}		
+	}
+}
+
+#For NUM - Hippogriffs have assumed control.
+country_event = {
+	id = hippogriff.3
+	immediate = {log = "[Root.GetName]: event hippogriff.3"}#Auto-logging
+	title = hippogriff.3.t
+	desc = hippogriff.3.d
+
+	#picture = GFX_event_equestria_fail
+
+	is_triggered_only = yes
+
+	option = {
+		name = hippogriff.3.a
+		effect_tooltip = {
+			add_stability = -0.15
+			add_political_power = 50
+			if = {
+				limit = { has_dlc = "Together for Victory" }
+				FROM = {
+					set_autonomy = {
+						target = NUM
+						autonomy_state = autonomy_puppet
+					}
+				}				
+			}
+			if = {
+				limit = {
+					has_government = neutrality
+				}
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}
+				create_country_leader = {
+					name = "Nimbus Cloudstriker"
+					expire = "1965.1.1"
+					portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+					ideology = moderatism
+					traits = {
+
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_government = fascism
+				}
+				set_politics = {
+					ruling_party = fascism
+					elections_allowed = no
+				}
+				create_country_leader = {
+					name = "Nimbus Cloudstriker"
+					expire = "1965.1.1"
+					portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+					ideology = fascism_ideology
+					traits = {
+
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_government = communism
+				}
+				set_politics = {
+					ruling_party = communism
+					elections_allowed = no
+				}
+				create_country_leader = {
+					name = "Chrismon Seaweed"
+					expire = "1965.1.1"
+					portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+					ideology = marxism
+					traits = {
+
+					}
+				}
+			}
+			else = {
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = no
+				}
+				create_country_leader = {
+					name = "Nimbus Cloudstriker"
+					expire = "1965.1.1"
+					portrait_path = "gfx/leaders/Hippogriff/portrait_hippogriff_generic_land_1.dds"
+					ideology = conservatism
+					traits = {
+
+					}
+				}
+			}
+		}
+	}
+}
+
+#Free the Mandate
+country_event = {
+	id = hippogriff.4
+	title = hippogriff.4.t
+	desc = hippogriff.4.d
+	immediate = {log = "[Root.GetName]: event hippogriff.4"}#Auto-logging
+	#picture = 
+
+	trigger = {
+		tag = HIP
+		has_global_flag = wingnot_accords_prommissed		
+		NUM = {
+			NOT = { has_idea = HIP_wingnot_accords }
+			is_puppet_of = HIP
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 30
+	}
+	
+	option = {
+		name = hippogriff.4.a
+		set_global_flag = wingnot_accords_promise_true
+		end_puppet = NUM
+		ai_chance = {
+			factor = 10
+		}
+	}
+
+	option = {
+		name = hippogriff.4.b
+		ai_chance = {
+			factor = 1
+			modifier = {
+				has_government = fascism
+				factor = 100
+			}
+		}
+		set_global_flag = wingnot_accords_promise_broke
+		NUM = {
+			add_stability = -0.3
+			add_war_support = -0.2
+		}
+	}
+}
+
+#The Wingnot Accords
+country_event = {
+	id = hippogriff.5
+	title = hippogriff.5.t
+	desc = hippogriff.5.d
+	immediate = {log = "[Root.GetName]: event hippogriff.5"}#Auto-logging
+	#picture = 
+
+	is_triggered_only = yes
+	
+	option = {#5 yaers
+		name = hippogriff.5.a
+		set_global_flag = wingnot_accords_prommissed
+		ai_chance = {
+			factor = 1
+		}
+		NUM = {
+			add_stability = 0.1
+			add_timed_idea = { idea = HIP_wingnot_accords days = 1800 }
+			remove_ideas = NUM_call_for_freedom
+		}
+	}
+
+	option = {#10 years
+		name = hippogriff.5.b
+		ai_chance = {
+			factor = 2
+		}
+		set_global_flag = wingnot_accords_prommissed
+		NUM = {
+			add_timed_idea = { idea = HIP_wingnot_accords days = 3600 }
+			remove_ideas = NUM_call_for_freedom
+		}
+	}
+}

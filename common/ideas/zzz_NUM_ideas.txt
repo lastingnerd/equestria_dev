@@ -1,0 +1,70 @@
+ideas = {
+
+	country = {
+		NUM_call_for_freedom = {
+			name = NUM_call_for_freedom
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = great_depression
+			
+			modifier = {
+				stability_factor = -0.1
+				autonomy_gain = 0.1
+			}
+		}
+	}
+
+	political_advisor = {
+
+	}
+
+
+	army_chief = {
+
+	}
+
+	air_chief = {
+
+	}
+
+	navy_chief = {
+
+	}
+
+	high_command = {
+
+	}
+
+	theorist = {
+
+	}
+
+
+	tank_manufacturer = {
+
+	}
+
+	materiel_manufacturer = {
+
+	}
+
+	industrial_concern = {
+
+	}
+
+	aircraft_manufacturer = {
+
+	}
+
+	naval_manufacturer = {
+
+	}
+}

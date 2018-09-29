@@ -24,6 +24,7 @@
  HIP_zebrican_crisis_desc:0 "The zebras to the south didn't have a chance against the Storm King. With the fall of the Storm Empire, their homelands have fallen into turmoil. Bandits, pirates plague the land and seas, praying on innocent zebras, hippogriffs and whoever may be get in their way. This disaster lead to the creation of the Zebrican Mandate, a safe zone under the protection of Hippogriffia."
  HIP_zebrican_relief_fund_idea:0 "Zebrican Relief Fund"
  HIP_encourage_investors_idea:0 "Hippogriff Investment"
+ HIP_hippogriff_harmony:0 "Hippogriff Harmony"
 
 
  ### DECISIONS ###
@@ -359,3 +360,8 @@
 
  ### TOOLTIPS ###
  HIP_invest_in_the_mandate_tt:0 "Unlocks §Ydecisions§! to invest in the Zebrican Mandate. Providing both of us with §Ydevelopment bonuses§!."
+
+ HIP_local_royal_rule_tt:0 "A local and popular king will 'rule' over the subjects of the Mandate and follow our guidance."
+ HIP_federate_the_mandate_tt:0 "We shall divide the mandate into different states that will form a loose federation under our guidance."
+ HIP_impose_hippogriff_rule_tt:0 "Hippogriffs will take full control of the Mandate."
+ HIP_wingnot_accords_tt:0 "We will negotiate the terms of how long the Mandate will remain a subject. Once that time is up, we will have to release them or face the consequences."
