@@ -861,6 +861,7 @@ focus_tree = {
 			NUM = {
 				is_subject_of = ROOT
 			}
+			has_army_manpower = { size > 100000 }
 		}
 		
 		bypass = {
@@ -954,10 +955,10 @@ focus_tree = {
 
 	focus = {
 		id = HIP_seapony_primacy
-		icon = GFX_goal_generic_consumer_goods
+		icon = GFX_goal_generic_navy_doctrines_tactics
 		#prerequisite = { focus = HIP_invest_in_the_mandate }
 		mutually_exclusive = { focus = HIP_hippogriff_primacy }
-		x = 20
+		x = 8
 		y = 0
 		relative_position_id = HIP_invest_in_the_mandate
 
@@ -980,13 +981,26 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			log = "[Root.GetName]: Focus HIP_seapony_primacy"#Auto-logging		
+			log = "[Root.GetName]: Focus HIP_seapony_primacy"#Auto-logging
+			add_ideas = { HIP_seapony_primacy }
+			hidden_effect = {
+				create_country_leader = {
+					name = "Queen Novo"
+					expire = "1965.1.1"
+					picture = "Queen_Novo_Seapony.tga"
+					desc = "POLITICS_NOVO_DESC"
+					ideology = conservatism
+					traits = {
+						popular_leader
+					}
+				}
+			}
 		}
 	}
 
 	focus = {
 		id = HIP_hippogriff_primacy
-		icon = GFX_goal_generic_consumer_goods
+		icon = GFX_goal_generic_air_doctrine
 		mutually_exclusive = { focus = HIP_seapony_primacy }
 		#prerequisite = { focus = HIP_invest_in_the_mandate }
 		x = 4
@@ -1012,7 +1026,8 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			log = "[Root.GetName]: Focus HIP_seapony_primacy"#Auto-logging		
+			log = "[Root.GetName]: Focus HIP_hippogriff_primacy"#Auto-logging
+			add_ideas = { HIP_hippogriff_primacy }
 		}
 	}
 }

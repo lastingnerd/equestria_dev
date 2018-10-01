@@ -61,6 +61,7 @@ set_politics = {
 
 add_ideas = {
 	HIP_zebrican_crisis
+	NUM_call_for_freedom
 }
 
 set_stability = 0.4

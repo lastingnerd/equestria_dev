@@ -17,6 +17,9 @@
  ### FOCUS ###
  #Go 
 
+ HIP_seapony_primacy:0 "Seapony Primacy"
+ HIP_hippogriff_primacy:0 "Hippogriff Primacy"
+
  ### IDEAS ###
  HIP_recovering_ecomony:0 "Recovering Ecomony"
  HIP_recovering_ecomony_desc:0 "A decade in hiding has left our ecomony devistated. Rebuilding will be a long, slow process."
