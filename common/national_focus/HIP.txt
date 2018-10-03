@@ -1030,4 +1030,144 @@ focus_tree = {
 			add_ideas = { HIP_hippogriff_primacy }
 		}
 	}
+
+	focus = {
+		id = HIP_industry_1
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = HIP_seapony_primacy focus = HIP_hippogriff_primacy }
+		x = 2
+		y = 1
+		relative_position_id = HIP_seapony_primacy
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 3
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_industry_1"#Auto-logging
+			add_tech_bonus = {
+				name = HIP_industry_1
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = HIP_rebuild_harmony_hights
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = HIP_industry_1 }
+		x = -1
+		y = 1
+		relative_position_id = HIP_industry_1
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 3
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_industry_1"#Auto-logging
+			add_stability = 0.05
+			add_ideas = { HIP_rebuilding_home }
+		}
+	}
+
+	focus = {
+		id = HIP_expand_the_underwater_industries
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = HIP_industry_1 }
+		x = 1
+		y = 1
+		relative_position_id = HIP_industry_1
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 3
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_industry_1"#Auto-logging
+			add_offsite_building = { type = industrial_complex level = 1 }
+			add_offsite_building = { type = dockyard level = 1 }
+			unlock_decision_category_tooltip = HIP_underwater_industry_cat
+		}
+	}
+
+	focus = {
+		id = HIP_rebuild_harmony_hights
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = HIP_rebuild_harmony_hights }
+		prerequisite = { focus = HIP_expand_the_underwater_industries }
+		x = 1
+		y = 1
+		relative_position_id = HIP_rebuild_harmony_hights
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 3
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_industry_1"#Auto-logging
+			swap_ideas = {
+				remove_idea = HIP_recovering_ecomony_1
+				add_idea = HIP_recovering_ecomony_2
+			}
+		}
+	}
 }

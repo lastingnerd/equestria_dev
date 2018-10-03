@@ -20,6 +20,9 @@
  HIP_seapony_primacy:0 "Seapony Primacy"
  HIP_hippogriff_primacy:0 "Hippogriff Primacy"
 
+ HIP_expand_the_underwater_industries:0 "Develop Underwater Industries"
+ HIP_expand_the_underwater_industries_desc:0 "Years of living underwater has lead to many developments in underwater construction. Thanks to modern technology, the hippogriffs and seaponies can work to unlock the untapped potential of the seabed and provided equal jobs for all."
+
  ### IDEAS ###
  HIP_recovering_ecomony:0 "Recovering Ecomony"
  HIP_recovering_ecomony_desc:0 "A decade in hiding has left our ecomony devistated. Rebuilding will be a long, slow process."
@@ -30,6 +33,7 @@
  HIP_hippogriff_harmony:0 "Hippogriff Harmony"
  HIP_wingnot_accords:0 "Wingnot Accords"
  HIP_encourage_colonialisation_idea:0 "Hippogriff Colonists"
+ HIP_rebuilding_home:0 "Rebuilding Home"
 
 
  ### DECISIONS ###
@@ -41,6 +45,8 @@
 
  HIP_expand_the_mandate_catagory:0 "Expand the Mandate"
  HIP_expand_mandate_decision:0 "Incorporate [From.GetNameDef] into the Mandate"
+
+ HIP_underwater_industry_cat:0 "Develop Underwater Industries"
 
  ### EVENTS ###
 

@@ -237,6 +237,24 @@ ideas = {
 				production_speed_anti_air_building_factor = 0.1
 			}
 		}
+
+		HIP_rebuilding_home = {
+			picture = generic_production_bonus
+			allowed = {
+				always = no
+			}
+			
+			removal_cost = -1
+			
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.05
+			}
+		}
 	}
 
 	political_advisor = {

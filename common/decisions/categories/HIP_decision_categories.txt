@@ -16,3 +16,12 @@ HIP_expand_the_mandate_catagory = {
 		base = 3
 	}
 }
+HIP_underwater_industry_cat = {
+	allowed = {
+		original_tag = HIP
+	}
+	icon = generic_industry
+	priority = {
+		base = 3
+	}
+}
