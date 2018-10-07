@@ -879,6 +879,51 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = HIP_intergrate_the_mandate
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = HIP_welth_of_the_north }
+		x = 0
+		y = 1
+		relative_position_id = HIP_welth_of_the_north
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NUM = {
+				is_subject_of = ROOT
+				has_autonomy_state = autonomy_integrated_puppet
+				compare_autonomy_progress_ratio < 0.3
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_intergrate_the_mandate"#Auto-logging
+			add_stability = -0.1
+			NUM = {
+				every_unit_leader = {
+					set_nationality = ROOT
+				}
+			}
+			annex_country = {
+				target = NUM
+				transfer_troops = yes
+			}			
+		}
+	}
+	
+	focus = {
 		id = HIP_fortify_the_mandate
 		icon = GFX_goal_generic_construct_military
 		prerequisite = { focus = HIP_develop_north_zebrican_industries }
@@ -1136,7 +1181,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = HIP_rebuild_harmony_hights
+		id = HIP_expand_the_reconstruction_fund
 		icon = GFX_goal_generic_construction
 		prerequisite = { focus = HIP_rebuild_harmony_hights }
 		prerequisite = { focus = HIP_expand_the_underwater_industries }
@@ -1163,11 +1208,42 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			log = "[Root.GetName]: Focus HIP_industry_1"#Auto-logging
+			log = "[Root.GetName]: Focus HIP_expand_the_reconstruction_fund"#Auto-logging
 			swap_ideas = {
 				remove_idea = HIP_recovering_ecomony_1
 				add_idea = HIP_recovering_ecomony_2
 			}
+		}
+	}
+
+	focus = {
+		id = HIP_
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = HIP_expand_the_reconstruction_fund }
+		x = -1
+		y = 1
+		relative_position_id = HIP_expand_the_reconstruction_fund
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 3
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			log = "[Root.GetName]: Focus HIP_expand_the_reconstruction_fund"#Auto-logging
 		}
 	}
 }
