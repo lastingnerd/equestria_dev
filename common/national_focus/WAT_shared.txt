@@ -1,0 +1,229 @@
+#################### WAT OPENING ###########################################
+
+shared_focus = {
+	id = WAT_everlasting_spring
+	icon = GFX_focus_WAT_everlasting_spring
+	cost = 3.00
+
+	ai_will_do = {
+		factor = 100
+	}
+
+	x = 4
+	y = 0
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus WAT_everlasting_spring"
+		country_event = watertowns.1
+	}
+	search_filters = { FOCUS_FILTER_STABILITY }
+}
+
+shared_focus = {
+	id = WAT_keepers_routine
+	icon = GFX_focus_WAT_keepers_routine
+	cost = 3.00
+
+	prerequisite = {
+		focus = WAT_everlasting_spring
+	}
+	ai_will_do = {
+		factor = 100
+	}
+
+	x = 4
+	y = 1
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus WAT_keepers_routine"
+		country_event = watertowns.2
+	}
+	search_filters = { FOCUS_FILTER_STABILITY }
+}
+
+shared_focus = {
+	id = WAT_cities_tour
+	icon = GFX_focus_WAT_cities_tour
+	cost = 3.00
+
+	prerequisite = {
+		focus = WAT_keepers_routine
+	}
+	ai_will_do = {
+		factor = 100
+	}
+
+	x = 0
+	y = 2
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus WAT_cities_tour"
+		country_event = watertowns.3
+	}
+	search_filters = { FOCUS_FILTER_STABILITY }
+}
+
+shared_focus = {
+	id = WAT_guilds_conference 
+	icon = GFX_focus_WAT_guilds_conference
+	cost = 3.00
+
+	prerequisite = {
+		focus = WAT_keepers_routine
+	}
+	ai_will_do = {
+		factor = 100
+	}
+
+	x = 2
+	y = 2
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus WAT_guilds_conference"
+		country_event = watertowns.4
+	}
+	search_filters = { FOCUS_FILTER_STABILITY }
+}
+
+shared_focus = {
+	id = WAT_meet_the_merchant
+	icon = GFX_focus_WAT_meet_the_merchant
+	cost = 1.00
+
+	prerequisite = {
+		focus = WAT_guilds_conference
+	}
+	ai_will_do = {
+		factor = 100
+	}
+
+	x = 2
+	y = 3
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus WAT_meet_the_merchant"
+		country_event = watertowns.5
+	}
+	search_filters = { FOCUS_FILTER_STABILITY }
+}
+
+shared_focus = {
+	id = WAT_visit_the_knights_wargames 
+	icon = GFX_focus_WAT_visit_the_knights_wargames
+	cost = 2.00
+
+	prerequisite = {
+		focus = WAT_keepers_routine
+	}
+	ai_will_do = {
+		factor = 100
+	}
+
+	x = 6
+	y = 2
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus WAT_visit_the_knights_wargames"
+		country_event = watertowns.5
+	}
+	search_filters = { FOCUS_FILTER_STABILITY }
+}
+
+shared_focus = {
+	id = WAT_dinner_with_leader 
+	icon = GFX_focus_WAT_dinner_with_leader
+	cost = 1.00
+
+	prerequisite = {
+		focus = WAT_visit_the_knights_wargames
+	}
+	ai_will_do = {
+		factor = 100
+	}
+
+	x = 6
+	y = 3
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus WAT_dinner_with_leader"
+		country_event = watertowns.6
+	}
+	search_filters = { FOCUS_FILTER_STABILITY }
+}
+
+shared_focus = {
+	id = WAT_welcome_our_guests 
+	icon = GFX_focus_WAT_welcome_our_guests
+	cost = 1.00
+
+	prerequisite = {
+		focus = WAT_keepers_routine
+	}
+	ai_will_do = {
+		factor = 100
+	}
+
+	x = 8
+	y = 2
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus WAT_welcome_our_guests"
+		country_event = watertowns.7
+	}
+	search_filters = { FOCUS_FILTER_STABILITY }
+}
+
+shared_focus = {
+	id = WAT_returning_to_our_work 
+	icon = GFX_focus_WAT_returning_to_our_work
+	cost = 2.00
+
+	prerequisite = {
+		focus = WAT_welcome_our_guests
+	}
+	prerequisite = {
+		focus = WAT_dinner_with_leader
+	}
+	prerequisite = {
+		focus = WAT_meet_the_merchant
+	}
+	prerequisite = {
+		focus = WAT_cities_tour
+	}
+	ai_will_do = {
+		factor = 100
+	}
+
+	x = 4
+	y = 4
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus WAT_returning_to_our_work"
+		country_event = watertowns.8
+	}
+	search_filters = { FOCUS_FILTER_STABILITY }
+}
+
+shared_focus = {
+	id = WAT_long_and_happy_life ###Plastic world has won
+	icon = GFX_focus_WAT_long_and_happy_life
+	cost = 3.00
+
+	prerequisite = {
+		focus = WAT_returning_to_our_work
+	}
+	
+	ai_will_do = {
+		factor = 100
+	}
+
+	x = 4
+	y = 5
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus WAT_long_and_happy_life"
+		
+	}
+	search_filters = { FOCUS_FILTER_STABILITY }
+}
+

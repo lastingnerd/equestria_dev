@@ -1,0 +1,16 @@
+focus_tree = {
+	id = WAT_opening_focus
+
+	country = {
+		factor = 0
+
+		modifier = {
+			add = 10
+			tag = WAT
+		}
+	}
+	continuous_focus_position = { x = 50 y = 3975 }
+	
+    shared_focus = WAT_everlasting_spring
+	
+}
