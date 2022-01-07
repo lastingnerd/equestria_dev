@@ -2068,7 +2068,7 @@ ideas = {
 			modifier = {
 				stability_factor = -0.20 
 				stability_weekly = -0.005 
-				war_support_factor = -0.25 
+				war_support_factor = -0.15 
 				resistance_damage_to_garrison_on_our_occupied_states = 0.15
 				resistance_growth_on_our_occupied_states = 0.20
 				required_garrison_factor = 0.15
@@ -2273,10 +2273,9 @@ ideas = {
 				always = yes
 			}
 			picture = can_wartime_prices_and_trade_board
-			modifier = {
-				YAN = {
-					trade_opinion_factor = 0.25
-				}
+			targeted_modifier = {
+				target = YAN
+				trade_opinion_factor = 0.25
 			}	
 		}
 

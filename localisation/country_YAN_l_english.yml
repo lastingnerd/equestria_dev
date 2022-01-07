@@ -78,45 +78,21 @@
 
 
  ##Military Focus##
- YAN_starting_army:0 "Building an army"
- YAN_starting_army_desc:0 ""
- YAN_army1:0 "A Question of Doctrine"
- YAN_army1_desc:0 ""
- YAN_doc1:0 ""
- YAN_doc1_desc:0 ""
- YAN_doc2:0 ""
- YAN_doc2_desc:0 ""
- YAN_doc3:0 ""
- YAN_doc3_desc:0 ""
- YAN_doc4:0 ""
- YAN_doc4_desc:0 ""
- YAN_army2:0 ""
- YAN_army2_desc:0 ""
- YAN_army3:0 ""
- YAN_army3_desc:0 ""
- YAN_army_l1:0 ""
- YAN_army_l1_desc:0 ""
- YAN_army_l2:0 ""
- YAN_army_l2_desc:0 ""
- YAN_army_l3:0 ""
- YAN_army_l3_desc:0 ""
- YAN_army_c1:0 ""
- YAN_army_c1_desc:0 ""
- YAN_army_c2:0 ""
- YAN_army_c2_desc:0 ""
- YAN_army_c3:0 ""
- YAN_army_c3_desc:0 ""
- YAN_central_army:0 ""
- YAN_central_army_desc:0 ""
- YAN_army4:0 ""
- YAN_army4_desc:0 ""
+ YAN_starting_army:0 "Adressing the Army"
+ YAN_starting_army_desc:0 "With our power secured now, we have to attend to the matters of the army. After years of inaction, budget cuts, and attacks by insurgents, it is necessary we begin a review to address the state of the army."
+ YAN_army_modernisation:0 "Modernisation Efforts"
+ YAN_army_modernisation_desc:0 "From the insurgents of Pulalaps to the Griffonian visitors, everyone can easily see that the state of the Zebrides' armed forces is less than capable. Underequipped with ancient technologies with barely any worth, and fighting using methods from ages long past. If we are to survive in this new age, efforts must be made to modernise our infantry."
+ YAN_army_artillery:0 "Artillery's Place"
+ YAN_army_artillery_desc:0 "While artillery has been used numerous times throughout the subjugation of the islands, advancements from Griffonia and elsewhere signal the requirement of updating our old queens of the battlefield."
+
+ 
 
  ###Generic Events###
  YANintro.1.t:0 "The Colonial Govenror" #Note, this takes place two DAYS after the first focus is completed.  #Loterijen
  YANintro.1.d:0 ""...and though the local tax base has remained largely intact, the absent economic support from Feathisia has left our budget to shrink with almost fifteen percent," the director finished his report."Thankfully, our budget remains balanced thanks to the austerity programs carried out through the last fiscal year, though the cuts have left a large part of the local population without access to most if not all government programs."\n\n"A temporary issue," Governor-General Dirk Loterijen said from his position at the short end of the table. The old vulture clasped his claws together as he leaned forward. "With the recent crisis, a lot of the smaller farmers are being targeted by larger interests to sell their lands. We should instituted a land purchase tax for now, which we can spin as something good to keep the lower classes on our side. Also, fix the tariffs for independent trading at three percent and sell the merchants something about predictability and stability. Those who are receptive can be given reduced rates on what we can still export, in return for a percentage of their profit upon sale. Lastly, appeal to Feathisia once again for a crisis package. Yes?" he continued, lifting an eyebrow at the director, who suddenly frowned.\n\n"Are we appealing to Feathisia for aid, while still skirting their preferential trade position, then?" the director asked for clarification, seemingly hesitating. \n\n"We are doing what we must to ensure this colony doesn't collapse," Loterijen explained, "Nothing of it is illegal, I extracted the parliament's personal confirmation of that a long time ago, and if they disapprove of my actions they can inform me of this after the crisis is handled. Any more questions?"\n\n"No sir," the director said, bowing his head and leaving, leaving Loterijen to rise out of his seat and walk towards the balcony where he looked out across the city of Beakavia. Tomorrow would be the twenty-fifth anniversary of his governorship. Twenty five years stuck on these blasted islands for the crime of ambition. Reaching into his desk, he took out a bottle of brandy and a glass."
  YANintro.1.a:0 "They won't be able to say I didn't do my job, at least."
 
- YANintro.2.t:0 "A Distant Thunder"
+ YANintro.2.t:0 "A Distant Thunder" #Oran Yamar 
  YANintro.2.d:0 "The three young zebras were running up and down the stairs to the massive temple complex as fast as they could, sweat pouring down their faces as they struggled with the heavy bags of rocks on their backs. They were exhausted, and would have stopped to rest, were it not for the scarred old zebra - the Grand Tuan of the temple himself, Orangtua Yangmarah, sitting at the top of the stairs, watching them with a cane in his hooves. As they turned around and began down again, the Grand Tuan glanced back to see a newcomer approach from the main entrance, a kirin in griffonian clothing. The newcomer came up to him and kneeled deeply before sitting down by his side.\n\n"Rowdy disciples?" the Kirin asked and Yangmarah nodded.\n\n"Some take their duties seriously, some draw rude symbols in the dirt they are meant to sweep," the old zebra replied with a raspy voice.\n\n"Your grace, I once again plead with you to depart Pulalap," the kirin continued, "The Kebangkitan is growing stronger each day, the Feathisians are weakening. We could have risen up already, but we need your leadership! You are the only one who can bring everycreature together under you."\n\n"We could have risen up, and we would have died," the old zebra replied. "It is not yet time, even though the moment is drawing close. The Feathisians' grip on our lands are growing weaker each day, that is true, but action begets reaction. If we push too fast, too hard, they will rally to defend what is 'theirs'. That is why we must remain everpresent, but peaceful. Let them live with the tiger's glare fixed on them, but never give them cause to take to arms. The fangs will come in due time, and when it does, their grip will have withered away."\n\n"I understand, your grace..." the kirin said reluctantly. "Also should they still be running?" he continued, noticing how one of the students had fallen down from exhaustion. Yangmarah simply took his cane and whipped it against the stairs, making the young zebra climb to his feet in near panic at the sound and continue to run."
  YANintro.2.a:0 "It is all about motivation."
 
@@ -264,11 +240,6 @@
  YAN_horse_lord3_2_desc:0 ""
  YAN_horse_lord4:0 "The Landowners"
  YAN_horse_lord4_desc:0 ""
-
- YAN_educational_shitshow:0 "Education System - Secular Dominant"
- YAN_educational_shitshow_desc:0 ""
- YAN_educational_not_shitshow:0 "Educational System - Religious Dominant"
- YAN_educational_not_shitshow_desc:0 ""
 
 
  
@@ -833,6 +804,10 @@
 
  YAN_a_leak_tt:0 "§YThis will force the Sopan to cooperate with us!§!"
  YAN_a_direction_tt:0 "§YThis will force the Tegas to cooperate with us!§!"
+ YAN_deploy_troops_tt:9 "§YWe will deploy our reserves onto the field to quell the insurrection.§!"
+ YAN_deploy_airforce_tt:0 "§YWill unlock decisions to allow us to utilise the air force in quelling the insurrection.§!"
+ YAN_begin_negotiations_tt:0 "§YWe will attempt to engage in negotiations with the insurgents§!"
+ YAN_never_again_tt:0 "§YWe will not history repeat, the South East shall be Feathisia's and Feathisia's alone!§!"
  YAN_Sopan_navy_commission1_tt:0 "§YThe Sopan will build for us§! §B8 Destroyers§! §Yand§! §B1 Light Crusier§!"
  YAN_Sopan_navy_commission2_tt:0 "§YThe Sopan will build for us§! §B5 Light Crusier§!"
  YAN_Sopan_navy_commission3_tt:0 "§YThe Sopan will build for us§! §B2 Destroyers§! §Y,§! §B4 Light Crusier§! §Y,§! §B2 Battlecruisers§! §Y&§! §B1 Battleship§!"

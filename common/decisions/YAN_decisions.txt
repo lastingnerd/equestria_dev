@@ -2628,25 +2628,15 @@ YAN_loterijen_chaos = {
 	##Idea: Move troops around to decrease Resistance using another decision to click on.
 	##You can't deploy a certain amount of troops because it'll just make shit go even worse. 
 	##You can firebomb them
-	YAN_deploy_troops = {
-		visible = {
-			has_country_flag = YAN_insurgency_begin
-		}
-		#icon = 
-		cost = 50 
-		days_remove = 14 
-
-		complete_effect = {
-
-		}
-		remove_effect = {
-			load_oob = YAN_insurgency_oob
-			##TODO: Add this OOB
-			set_country_flag = YAN_troops_deployed_flag
-		}
-	}
 
 	##Gotta check this
+
+
+			##Current thought process. Take the current number of divisions, divide by four. This gives the total limit of troops allowed to be deployed
+				##to counter the insurgency. This is called YAN_max_deployable. Proceed to subtract YAN_max_deployable with the number of troops deployed in
+				##in each South East state. Set this as YAN_deployed_divisions. Proceed to check if YAN_deployed_divisions > YAN_max_deployable. If not, thi
+				##-s decision does not fire.
+	##TODO: All the other decisions
 	YAN_secure_state_1153 = {
 		visible ={
 			has_country_flag = YAN_troops_deployed_flag
@@ -2675,10 +2665,6 @@ YAN_loterijen_chaos = {
 			}
 		}
 	}
-
-
-
-
 }
 
 YAN_local_markets_decision_category = {
@@ -2736,7 +2722,7 @@ YAN_local_markets_decision_category = {
 	YAN_IDO_economic_aid = {
 		visible = {
 			AND = {
-				has_completed_focous = YAN_economic_aid
+				has_completed_focus = YAN_economic_aid
 				NOT = {
 					IDO = {
 						has_idea = YAN_economic_aid_idea
@@ -2763,7 +2749,7 @@ YAN_local_markets_decision_category = {
 	YAN_IST_economic_aid = {
 		visible = {
 			AND = {
-				has_completed_focous = YAN_economic_aid
+				has_completed_focus = YAN_economic_aid
 				NOT = {
 					IST = {
 						has_idea = YAN_economic_aid_idea
@@ -2790,7 +2776,7 @@ YAN_local_markets_decision_category = {
 	YAN_DEL_economic_aid = {
 		visible = {
 			AND = {
-				has_completed_focous = YAN_economic_aid
+				has_completed_focus = YAN_economic_aid
 				NOT = {
 					IST = {
 						has_idea = YAN_economic_aid_idea

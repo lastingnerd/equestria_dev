@@ -21,10 +21,10 @@ shared_focus = {
 		add_stability = 0.05
 		add_political_power = 50
 		hidden_effect = {
-			country_event = { id = YAN_intro.1 days = 2}
-			country_event = { id = YAN_intro.2 days = 14}
-			country_event = { id = YAN_intro.3 days = 29}
-			country_event = { id = YAN_intro.4 days = 45}
+			country_event = { id = YAN_intro.1 days = 2 }
+			country_event = { id = YAN_intro.2 days = 14 }
+			country_event = { id = YAN_intro.3 days = 29 }
+			country_event = { id = YAN_intro.4 days = 45 }
 		}
 	}
 }
@@ -230,7 +230,7 @@ shared_focus = {
 	icon = GFX_focus_renounce_the_treaty_of_triannon
 	x = 15
 	y = 3
-	cost = 0
+	cost = 5
 
 	available_if_capitulated = yes
 
@@ -248,12 +248,7 @@ shared_focus = {
 	}
 
 	available = {
-			
-		OR = {
-			GRI = { has_completed_focus = GRI_eagleclaw }
-			GRI = { has_completed_focus = GRI_eros }
-		}
-			
+		has_global_flag = GRI_emperor_dead
 	}
 
 	completion_reward = {
@@ -268,625 +263,81 @@ shared_focus = {
 
 ##Generic Military Tree#################
 #######################################
-###########################################
-###########################################
-###########################################
-###########################################
-###########################################
-###########################################
-###########################################
-###########################################
-###########################################
-###########################################
-###########################################
+
 shared_focus = {
 	id = YAN_starting_army
-	#icon = 
-	x = 35
+	icon = GFX_goal_generic_small_arms
+	x = 40
 	y = 0
 	cost = 5
 
 	available_if_capitulated = yes
 
 	ai_will_do = {
-		factor = 130
+		factor = 100
 	}
 
 	completion_reward = {
-
+		log = "[GetDateText]: [Root.GetName]: focus YAN_starting_army"
+		##Get some cool army xp
+		army_experience	= 15 
 	}
 }
 
 shared_focus = {
-	id = YAN_army1 #Question of doctrine? 
-	#icon = 
-	x = 35 
+	id = YAN_army_modernisation
+	icon = GFX_goal_industry_air
+	x = 36 
 	y = 1
-	cost = 3 
+	cost = 5 
+
+	available_if_capitulated = yes
 
 	prerequisite = {
 		focus = YAN_starting_army
 	}
 
-	available_if_capitulated = yes
-
-	ai_will_do = {
-		factor = 131
-	}
-
 	completion_reward = {
-
-	}
-
-}
-
-shared_focus = {
-	id = YAN_doc1 #Mob.War
-	#icon = 
-	x = 32
-	y = 2
-	cost = 5
-	available_if_capitulated = yes
-
-	ai_will_do = {
-		factor = 135
-	}
-
-	prerequisite = {
-		focus = YAN_army1
-	}
-
-	mutually_exclusive = {focus = YAN_doc2 }
-
-	mutually_exclusive = {focus = YAN_doc3 }
-
-	mutually_exclusive = {focus = YAN_doc4 }
-
-
-	completion_reward = {
-
+		log = "[GetDateText]: [Root.GetName]: focus YAN_army_modernisation"
+		add_tech_bonus = {
+			bonus = 0.75
+			uses = 2
+			category = infantry_weapons
+		}
 	}
 }
 
 shared_focus = {
-	id = YAN_doc2 #Superior Firepower
-	#icon = 
-	x = 34
-	y = 2
-	cost = 5
-	available_if_capitulated = yes 
-
-	ai_will_do = {
-		factor = 130
-	}
-
-	prerequisite = {
-		focus = YAN_army1
-	}
-
-	mutually_exclusive = {focus = YAN_doc1 }
-
-	mutually_exclusive = {focus = YAN_doc3 }
-
-	mutually_exclusive = {focus = YAN_doc4 }
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_doc3 #Grand Plan
-	#icon = 
-	x = 36
-	y = 2
-	cost = 5
-	available_if_capitulated = yes 
-
-	ai_will_do = {
-		factor = 130
-	}
-
-
-	prerequisite = {
-		focus = YAN_army1
-	}
-
-	mutually_exclusive = {focus = YAN_doc1 }
-
-	mutually_exclusive = {focus = YAN_doc2 }
-
-	mutually_exclusive = {focus = YAN_doc4 }
-
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_doc4 #MASS
-	#icon = 
-	x = 38
-	y = 2
-	cost = 5
-	available_if_capitulated = yes 
-
-	ai_will_do = {
-		factor = 130
-	}
-
-	prerequisite = {
-		focus = YAN_army1
-	}
-
-	mutually_exclusive = {focus = YAN_doc1 }
-
-	mutually_exclusive = {focus = YAN_doc2 }
-
-	mutually_exclusive = {focus = YAN_doc3}
-
-	
-	completion_reward = {
-
-	}
-}
-
-##Left Side
-
-shared_focus = {
-	id = YAN_army2
-	#icon = 
-	x = 30
-	y = 2
-	cost = 5
-
-	prerequisite = {
-		focus = YAN_army1
-	}
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_army3
-	#icon = 
-	x = 30 
-	y = 3
-	cost = 5
-
-	prerequisite = {
-		focus = YAN_army2
-	}
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_army4
-	#icon = 
-	x = 31
-	y = 4
-	cost = 5
-
-	prerequisite = {
-		focus = YAN_army3 focus = YAN_army_c1
-	}
-
-	completion_reward = {
-
-	}
-}
-
-##Right Side
-
-shared_focus = {
-	id = YAN_army_l1
-	#icon = 
-	x = 40
-	y = 2
-	cost = 5
-
-	prerequisite = {
-		focus = YAN_army1 
-	}
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_army_l2
-	#icon = 
-	x = 40
-	y = 3
-	cost = 5
-
-	prerequisite = {
-		focus = YAN_army_l1
-	}
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_army_l3
-	#icon = 
-	x = 39
-	y = 4
-	cost = 5
-
-	prerequisite = {
-		focus = YAN_army_l2 focus = YAN_army_c3
-	}
-
-	completion_reward = {
-
-	}
-}
-
-##Central
-
-shared_focus = {
-	id = YAN_army_c1
-	#icon = 
-	x = 33
-	y = 3
-	cost = 5
-
-	prerequisite = {
-		focus = YAN_doc1 focus = YAN_doc2 focus = YAN_doc3 focus = YAN_doc4
-	}
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_army_c2
-	#icon = 
+	id = YAN_army_artillery 
+	icon = GFX_goal_generic_army_artillery2
 	x = 35
-	y = 3
-	cost = 5
-
-	prerequisite = {
-		focus = YAN_doc1 focus = YAN_doc2 focus = YAN_doc3 focus = YAN_doc4		
-	}
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_army_c3
-	#icon = 
-	x = 37
-	y = 3
-	cost = 5
-
-	prerequisite = {
-		focus = YAN_doc1 focus = YAN_doc2 focus = YAN_doc3 focus = YAN_doc4		
-	}
-
-	completion_reward = {
-
-	}
-
-}
-
-##Final Line. 
-
-shared_focus = {
-	id = YAN_central_army
-	#icon = 
-	x = 35
-	y = 4
-	cost = 5
-
-	prerequisite = {
-		focus = YAN_army_c1 focus = YAN_army_c2 focus = YAN_army_c3
-	}
-
-	completion_reward = {
-
-	}
-}
-
-
-##Navy Tree##
-shared_focus = {
-	id = YAN_navy_start
-	#icon = 
-	x = 45
-	y = 0
-	cost = 10
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_navy_1_l #Subs?
-	#icon =  
-	x = 43
-	y = 1
-	cost = 7
-
-	prerequisite = {
-		focus = YAN_navy_start
-	}
-
-	mutually_exclusive = { focus = YAN_navy_1_r }
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_navy_1_r #Offensive-ish, like big ships
-	#icon = 
-	x = 47
-	y = 1
-	cost = 7
-
-	prerequisite = {
-		focus = YAN_navy_start
-	}
-
-	mutually_exclusive = { focus = YAN_navy_1_l }
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_navy2
-	#icon = 
-	x = 43
-	y = 2
-	cost = 7
-
-	prerequisite = { focus = YAN_navy_1_r  focus = YAN_navy_1_l}
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_navy3 #Something about Marines
-	#icon = 
-	x = 45
-	y = 2
-	cost = 7
-
-	prerequisite = { focus = YAN_navy_1_r  focus = YAN_navy_1_l}
-
-	completion_reward = {
-		
-	}
-}
-
-shared_focus = {
-	id = YAN_navy4
-	#icon = 
-	x = 47
-	y = 2
-	cost = 7
-
-	prerequisite = { focus = YAN_navy_1_r  focus = YAN_navy_1_l}
-
-	completion_reward = {
-		
-	}
-}
-
-shared_focus = {
-	id = YAN_navy5
-	#icon = 
-	x = 43
-	y = 3
-
-	cost = 10
-
-	prerequisite = {
-		focus = YAN_navy2
-	}
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_navy6
-	#icon = 
-	x = 45
-	y = 3
-
-	cost = 10
-
-	prerequisite = {
-		focus = YAN_navy3
-	}
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_navy7
-	#icon = 
-	x = 47
-	y = 3
-
-	cost = 10
-
-	prerequisite = {
-		focus = YAN_navy4
-	}
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_navy8
-	#icon = 
-	x = 43
-	y = 4
-	cost = 10
-
-	prerequisite = {
-		focus = YAN_navy5
-	}
-
-
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_navy9
-	#icon = 
-	x = 45
-	y = 4
-	cost = 10
-
-	prerequisite = {
-		focus = YAN_navy6
-	}
-
-	
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_navy10
-	#icon = 
-	x = 47
-	y = 4
-	cost = 10
-
-	prerequisite = {
-		focus = YAN_navy7
-	}
-
-	
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_navy11
-	#icon = 
-	x = 43
-	y = 5
-	cost = 10
-
-	prerequisite = {
-		focus = YAN_navy8
-		focus = YAN_navy10
-	}
-
-	mutually_exclusive = {
-		focus = YAN_navy12
-	}
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_navy12
-	#icon = 
-	x = 47
-	y = 5
-	cost = 10
-
-	prerequisite = {
-		focus = YAN_navy8
-		focus = YAN_navy10
-	}
-
-	mutually_exclusive = {
-		focus = YAN_navy11
-	}
-
-	completion_reward = {
-
-	}
-}
-
-##Air Force Tree##
-shared_focus = {
-	id = YAN_air1
-	#icon = 
-	x = 51
-	y = 0
-	cost = 7
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_air2
-	#icon = 
-	x = 50
-	y = 1
-	cost = 7
-
-	mutually_exclusive = {
-		focus = YAN_air3
-	}
-
-	prerequisite = {
-		focus = YAN_air1
-	}
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_air3
-	#icon = 
-	x = 52
-	y = 1
+	y = 2 
 	cost = 7 
 
-	mutually_exclusive = {
-		focus = YAN_air2
-	}
+	available_if_capitulated = yes
 
 	prerequisite = {
-		focus = YAN_air1
+		focus = YAN_army_modernisation
 	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_army_artillery"
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = artillery
+		}
+	}
+}
+
+##TODO: Army, Navy, Air Force? 
+
+shared_focus = {
+	id = YAN_navy_start
+	#icon 
+	x = 42 
+	y = 0 
+	cost = 0
 
 	completion_reward = {
 
@@ -894,85 +345,17 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = YAN_air4
-	#icon = 
+	id = YAN_air1
+	#icon 
 	x = 50
-	y = 2
-	cost = 7
-
-	prerequisite = {
-		focus = YAN_air2 focus = YAN_air3
-	}
+	y = 0 
+	cost = 0
 
 	completion_reward = {
-
+		
 	}
 }
 
-shared_focus = {
-	id = YAN_air5
-	#icon = 
-	x = 50
-	y = 3
-	cost = 7
-
-	prerequisite = {
-		focus = YAN_air4
-	}
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_air6
-	#icon = 
-	x = 52
-	y = 2
-	cost = 7
-
-	prerequisite = {
-		focus = YAN_air2 focus = YAN_air3		
-	}
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_air7
-	#icon = 
-	x = 52
-	y = 3
-	cost = 7
-
-	prerequisite = {
-		focus = YAN_air6
-	}
-
-	completion_reward = {
-
-	}
-}
-
-shared_focus = {
-	id = YAN_8
-	#icon =
-	x = 51
-	y = 4
-	cost = 7
-
-	prerequisite = {
-		focus = YAN_air5 
-		focus = YAN_air7
-	}
-
-	completion_reward = {
-
-	}
-}
 ############################################
 ############################################
 ##############Kudakelasi####################
@@ -1000,6 +383,7 @@ shared_focus = {
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_great_game"
 		add_political_power = 50
+
 
 		country_event = { id = Indozeeb.51 hours = 6 }
 		
@@ -1161,6 +545,7 @@ shared_focus = {
 
 	prerequisite = {
 		focus = YAN_Family_interests
+
 	}
 
 	completion_reward = {
@@ -1546,6 +931,7 @@ shared_focus = {
 
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_mandated_tests"
+		##Remove the last vestiges of corruption 
 		remove_ideas = YAN_shit_paperwork4
 		custom_effect_tooltip = YAN_increase_populace
 		custom_effect_tooltip = YAN_decrease_sistem
@@ -1593,7 +979,7 @@ shared_focus = {
 		focus = YAN_matter_of_citizenship
 	}
 
-	mutually_exclusive = {focus = YAN_sanguinius}
+	mutually_exclusive = { focus = YAN_sanguinius }
 
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_naturalization"
@@ -1617,7 +1003,7 @@ shared_focus = {
 		focus = YAN_matter_of_citizenship
 	}
 
-	mutually_exclusive = {focus = YAN_naturalization}
+	mutually_exclusive = {focus = YAN_naturalization }
 
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_sanguinius"
@@ -1686,7 +1072,7 @@ shared_focus = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_free_elections"
 		##Add Stability and make Kudakelasi's clique more powerful
 		set_country_flag = YAN_election_kuda_check
-		country_event = { id = Indozeeb.65 days = 5 }
+		country_event = { id = Indozeeb.66 days = 5 }
 	}
 }
 
@@ -1737,6 +1123,7 @@ shared_focus = {
 
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_law_protect_people"
+		##Rewrite some laws to protect the people 
 		custom_effect_tooltip = YAN_decrease_sistem
 		custom_effect_tooltip = YAN_increase_populace
 		YAN_populace_add = yes
@@ -1835,10 +1222,10 @@ shared_focus = {
 			limit = {
 				has_country_flag = YAN_event_67_check
 			}
-			country_event = { id = Indozeeb.70 days = 3}
+			country_event = { id = Indozeeb.70 days = 3 }
 		}
 		else = {
-			country_event = { id = Indozeeb.67 days = 3}
+			country_event = { id = Indozeeb.67 days = 3 }
 		}
 	}
 }
@@ -1863,7 +1250,6 @@ shared_focus = {
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_committee_welfare"
 		country_event = { id = Indozeeb.72 days = 10 }
-		
 	}
 }
 
@@ -2135,7 +1521,7 @@ shared_focus = {
 	#icon = 
 	x = 26
 	y = 10
-	cost = 10
+	cost = 12
 
 	ai_will_do = {
 		factor = 150 
@@ -7264,38 +6650,52 @@ shared_focus = {
 					relation = military_access
 					active = yes
 				}	
+
 				add_stability = -0.05
 			}	 
 		}
 		IST ={
 	
-			diplomatic_relation = {
-				country = YAN
-				relation = military_access
-				active = yes
+			if = {
+				limit ={
+					exists = yes 
+				}
+					
+				diplomatic_relation = {
+					country = YAN
+					relation = military_access
+					active = yes
+				}	
+				add_stability = -0.05
 			}	
-			add_stability = -0.05
-		
 		}
 		IDO = {
 
-			diplomatic_relation = {
-				country = YAN
-				relation = military_access
-				active = yes
+			if = {
+				limit ={
+					exists = yes 
+				}
+					
+				diplomatic_relation = {
+					country = YAN
+					relation = military_access
+					active = yes
+				}	
+				add_stability = -0.05
 			}	
-			add_stability = -0.05
 
 		}
 	}
 }
 
 shared_focus = {
-	id = YAN_take_the_south_east
+	id = YAN_bend_their_arms
+	##Force them to be annexed into the Zebridies
 	#icon = 
-	x = 19
-	y = 11
-	cost = 10
+	x = 19 
+	y = 11 
+	cost = 10 
+
 	prerequisite = {
 		focus = YAN_troops_on_the_ground
 	}
@@ -7304,6 +6704,117 @@ shared_focus = {
 	}
 	prerequisite = {
 		focus = YAN_crystal_mining
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_bend_their_arms"
+		DEL = {
+			country_event = { id = Indozeeb.128 }
+		}
+		IDO = {
+			country_event = { id = Indozeeb.128 }
+
+		}
+		IST = {
+			country_event = { id = Indozeeb.128 }
+
+		}
+	}
+}
+
+shared_focus = {
+	id = YAN_submit_DEL
+	## War with Delangio 
+	x = 19
+	y = 12
+	cost = 3 
+
+	prerequisite = {
+		focus = YAN_bend_their_arms
+	}
+
+	bypass = {
+		DEL = {
+			exists = no 
+		}
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_submit_DEL"
+		create_wargoal = {
+			type = annex_everything
+			target = DEL 
+		}
+	}
+}
+
+shared_focus = {
+	id = YAN_submit_IDO 
+	## War with Idowa 
+	x = 17
+	y = 12
+	cost = 3 
+
+	prerequisite = {
+		focus = YAN_bend_their_arms
+	}
+
+	bypass = {
+		IDO = {
+			exists = no 
+		}
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_submit_IDO"
+		create_wargoal = {
+			type = annex_everything
+			target = IDO 
+		}
+	}
+}
+
+shared_focus = {
+	id = YAN_submit_IST
+	## War with IST, forgot what IST was 
+	x = 21
+	y = 12
+	cost = 3 
+
+	prerequisite = {
+		focus = YAN_bend_their_arms
+	}
+
+	bypass = {
+		IST = {
+			exists = no 
+		}
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_submit_IST"
+		create_wargoal = {
+			type = annex_everything
+			target = IST 
+		}
+	}
+}
+
+
+shared_focus = {
+	id = YAN_take_the_south_east
+	#icon = 
+	x = 19
+	y = 13
+	cost = 10
+	prerequisite = {
+		focus = YAN_submit_IDO
+	}
+	prerequisite = {
+		focus = YAN_submit_DEL
+	}
+	prerequisite = {
+		focus = YAN_submit_IST
 	}
 	select_effect = {
 		hidden_effect = {
@@ -7590,12 +7101,12 @@ shared_focus = {
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_national_ironworks"
 		add_resource = {
-			type = iron 
+			type = steel 
 			amount = 4 
 			state = 1157
 		}
 		add_resource = {
-			type = iron 
+			type = steel 
 			amount = 3
 			state = 1158
 		}
@@ -7611,7 +7122,7 @@ shared_focus = {
 
 	prerequisite = {
 		focus = YAN_export_plan
-		focus = YAN_additonal_ventures
+		focus = YAN_additional_ventures
 	}
 
 	completion_reward = {
@@ -7665,7 +7176,7 @@ shared_focus = {
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_aluminum_works"
 		add_resource = {
-			type = aluminum 
+			type = aluminium 
 			amount = 7 
 			state = 1157
 		}	}
@@ -7961,6 +7472,132 @@ shared_focus = {
 			country_event = { id = Indozeeb.127 days = 2 }
 
 		}
+
 		##TODO: Give the South East countries a chance to enter this alliance.
+	}
+}
+
+##Loterijen Insurgency National Focuses
+
+shared_focus = {
+	id = YAN_insurgency_fight
+	#icon = 
+	x = 19 
+	y = 13
+	cost = 0
+
+	bypass = {
+		has_country_flag = YAN_insurgency_occured
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_insurgency_fight"
+
+	}
+}
+
+shared_focus = {
+	id =  YAN_deploy_troops
+	#icon = 
+	x = 18
+	y = 14
+	cost = 2
+
+	prerequisite = {
+		focus = YAN_insurgency_fight
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_deploy_troops"
+		custom_effect_tooltip = YAN_deploy_troops_tt
+		hidden_effect = {
+			load_oob = YAN_insurgency_1
+		}
+
+
+	}
+}
+
+shared_focus = {
+	id = YAN_deploy_police
+	#icon = 
+	x = 20
+	y = 14
+	cost = 2
+
+	prerequisite = {
+		focus = YAN_insurgency_fight
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_deploy_police"
+		add_stability = 0.05 
+	}
+}
+
+shared_focus = {
+	id = YAN_deploy_airforce
+	#icon = 
+	x = 19 
+	y = 15
+	cost = 5 
+
+	prerequisite = {
+		focus = YAN_deploy_troops
+	}
+	prerequisite = {
+		focus = YAN_deploy_police
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_deploy_airforce"
+		custom_effect_tooltip = YAN_deploy_airforce_tt
+		set_country_flag = YAN_airforce_deployed
+	}
+}
+
+shared_focus = {
+	id = YAN_begin_negotiations
+	#Attempt to talk with the local leaders for peace
+	x = 15
+	y = 16
+	cost = 5
+
+	prerequisite = {
+		focus = YAN_deploy_airforce
+	}
+
+	mutually_exclusive = {
+		focus = YAN_never_again
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_begin_negotiations"
+		custom_effect_tooltip = YAN_begin_negotiations_tt
+		set_country_flag = YAN_negotiations_begun 		
+	}
+}
+
+
+
+shared_focus = {
+	id = YAN_never_again
+	#"Never again will we let our chance get out of our claws! South East for us! Or no one's! "
+	x = 23
+	y = 16
+	cost = 5
+
+	prerequisite = {
+		focus = YAN_deploy_airforce
+	}
+
+	mutually_exclusive = {
+		focus = YAN_begin_negotiations
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_never_again"
+		custom_effect_tooltip = YAN_never_again_tt
+		set_country_flag = YAN_never_again_flag 		
 	}
 }

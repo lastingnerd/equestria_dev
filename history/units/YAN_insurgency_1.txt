@@ -1,0 +1,313 @@
+﻿division_template = {
+	name = "KFZL Koloniale Aanvullingstroepen"
+	division_names_group = YAN_GAR_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+	}
+	priority = 0
+}
+
+
+#Mareidia Spawns
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 13377 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 13377 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 13377 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 13377 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 13377 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 13377 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+
+#Pulalap Spawns
+
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20096 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20096 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+
+##Ceram Spawns
+
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20257 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20257 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20257 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20257 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+
+#Zulawesi Spawns
+
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 13371 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 13371 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 13371 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 13371 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20089 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20089 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20089 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20089 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20089 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+
+
+#Zava Spawns\
+
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20082 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20082 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20082 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20082 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20082 
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20085
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20085
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20085
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20085
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20085
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}
+division = { 
+	division_name = {
+		is_name_ordered = no
+	}
+	location = 20085
+	division_template = "KFZL Koloniale Aanvullingstroepen"
+	start_experience_factor = 0.0
+	start_equipment_factor = 1.0
+}

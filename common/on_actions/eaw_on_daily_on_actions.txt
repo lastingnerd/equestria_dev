@@ -33,4 +33,68 @@ on_actions = {
 			}
 		}
 	}
+
+	on_daily_YAN = {
+		#Detecting if the number of folks on 1189, 1191, 1143, 1152, 1150, 1146, 1144, 1145, 1140, 1142, 1147 exceeds everywhere else. 
+
+		effect = {
+			if = {
+				limit = {
+					AND = {
+						has_country_flag = YAN_insurgency_occured
+						all_unit_leader = {
+							limit =  {
+								is_leading_army = yes
+							}
+	
+							set_variable = { 
+								var = YAN_unit_count 
+								value =  num_units_in_state@every_owned_state 
+							}
+	
+							set_temp_variable = { YANtemp1 = YAN_unit_count } 
+							divide_temp_variable = { YANtemp1 = 4 }
+		
+							set_variable = {
+								var = YAN_max_deployable
+								value = YANtemp1
+							}
+		
+						 #	set_variable = { ROOT.YANtemp3 = num_units_in_state@1191 }
+	
+							set_temp_variable = { ROOT.YANtemp2 = num_units_in_state@1189 }
+							set_temp_variable = { ROOT.YANtemp3 = num_units_in_state@1191 }
+							set_temp_variable = { ROOT.YANtemp4 = num_units_in_state@1143 }
+							set_temp_variable = { ROOT.YANtemp5 = num_units_in_state@1152 }
+							set_temp_variable = { ROOT.YANtemp6 = num_units_in_state@1150 }
+							set_temp_variable = { ROOT.YANtemp7 = num_units_in_state@1146 }
+							set_temp_variable = { ROOT.YANtemp8 = num_units_in_state@1144 }
+							set_temp_variable = { ROOT.YANtemp9 = num_units_in_state@1145 }
+							set_temp_variable = { ROOT.YANtemp10 = num_units_in_state@1140 }
+							set_temp_variable = { ROOT.YANtemp11 = num_units_in_state@1142 }
+							set_temp_variable = { ROOT.YANtemp12 = num_units_in_state@1147 }
+	
+	
+		
+		
+							check_variable = {
+								var = YAN_max_deployable
+								value = YAN_deployed_divisions
+								compare = greater_than_or_equals
+			
+							}
+						}
+					}
+					YAN = {
+						country_event = {
+							id = Indozeeb.1000
+						}
+					}
+				}
+				else = {
+
+				}
+			}
+		}
+	}
 }
