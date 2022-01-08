@@ -1644,6 +1644,8 @@ country_event = {
 	####Forcing MQA to gib naval access
 	title = Indozeeb.115.t
 	desc = Indozeeb.115.d
+	is_triggered_only = yes
+
 	
 	option = {
 		##Yes
@@ -1695,13 +1697,20 @@ country_event = {
 	id = Indozeeb.116
 	title = Indozeeb.116.t
 	desc = Indozeeb.116.d
+	is_triggered_only = yes
+
 	##NOTE: This event is meant to be a fake out. As the Insurgency spawns via the below Event
+	option = {
+		name = Indozeeb.116.a
+	}
 }
 
 country_event = {
 	id = Indozeeb.117 
 	title = Indozeeb.117.t 
 	desc = Indozeeb.117.d
+	is_triggered_only = yes
+
 	immediate = { log = "[GetDateText]: [Root.GetName]: event Indozeeb.117" }
 
 	option = {

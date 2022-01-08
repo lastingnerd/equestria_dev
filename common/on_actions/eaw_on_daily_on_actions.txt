@@ -40,68 +40,93 @@ on_actions = {
 			if = {
 				limit = {
 					has_country_flag = YAN_insurgency_occured
-					all_unit_leader = {
-						limit =  {
-							is_leading_army = yes
-						}
+					
+				}
 
-						set_variable = { 
-							var = YAN_unit_count 
-							value =  num_units_in_state@every_owned_state 
-						}
+				all_unit_leader = {
+					limit =  {
+						is_leading_army = yes
+					}
 
-						set_temp_variable = { YANtemp1 = YAN_unit_count } 
-						divide_temp_variable = { YANtemp1 = 4 }
-	
-						set_variable = {
-							var = YAN_max_deployable
-							value = YANtemp1
-						}
-	
-					 #	set_variable = { ROOT.YANtemp3 = num_units_in_state@1191 }
-						set_temp_variable = { YANtemp0 = 0 }
-						set_temp_variable = { YANtemp2 = num_units_in_state@1189 }
-						set_temp_variable = { YANtemp3 = num_units_in_state@1191 }
-						set_temp_variable = { YANtemp4 = num_units_in_state@1143 }
-						set_temp_variable = { YANtemp5 = num_units_in_state@1152 }
-						set_temp_variable = { YANtemp6 = num_units_in_state@1150 }
-						set_temp_variable = { YANtemp7 = num_units_in_state@1146 }
-						set_temp_variable = { YANtemp8 = num_units_in_state@1144 }
-						set_temp_variable = { YANtemp9 = num_units_in_state@1145 }
-						set_temp_variable = { YANtemp10 = num_units_in_state@1140 }
-						set_temp_variable = { YANtemp11 = num_units_in_state@1142 }
-						set_temp_variable = { YANtemp12 = num_units_in_state@1147 }
+					set_temp_variable = { YANtemp1 = num_units_in_state@every_owned_state  } 
+					divide_temp_variable = { YANtemp1 = 4 }
 
-						add_to_temp_variable = { YANtemp0 = YANtemp2 }
-						add_to_temp_variable = { YANtemp0 = YANtemp3 }
-						add_to_temp_variable = { YANtemp0 = YANtemp4 }
-						add_to_temp_variable = { YANtemp0 = YANtemp5 }
-						add_to_temp_variable = { YANtemp0 = YANtemp6 }
-						add_to_temp_variable = { YANtemp0 = YANtemp7 }
-						add_to_temp_variable = { YANtemp0 = YANtemp8 }
-						add_to_temp_variable = { YANtemp0 = YANtemp9 }
-						add_to_temp_variable = { YANtemp0 = YANtemp10 }
-						add_to_temp_variable = { YANtemp0 = YANtemp11 }
-						add_to_temp_variable = { YANtemp0 = YANtemp12 }
+					set_variable = {
+						var = YAN_max_deployable
+						value = YANtemp1
+					}
 
-						set_variable = {
-							var = YAN_deployed_divisions
-							value = YANtemp0
-						}
+				 #	set_variable = { ROOT.YANtemp3 = num_units_in_state@1191 }
+					set_temp_variable = { YANtemp0 = 0 }
+					set_temp_variable = { YANtemp2 = num_units_in_state@1189 }
+					set_temp_variable = { YANtemp3 = num_units_in_state@1191 }
+					set_temp_variable = { YANtemp4 = num_units_in_state@1143 }
+					set_temp_variable = { YANtemp5 = num_units_in_state@1152 }
+					set_temp_variable = { YANtemp6 = num_units_in_state@1150 }
+					set_temp_variable = { YANtemp7 = num_units_in_state@1146 }
+					set_temp_variable = { YANtemp8 = num_units_in_state@1144 }
+					set_temp_variable = { YANtemp9 = num_units_in_state@1145 }
+					set_temp_variable = { YANtemp10 = num_units_in_state@1140 }
+					set_temp_variable = { YANtemp11 = num_units_in_state@1142 }
+					set_temp_variable = { YANtemp12 = num_units_in_state@1147 }
+					set_temp_variable = { YANtemp12 = num_units_in_state@1147 }
 
+					set_temp_variable = { YANtemp13 = num_units_in_state@1141 }
+					set_temp_variable = { YANtemp14 = num_units_in_state@1192 }
+					set_temp_variable = { YANtemp15 = num_units_in_state@1149 }
+					set_temp_variable = { YANtemp16 = num_units_in_state@1154 }
+					set_temp_variable = { YANtemp17 = num_units_in_state@1190 }
+					set_temp_variable = { YANtemp18 = num_units_in_state@1153 }
+					set_temp_variable = { YANtemp19 = num_units_in_state@1139 }
+
+					add_to_temp_variable = { YANtemp0 = YANtemp2 }
+					add_to_temp_variable = { YANtemp0 = YANtemp3 }
+					add_to_temp_variable = { YANtemp0 = YANtemp4 }
+					add_to_temp_variable = { YANtemp0 = YANtemp5 }
+					add_to_temp_variable = { YANtemp0 = YANtemp6 }
+					add_to_temp_variable = { YANtemp0 = YANtemp7 }
+					add_to_temp_variable = { YANtemp0 = YANtemp8 }
+					add_to_temp_variable = { YANtemp0 = YANtemp9 }
+					add_to_temp_variable = { YANtemp0 = YANtemp10 }
+					add_to_temp_variable = { YANtemp0 = YANtemp11 }
+					add_to_temp_variable = { YANtemp0 = YANtemp12 }
+					add_to_temp_variable = { YANtemp0 = YANtemp13 }
+					add_to_temp_variable = { YANtemp0 = YANtemp14 }
+					add_to_temp_variable = { YANtemp0 = YANtemp15 }
+					add_to_temp_variable = { YANtemp0 = YANtemp16 }
+					add_to_temp_variable = { YANtemp0 = YANtemp17 }
+					add_to_temp_variable = { YANtemp0 = YANtemp18 }
+					add_to_temp_variable = { YANtemp0 = YANtemp19 }
+
+					set_variable = {
+						var = YAN_deployed_divisions
+						value = YANtemp0
+					}
+
+					check_variable = {
+						var = YAN_max_deployable
+						value = YAN_deployed_divisions
+						compare = greater_than_or_equals
+					}
+				}
+
+				if = {
+					limit = {
 						check_variable = {
 							var = YAN_max_deployable
 							value = YAN_deployed_divisions
 							compare = greater_than_or_equals
+						}	
+					}
+
+					YAN = {
+						country_event = {
+							id = Indozeeb.1000
 						}
 					}
 				}
 
-				YAN = {
-					country_event = {
-						id = Indozeeb.1000
-					}
-				}
+
 			}
 		}
 	}
