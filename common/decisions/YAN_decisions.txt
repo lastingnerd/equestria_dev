@@ -2632,10 +2632,10 @@ YAN_loterijen_chaos = {
 	##Gotta check this
 
 
-			##Current thought process. Take the current number of divisions, divide by four. This gives the total limit of troops allowed to be deployed
-				##to counter the insurgency. This is called YAN_max_deployable. Proceed to subtract YAN_max_deployable with the number of troops deployed in
-				##in each South East state. Set this as YAN_deployed_divisions. Proceed to check if YAN_deployed_divisions > YAN_max_deployable. If not, thi
-				##-s decision does not fire.
+	##Current thought process. Take the current number of divisions, divide by four. This gives the total limit of troops allowed to be deployed
+	##to counter the insurgency. This is called YAN_max_deployable. Proceed to subtract YAN_max_deployable with the number of troops deployed in
+	##in each South East state. Set this as YAN_deployed_divisions. Proceed to check if YAN_deployed_divisions > YAN_max_deployable. If not, thi
+	##-s decision does not fire.
 	##TODO: All the other decisions
 	YAN_secure_state_1153 = {
 		visible ={

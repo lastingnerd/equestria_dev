@@ -2274,7 +2274,7 @@ ideas = {
 			}
 			picture = can_wartime_prices_and_trade_board
 			targeted_modifier = {
-				target = YAN
+				tag = YAN
 				trade_opinion_factor = 0.25
 			}	
 		}
