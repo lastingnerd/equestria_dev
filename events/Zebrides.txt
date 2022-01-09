@@ -352,6 +352,17 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = Indozeeb.2000
+	immediate = { log = "[GetDateText]: [Root.GetName]: event Indozeeb.2000 " }
+	title = Indozeeb.2000.t
+	desc = Indozeeb.2000.d
+	is_triggered_only = yes
+	option = {
+		name = Indozeeb.2000.a
+	}
+}
+
 ###############################
 ######KUDAKELASI STUFF#########
 ###############################

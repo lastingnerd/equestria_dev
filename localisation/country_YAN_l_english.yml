@@ -1046,3 +1046,8 @@
  YAN_industry_bonus:0 ""
 
  ### TOOLTIPS ###
+
+ ###Test Event tooltips
+ Indozeeb.2000.t:0 "Testing Testing"
+ Indozeeb.2000.d:0 "Reading, Total units in state, [?YAN_total_units].  Max deployable, [?YAN_max_deployable]. Reading states now, [?YANtemp2], [?YANtemp3], [?YANtemp4], [?YANtemp5], [?YANtemp6], [?YANtemp7], [?YANtemp8], [?YANtemp9], [?YANtemp10], [?YANtemp11], [?YANtemp12], [?YANtemp13], [?YANtemp14], [?YANtemp15], [?YANtemp16], [?YANtemp17], [?YANtemp18], [?YANtemp19]. Total [?YANtemp0], confirming that total [?YAN_deployed_divisions]."
+ Indozeeb.2000.a:0 "Test"

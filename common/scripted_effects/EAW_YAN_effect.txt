@@ -107,3 +107,33 @@ YAN_add_bank_effect = {
 		add_ideas = YAN_bank_idea
 	}
 }
+
+YAN_pain_effect = {
+	every_unit_leader = {
+		limit =  {
+			is_leading_army = yes
+		}
+
+		set_variable = {
+			var = YAN_total_units
+			value = num_units_in_state@every_owned_state
+		}
+
+		set_temp_variable = { YANtemp1 = YAN_total_units } 
+		divide_temp_variable = { YANtemp1 = 4 }
+
+		set_variable = {
+			var = YAN_max_deployable
+			value = YANtemp1
+		}
+
+		##Figure out a way to collect the variable of units				 
+
+		set_variable = {
+			var = YAN_deployed_divisions
+			value = YANtemp0
+		}
+
+		log = "[?YAN_total_units] [?YAN_max_deployable] [?YAN_deployed_divisions]"
+	}
+}
