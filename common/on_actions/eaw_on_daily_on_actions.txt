@@ -34,34 +34,5 @@ on_actions = {
 		}
 	}
 
-	on_daily_YAN = {
-		#Detecting if the number of folks on 1189, 1191, 1143, 1152, 1150, 1146, 1144, 1145, 1140, 1142, 1147 exceeds everywhere else. 
-		effect = {
-			if = {
-				limit = {
-					has_country_flag = YAN_insurgency_occured
-					
-				}
 
-				YAN_pain_effect = yes 
-
-				if = {
-					limit = {
-						check_variable = {
-							var = YAN_max_deployable
-							value = YAN_deployed_divisions
-							compare = less_than
-						}	
-					}
-					
-					YAN = {
-						country_event = { id = Indozeeb.2000 }
-						set_country_flag = YAN_unrest_flag
-					}
-				}
-
-
-			}
-		}
-	}
 }

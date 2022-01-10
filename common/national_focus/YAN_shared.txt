@@ -7510,11 +7510,10 @@ shared_focus = {
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_deploy_troops"
 		custom_effect_tooltip = YAN_deploy_troops_tt
-		hidden_effect = {
-			load_oob = YAN_insurgency_1
+		add_to_variable = {
+			var = YAN_counter_insurgency_strength 
+			value = 3000
 		}
-
-
 	}
 }
 
@@ -7532,6 +7531,11 @@ shared_focus = {
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_deploy_police"
 		add_stability = 0.05 
+		swap_ideas = {
+			remove_idea = YAN_the_insurgency
+			add_idea = YAN_the_insurgency2
+		}
+
 	}
 }
 
@@ -7552,7 +7556,27 @@ shared_focus = {
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_deploy_airforce"
 		custom_effect_tooltip = YAN_deploy_airforce_tt
-		set_country_flag = YAN_airforce_deployed
+		if = {
+			limit = {
+				OR = {
+					has_equipment = {
+						CAS_equipment_1 > 10
+					}
+					has_equipment = {
+						CAS_equipment_2 > 10
+					}
+					has_equipment = {
+						CAS_equipment_3 > 10
+					}
+				}
+			}
+
+			add_equipment_to_stockpile = {
+				type = cas
+				amount = 10
+				producer = FEA
+			}
+		}
 	}
 }
 

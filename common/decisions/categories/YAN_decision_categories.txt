@@ -135,7 +135,7 @@ YAN_loterijen_chaos = {
  		original_tag = YAN
 	}
 
-	visible_when_empty = no
+	visible_when_empty = yes
 
 	visible = {
 		has_country_flag = YAN_insurgency_occured
@@ -145,6 +145,8 @@ YAN_loterijen_chaos = {
 	priority = {
 		base = 110
 	}
+
+
 }
 
 

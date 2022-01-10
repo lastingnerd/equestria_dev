@@ -2636,33 +2636,381 @@ YAN_loterijen_chaos = {
 	##to counter the insurgency. This is called YAN_max_deployable. Proceed to subtract YAN_max_deployable with the number of troops deployed in
 	##in each South East state. Set this as YAN_deployed_divisions. Proceed to check if YAN_deployed_divisions > YAN_max_deployable. If not, thi
 	##-s decision does not fire.
+	##New THOUGHT process
+	# We have YAN_insurgency_strength determing how much shenaniagsn they can do. YAN_counter_insurgency_strength will determine how much resources the player has.
+	# And we have YAN_counter_insurgency_equipment determing *how well* the player can do stuff.
 	##TODO: All the other decisions
-	YAN_secure_state_1153 = {
-		visible ={
-			has_country_flag = YAN_troops_deployed_flag
+
+	YAN_insurgent_activity = {
+		#Decision that simulates insurgency doing stuff
+		icon = GFX_decision_rifles
+		visible = {
+			has_country_flag = YAN_insurgency_occured
 		}
-		#icon = 
-		cost = 20
-		days_remove = 60
+		activation = {
+			has_country_flag = YAN_insurgency_occured
+		}
+		available = {
+			always = no
+		}
+		allowed = {
+			tag = YAN
+		}
+		days_mission_timeout = 45
+		is_good = no
+		days_remove = 0
+		fixed_random_seed = no
+		timeout_effect = {
+			random_list = {
+				25  = {
+					random_owned_controlled_state = {
+						limit = {
+							resistance > 40 
+						}
+
+						add_resistance = 15 
+					}
+
+					subtract_from_variable = {
+						var = YAN_insurgency_strength
+						value = 50
+					}
+				}
+				20 = {
+					random_owned_controlled_state = {
+						limit = {
+							resistance > 40 
+						}
+
+						add_compliance = -15
+					}
+
+					subtract_from_variable = {
+						var = YAN_insurgency_strength
+						value = 50
+					}
+					subtract_from_variable = {
+						var = YAN_counter_insurgency_strength
+						value = 50 
+					}	
+				}
+				10 = {
+					subtract_from_variable = {
+						var = YAN_counter_insurgency_equipment 
+						value = 50
+					}
+					subtract_from_variable = {
+						var = YAN_insurgency_strength
+						value = 100
+					}
+				}
+
+				10 = {
+					random_owned_controlled_state = {
+						limit = {
+							AND = {
+								resistance > 20
+								resistance < 40 
+							}
+						}
+
+						add_resistance = 10 
+
+						
+					}
+
+					subtract_from_variable = {
+						var = YAN_insurgency_strength
+						value = 5
+					}
+					subtract_from_variable = {
+						var = YAN_counter_insurgency_strength
+						value = 100 
+					}	
+				}
+
+				10 = {
+					random_owned_controlled_state = {
+						limit = {
+							resistance > 30 
+						}
+
+						damage_building = {
+							type = infrastructure
+							damage = 10
+						}
+					}
+				}
+
+				15 = {
+					add_to_variable = {
+						var = YAN_insurgency_strength
+						value = 100
+					}
+				}
+
+				10 = {
+					add_to_variable = {
+						var = YAN_insurgency_strength
+						value = 200
+					}
+				}
+			}
+		}
+	}
+
+	YAN_recruit_garrisons = {
+		##Player recruits more troops
+		icon = GFX_decision_generic_industry
+		visible = {
+			has_country_flag = YAN_insurgency_occured
+		}
+		allowed = {
+			tag = YAN
+		}
+		available = {
+			has_manpower > 3000
+		}
+		cost = 50 
+		days_remove = 30
+		days_re_enable = 30 
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: decision YAN_recruit_garrisons"
+			add_to_variable = {
+				value = YAN_counter_insurgency_strength
+				value = 300
+			}
+			add_manpower = -2000
+		}
+	}
+
+	YAN_reduce_resistance = {
+		icon = GFX_decision_generic_ignite_civil_war
+		visible = {
+			has_country_flag = YAN_insurgency_occured
+			any_owned_state = {
+				resistance > 30 
+			}
+		}
+		allowed = {
+			tag = YAN
+		}
+		available = {
+			check_variable = {
+				var = YAN_counter_insurgency_strength
+				value > 100
+				compare = greater_than
+			}
+			check_variable = {
+				var = YAN_counter_insurgency_equipment
+				value > 10
+				compare = greater_than
+			}
+		}
 
 		state_target = yes
 		target_trigger = {
 			FROM = {
-				state = 1153 
+				state = 1189
+				#state = 
+			}
+		}
+		on_map_mode = map_and_decisions_view
+		cost = 10 
+		days_remove = 28
+		days_re_enable = 7 
+		complete_effect = {
+
+		}
+		remove_effect = {
+			FROM = {
+				add_resistance = -10
+			}
+
+			subtract_from_variable = {
+				var = YAN_insurgency_strength
+				value = 100
+			}
+
+			subtract_from_variable = {
+				var = YAN_counter_insurgency_strength
+				value = 70
+			}
+			subtract_from_variable = {
+				var = YAN_counter_insurgency_equipment
+				value = 10
+			}
+		}
+	}
+
+	YAN_propaganda_campaign = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		visible = {
+			has_country_flag = YAN_insurgency_occured
+			has_completed_focus = YAN_deploy_troops
+			any_owned_state = {
+				compliance < 80 
+			}
+
+		}
+		allowed = {
+			tag = YAN
+		}
+		available = {
+			check_variable = {
+				var = YAN_counter_insurgency_strength
+				value > 100
+				compare = greater_than
+			}
+			check_variable = {
+				var = YAN_counter_insurgency_equipment
+				value > 10
+				compare = greater_than
 			}
 		}
 
-		available = {
-			divisions_in_state = {
-				state = 1153
-				size > 4 
+		state_target = yes
+		on_map_mode = map_and_decisions_view
+		cost = 30
+		days_remove = 24
+		days_re_enable = 14 
+		complete_effect = {
+		}
+		remove_effect = {
+			FROM = {
+				add_compliance = 10
+			}
+			subtract_from_variable = {
+				var = YAN_counter_insurgency_strength
+				value = 50
+			}
+			subtract_from_variable = {
+				var = YAN_insurgency_strength
+				value = 100
+			}
+			random_list = {
+				90 = {
+					subtract_from_variable = {
+						var = YAN_counter_insurgency_equipment
+						value = 10
+					}
+				}
+				10 = {
+					90 = {
+						subtract_from_variable = {
+							var = YAN_counter_insurgency_equipment
+							value = 20
+						}
+					}
+				}
 			}
 		}
+	}
+
+	YAN_bomb_insurgency_targets = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		visible = {
+			has_country_flag = YAN_insurgency_occured
+
+			any_owned_state = {
+				resistance > 50 
+			}
+			has_completed_focus = YAN_deploy_airforce
+		}
+		allowed = {
+			tag = YAN
+		}
+		available = {
+			check_variable = {
+				var = YAN_counter_insurgency_strength
+				value > 100
+				compare = greater_than
+			}
+			check_variable = {
+				var = YAN_counter_insurgency_equipment
+				value > 50
+				compare = greater_than
+			}
+		}
+		state_target = yes
+		on_map_mode = map_and_decisions_view
+		cost = 50
+		days_remove = 7
+		days_re_enable = 14 
 
 		complete_effect = {
-			1153 = {
-				add_compliance = 15
+
+		}
+		remove_effect = {
+			FROM = {
+				add_resistance = -20 
+				add_compliance = -10
 			}
+
+			subtract_from_variable = {
+				var = YAN_insurgency_strength
+				value = 100
+			}
+		}
+	}
+
+	YAN_root_out_resistance = {
+		#This decision serves to properly, "End a rebellion" in a given state. Ensuring that no resistance occurs here. 
+		icon = GFX_decision_infiltrate_state
+		visible = {
+			has_country_flag = YAN_insurgency_occured
+
+			any_owned_state = {
+				resistance > 10 
+				resistance < 30 
+			}
+
+		}
+		allowed = {
+			tag = YAN
+		}
+		available = {
+			check_variable = {
+				var = YAN_counter_insurgency_strength
+				value > 200
+				compare = greater_than
+			}
+			check_variable = {
+				var = YAN_counter_insurgency_equipment
+				value > 20
+				compare = greater_than
+			}
+		}
+
+		state_target = yes
+		on_map_mode = map_and_decisions_view
+		cost = 100
+		days_remove = 60
+		days_re_enable = 14 
+		complete_effect = {
+
+		}
+		remove_effect = {
+			FROM = {
+				cancel_resistance = yes 
+				set_resistance = 0
+				add_compliance = 15 
+			}
+
+			subtract_from_variable = {
+				var = YAN_insurgency_strength
+				value = 150
+			}
+
+			subtract_from_variable = {
+				var = YAN_counter_insurgency_strength
+				value = 100
+			}
+			subtract_from_variable = {
+				var = YAN_counter_insurgency_equipment
+				value = 15
+			}
+
 		}
 	}
 }

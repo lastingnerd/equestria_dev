@@ -1,11 +1,6 @@
 add_namespace = Indozeeb
-add_namespace = YANbusiness
-add_namespace = Lotidentity
 add_namespace = YANintro
-add_namespace = YANRuinsevent
-add_namespace = MQARuinsevent
-add_namespace = YANMQA_ruinsevent
-
+add_namespace = YANinsurgency
 
 ##PLEASE REMEMBER THIS YOU FUCK
 #country_event = {
@@ -1729,64 +1724,100 @@ country_event = {
 		add_stability = -0.10
 		add_political_power = -50 
 		add_ideas = YAN_the_insurgency
-		1189 = {
-			set_demilitarized_zone = yes
-			set_resistance = 65
+		set_variable = {
+			var = YAN_insurgency_strength
+			value = 2000
 		}
-		1191 = {
-			set_demilitarized_zone = yes
-			set_resistance = 65
+		set_variable = {
+			var = YAN_counter_insurgency_strength
+			value = 500
 		}
-		1143 = {
-			set_demilitarized_zone = yes
-			set_resistance = 65
+		set_variable = {
+			var = YAN_counter_insurgency_equipment
+			value = 100
+		}
 
-		}
-		1152 = {
-			set_demilitarized_zone = yes
-			set_resistance = 65
-
-		}
-		1150 = {
-			set_demilitarized_zone = yes
-			set_resistance = 65
-
-		}
-		1146 = {
-			set_demilitarized_zone = yes
-			set_resistance = 65
-
-		}
-		1144 = {
-			set_demilitarized_zone = yes
-			set_resistance = 65
-
-		}
-		1145 = {
-			set_demilitarized_zone = yes
-			set_resistance = 65
-
-		}
-		1140 = {
-			set_demilitarized_zone = yes
-			set_resistance = 65
-
-		}
-		1142 = {		
-			set_demilitarized_zone = yes
-			set_resistance = 65
-
-		}
-		1147 = {
-			set_demilitarized_zone = yes
-			set_resistance = 65
-
-		}
 
 		hidden_effect = {
 			country_event = { id = Indozeeb.118 days = 2 } 
 			complete_national_focus = YAN_take_the_south_east
-			
+			1189 = {
+				set_demilitarized_zone = yes
+				set_resistance = 65
+			}
+			1191 = {
+				set_demilitarized_zone = yes
+				set_resistance = 65
+			}
+			1143 = {
+				set_demilitarized_zone = yes
+				set_resistance = 65
+	
+			}
+			1152 = {
+				set_demilitarized_zone = yes
+				set_resistance = 65
+	
+			}
+			1150 = {
+				set_demilitarized_zone = yes
+				set_resistance = 65
+	
+			}
+			1146 = {
+				set_demilitarized_zone = yes
+				set_resistance = 65
+	
+			}
+			1144 = {
+				set_demilitarized_zone = yes
+				set_resistance = 65
+	
+			}
+			1145 = {
+				set_demilitarized_zone = yes
+				set_resistance = 65
+	
+			}
+			1140 = {
+				set_demilitarized_zone = yes
+				set_resistance = 65
+	
+			}
+			1142 = {		
+				set_demilitarized_zone = yes
+				set_resistance = 65
+	
+			}
+			1147 = {
+				set_demilitarized_zone = yes
+				set_resistance = 65
+	
+			}
+			1153 = {
+				set_resistance = 30
+			}
+			1190 = {
+				set_resistance = 30
+			}
+			1154 = {
+				set_resistance = 30
+			}
+			1149 = {
+				set_resistance = 30
+			}
+			1148 = {
+				set_resistance = 30
+			}
+			1139 = {
+				set_resistance = 30
+			}
+			1141 = {
+				set_resistance = 30
+			}
+			1192 = {
+				set_resistance = 30
+			}
 		}
 
 	}
@@ -2109,4 +2140,79 @@ country_event = {
 	
 }
 
-##Hidden Events 
+##Insurgency Specific Events 
+
+country_event = {
+	id = YANinsurgency.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event YANinsurgency.1 " }
+	title = YANinsurgency.1.t
+	desc = YANinsurgency.1.d
+	#picture = 
+	is_triggered_only = yes
+	trigger = {
+		has_country_flag = YAN_insurgency_occured
+		any_owned_state = {
+			AND = {
+				resistance > 39
+				NOT = {
+					is_demilitarized_zone = yes 
+				}
+			}
+		}
+	}
+	option = {
+		name = YANinsurgency.1.a
+		any_owned_state = {
+			AND = {
+				resistance > 39
+				NOT = {
+					is_demilitarized_zone = yes 
+				}
+			}
+
+			set_demilitarized_zone = yes 
+			add_resistance = 5 
+		}
+
+		add_to_variable = {
+			variable = YAN_insurgency_strength
+			value = 50
+		}
+	}
+}
+
+
+country_event = {
+	id = YANinsurgency.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event YANinsurgency.2 " }
+	title = YANinsurgency.2.t
+	desc = YANinsurgency.2.d
+	#picture = 
+	is_triggered_only = yes
+	trigger = {
+		has_country_flag = YAN_insurgency_occured
+		any_owned_state = {
+			AND = {
+				resistance <40
+				is_demilitarized_zone = yes 
+			}
+		}
+	}
+	option = {
+		name = YANinsurgency.2.a
+		any_owned_state = {
+			AND = {
+				resistance < 40
+				is_demilitarized_zone = yes 
+			}
+
+			set_demilitarized_zone = no 
+		}
+
+		subtract_from_variable = {
+			variable = YAN_insurgency_strength
+			value = 50
+		}
+	}
+}
+
