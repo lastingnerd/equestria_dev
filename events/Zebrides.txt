@@ -1737,9 +1737,14 @@ country_event = {
 			value = 100
 		}
 
+		custom_effect_tooltip = YAN_indozeeb_118_tt
+		#TODO: Add Tooltip
+		set_country_flag = YAN_insurgency_occured
+		load_focus_tree = YAN_loterijen_insurgency
+		activate_mission = YAN_insurgent_activity
+
 
 		hidden_effect = {
-			country_event = { id = Indozeeb.118 days = 2 } 
 			complete_national_focus = YAN_take_the_south_east
 			1189 = {
 				set_demilitarized_zone = yes
@@ -1824,67 +1829,7 @@ country_event = {
 
 }
 
-country_event = {
-	id = Indozeeb.118 
-	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event Indozeeb.118"
-	}
-	title = Indozeeb.118.t
-	desc = Indozeeb.118.d
-	is_triggered_only = yes 
-	option = {
-		name = Indozeeb.118.a 
-		DEL = {
-			if = {
-				limit ={ 
-					exists = yes
-					is_puppet = no
 
-				}
-
-				diplomatic_relation = {
-					country = YAN
-					relation = puppet
-					active = yes
-				}
-			}
-		}
-		IST = {
-			if = {
-				limit ={ 
-					exists = yes
-					is_puppet = no
-
-				}
-
-				diplomatic_relation = {
-					country = YAN
-					relation = puppet
-					active = yes
-				}
-			}			
-
-		}
-		IDO = {
-			if = {
-				limit ={ 
-					exists = yes
-					is_puppet = no
-				}
-
-				diplomatic_relation = {
-					country = YAN
-					relation = puppet
-					active = yes
-				}
-			}
-		}
-		custom_effect_tooltip = YAN_indozeeb_118_tt
-		#TODO: Add Tooltip
-		set_country_flag = YAN_insurgency_occured
-		load_focus_tree = YAN_loterijen_insurgency
-	}
-}
 
 country_event = {
 	id = Indozeeb.119 

@@ -2657,6 +2657,7 @@ YAN_loterijen_chaos = {
 			tag = YAN
 		}
 		days_mission_timeout = 45
+		selectable_mission = yes
 		is_good = no
 		days_remove = 0
 		fixed_random_seed = no
@@ -2784,11 +2785,11 @@ YAN_loterijen_chaos = {
 		}
 	}
 
-	YAN_reduce_resistance = {
+	YAN_reduce_resistance_1189 = {
 		icon = GFX_decision_generic_ignite_civil_war
 		visible = {
 			has_country_flag = YAN_insurgency_occured
-			any_owned_state = {
+			1189 = {
 				resistance > 30 
 			}
 		}
@@ -2808,22 +2809,304 @@ YAN_loterijen_chaos = {
 			}
 		}
 
-		state_target = yes
-		target_trigger = {
-			FROM = {
-				state = 1189
-				#state = 
-			}
-		}
+
+		highlight_state_targets = {
+			state = 1189 
+		}	
+
+		#target_trigger = {
+		#FROM = {
+			#	state = 1189
+				#state = 1191 #state = 1143 #state = 1152 #state = 1150 #state = 1146 #state = 1144 #state = 1145 #state = 1140 #state = 1142
+				#state = 1147 #state = 1153 #state = 1190 #state = 1154 #state = 1149 #state = 1149 #state = 1139 #state = 1141 #state = 1192
+				##TODO: All the other decisions of this.
+			#}
+		#}
 		on_map_mode = map_and_decisions_view
-		cost = 10 
+		cost = 20 
+		custom_cost_trigger = {
+			command_power > 19
+		}
 		days_remove = 28
 		days_re_enable = 7 
+		highlight_color_while_active = 1
 		complete_effect = {
 
 		}
 		remove_effect = {
-			FROM = {
+			1189 = {
+				add_resistance = -10
+			}
+
+			subtract_from_variable = {
+				var = YAN_insurgency_strength
+				value = 100
+			}
+
+			subtract_from_variable = {
+				var = YAN_counter_insurgency_strength
+				value = 70
+			}
+			subtract_from_variable = {
+				var = YAN_counter_insurgency_equipment
+				value = 10
+			}
+		}
+	}
+
+	YAN_reduce_resistance_1191 = {
+		icon = GFX_decision_generic_ignite_civil_war
+		visible = {
+			has_country_flag = YAN_insurgency_occured
+			1191 = {
+				resistance > 30 
+			}
+		}
+		allowed = {
+			tag = YAN
+		}
+		available = {
+			check_variable = {
+				var = YAN_counter_insurgency_strength
+				value > 100
+				compare = greater_than
+			}
+			check_variable = {
+				var = YAN_counter_insurgency_equipment
+				value > 10
+				compare = greater_than
+			}
+		}
+
+
+		highlight_state_targets = {
+			state = 1191 
+		}	
+
+		#target_trigger = {
+		#FROM = {
+				#state = 1191 #state = 1143 #state = 1152 #state = 1150 #state = 1146 #state = 1144 #state = 1145 #state = 1140 #state = 1142
+				#state = 1147 #state = 1153 #state = 1190 #state = 1154 #state = 1149 #state = 1149 #state = 1139 #state = 1141 #state = 1192
+				##TODO: All the other decisions of this.
+			#}
+		#}
+		on_map_mode = map_and_decisions_view
+		cost = 20 
+		custom_cost_trigger = {
+			command_power > 19
+		}
+		days_remove = 28
+		days_re_enable = 7 
+		highlight_color_while_active = 1
+		complete_effect = {
+
+		}
+		remove_effect = {
+			1191 = {
+				add_resistance = -10
+			}
+
+			subtract_from_variable = {
+				var = YAN_insurgency_strength
+				value = 100
+			}
+
+			subtract_from_variable = {
+				var = YAN_counter_insurgency_strength
+				value = 70
+			}
+			subtract_from_variable = {
+				var = YAN_counter_insurgency_equipment
+				value = 10
+			}
+		}
+	}
+
+	YAN_reduce_resistance_1143 = {
+		icon = GFX_decision_generic_ignite_civil_war
+		visible = {
+			has_country_flag = YAN_insurgency_occured
+			1143 = {
+				resistance > 30 
+			}
+		}
+		allowed = {
+			tag = YAN
+		}
+		available = {
+			check_variable = {
+				var = YAN_counter_insurgency_strength
+				value > 100
+				compare = greater_than
+			}
+			check_variable = {
+				var = YAN_counter_insurgency_equipment
+				value > 10
+				compare = greater_than
+			}
+		}
+
+
+		highlight_state_targets = {
+			state = 1143
+		}	
+
+		#target_trigger = {
+		#FROM = {
+				#state = 1143 #state = 1152 #state = 1150 #state = 1146 #state = 1144 #state = 1145 #state = 1140 #state = 1142
+				#state = 1147 #state = 1153 #state = 1190 #state = 1154 #state = 1149 #state = 1149 #state = 1139 #state = 1141 #state = 1192
+				##TODO: All the other decisions of this.
+			#}
+		#}
+		on_map_mode = map_and_decisions_view
+		cost = 20 
+		custom_cost_trigger = {
+			command_power > 19
+		}
+		days_remove = 28
+		days_re_enable = 7 
+		highlight_color_while_active = 1
+		complete_effect = {
+
+		}
+		remove_effect = {
+			1143 = {
+				add_resistance = -10
+			}
+
+			subtract_from_variable = {
+				var = YAN_insurgency_strength
+				value = 100
+			}
+
+			subtract_from_variable = {
+				var = YAN_counter_insurgency_strength
+				value = 70
+			}
+			subtract_from_variable = {
+				var = YAN_counter_insurgency_equipment
+				value = 10
+			}
+		}
+	}
+
+	YAN_reduce_resistance_1152 = {
+		icon = GFX_decision_generic_ignite_civil_war
+		visible = {
+			has_country_flag = YAN_insurgency_occured
+			1152 = {
+				resistance > 30 
+			}
+		}
+		allowed = {
+			tag = YAN
+		}
+		available = {
+			check_variable = {
+				var = YAN_counter_insurgency_strength
+				value > 100
+				compare = greater_than
+			}
+			check_variable = {
+				var = YAN_counter_insurgency_equipment
+				value > 10
+				compare = greater_than
+			}
+		}
+
+
+		highlight_state_targets = {
+			state = 1152
+		}	
+
+		#target_trigger = {
+		#FROM = {
+				#state = 1152 #state = 1150 #state = 1146 #state = 1144 #state = 1145 #state = 1140 #state = 1142
+				#state = 1147 #state = 1153 #state = 1190 #state = 1154 #state = 1149 #state = 1149 #state = 1139 #state = 1141 #state = 1192
+				##TODO: All the other decisions of this.
+			#}
+		#}
+		on_map_mode = map_and_decisions_view
+		cost = 20 
+		custom_cost_trigger = {
+			command_power > 19
+		}
+		days_remove = 28
+		days_re_enable = 7 
+		highlight_color_while_active = 1
+		complete_effect = {
+
+		}
+		remove_effect = {
+			1152 = {
+				add_resistance = -10
+			}
+
+			subtract_from_variable = {
+				var = YAN_insurgency_strength
+				value = 100
+			}
+
+			subtract_from_variable = {
+				var = YAN_counter_insurgency_strength
+				value = 70
+			}
+			subtract_from_variable = {
+				var = YAN_counter_insurgency_equipment
+				value = 10
+			}
+		}
+	}
+
+	YAN_reduce_resistance_1150 = {
+		icon = GFX_decision_generic_ignite_civil_war
+		visible = {
+			has_country_flag = YAN_insurgency_occured
+			1150 = {
+				resistance > 30 
+			}
+		}
+		allowed = {
+			tag = YAN
+		}
+		available = {
+			check_variable = {
+				var = YAN_counter_insurgency_strength
+				value > 100
+				compare = greater_than
+			}
+			check_variable = {
+				var = YAN_counter_insurgency_equipment
+				value > 10
+				compare = greater_than
+			}
+		}
+
+
+		highlight_state_targets = {
+			state = 1150
+		}	
+
+		#target_trigger = {
+		#FROM = {
+				#state = 1150 #state = 1146 #state = 1144 #state = 1145 #state = 1140 #state = 1142
+				#state = 1147 #state = 1153 #state = 1190 #state = 1154 #state = 1149 #state = 1149 #state = 1139 #state = 1141 #state = 1192
+				##TODO: All the other decisions of this.
+			#}
+		#}
+		on_map_mode = map_and_decisions_view
+		cost = 20 
+		custom_cost_trigger = {
+			command_power > 19
+		}
+		days_remove = 28
+		days_re_enable = 7 
+		highlight_color_while_active = 1
+		complete_effect = {
+
+		}
+		remove_effect = {
+			1150 = {
 				add_resistance = -10
 			}
 
@@ -2870,6 +3153,30 @@ YAN_loterijen_chaos = {
 		}
 
 		state_target = yes
+		target_trigger = {
+			FROM = {
+				state = 1189
+				state = 1191
+				state = 1143
+				state = 1152
+				state = 1150
+				state = 1146
+				state = 1144
+				state = 1145
+				state = 1140
+				state = 1142
+				state = 1147
+				state = 1153
+				state = 1190
+				state = 1154
+				state = 1149
+				state = 1149
+				state = 1139
+				state = 1141
+				state = 1192
+
+			}
+		}
 		on_map_mode = map_and_decisions_view
 		cost = 30
 		days_remove = 24
@@ -2933,6 +3240,30 @@ YAN_loterijen_chaos = {
 			}
 		}
 		state_target = yes
+		target_trigger = {
+			FROM = {
+				state = 1189
+				state = 1191
+				state = 1143
+				state = 1152
+				state = 1150
+				state = 1146
+				state = 1144
+				state = 1145
+				state = 1140
+				state = 1142
+				state = 1147
+				state = 1153
+				state = 1190
+				state = 1154
+				state = 1149
+				state = 1149
+				state = 1139
+				state = 1141
+				state = 1192
+
+			}
+		}
 		on_map_mode = map_and_decisions_view
 		cost = 50
 		days_remove = 7
@@ -2983,6 +3314,30 @@ YAN_loterijen_chaos = {
 		}
 
 		state_target = yes
+		target_trigger = {
+			FROM = {
+				state = 1189
+				state = 1191
+				state = 1143
+				state = 1152
+				state = 1150
+				state = 1146
+				state = 1144
+				state = 1145
+				state = 1140
+				state = 1142
+				state = 1147
+				state = 1153
+				state = 1190
+				state = 1154
+				state = 1149
+				state = 1149
+				state = 1139
+				state = 1141
+				state = 1192
+
+			}
+		}
 		on_map_mode = map_and_decisions_view
 		cost = 100
 		days_remove = 60
