@@ -4270,17 +4270,36 @@ YAN_loterijen_chaos = {
 	###TODO: FIGURE OUT HOW TO FIX THIS
 	YAN_propaganda_campaign = {
 		icon = GFX_decision_eng_propaganda_campaigns
+
+		state_target = yes
+		
+		target_trigger = {
+			FROM = {
+				NOT = { is_core_of = ROOT }
+				OR = {
+					is_core_of = IST
+					is_core_of = DEL
+					is_core_of = IDO
+				}
+
+			}
+		}
+
 		visible = {
 			has_country_flag = YAN_insurgency_occured
 			has_completed_focus = YAN_deploy_troops
-			any_owned_state = {
+			FROM = {
 				compliance < 80 
+				NOT = {
+					has_state_flag = YAN_propaganda_ing
+				}
 			}
-
 		}
+
 		allowed = {
 			tag = YAN
 		}
+
 		available = {
 			check_variable = {
 				var = YAN_counter_insurgency_strength
@@ -4294,40 +4313,26 @@ YAN_loterijen_chaos = {
 			}
 		}
 
-		state_target = yes
-		target_trigger = {
+
+		on_map_mode = map_and_decisions_view
+
+		cost = 30
+
+		days_remove = 24
+
+		days_re_enable = 14 
+
+		complete_effect = {
 			FROM = {
-				state = 1189
-				state = 1191
-				state = 1143
-				state = 1152
-				state = 1150
-				state = 1146
-				state = 1144
-				state = 1145
-				state = 1140
-				state = 1142
-				state = 1147
-				state = 1153
-				state = 1190
-				state = 1154
-				state = 1149
-				state = 1149
-				state = 1139
-				state = 1141
-				state = 1192
+				set_state_flag = YAN_propaganda_ing
 
 			}
 		}
-		on_map_mode = map_and_decisions_view
-		cost = 30
-		days_remove = 24
-		days_re_enable = 14 
-		complete_effect = {
-		}
+
 		remove_effect = {
 			FROM = {
 				add_compliance = 10
+				clr_state_flag =  YAN_propaganda_ing
 			}
 			subtract_from_variable = {
 				var = YAN_counter_insurgency_strength
