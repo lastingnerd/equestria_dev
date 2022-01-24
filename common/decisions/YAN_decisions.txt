@@ -2785,1491 +2785,107 @@ YAN_loterijen_chaos = {
 		}
 	}
 
-	YAN_reduce_resistance_1189 = {
-		icon = GFX_decision_generic_ignite_civil_war
-		visible = {
-			has_country_flag = YAN_insurgency_occured
-			1189 = {
-				resistance > 30 
+	YAN_attack_resistance = {
+		icon = GFX_decision_generic_scorched_earth
+		#Player reduces resistance in states where there's a lot of damn insurgents
+
+		state_target = yes
+		
+		target_trigger = {
+			FROM = {
+				NOT = { is_core_of = ROOT }
+				OR = {
+					is_core_of = IST
+					is_core_of = DEL
+					is_core_of = IDO
+				}
+
 			}
 		}
+
+		visible = {
+			has_country_flag = YAN_insurgency_occured
+			has_completed_focus = YAN_deploy_troops
+			FROM = {
+				resistance > 40
+				is_demilitarized_zone = yes 
+				NOT = {
+					has_state_flag = YAN_being_attacked
+				}
+			}
+		}
+
 		allowed = {
 			tag = YAN
 		}
+
 		available = {
-			AND = {
-				check_variable = {
-					var = YAN_counter_insurgency_strength
-					value > 100
-					compare = greater_than
+			check_variable = {
+				var = YAN_counter_insurgency_strength
+				value > 80
+				compare = greater_than
+			}
+			check_variable = {
+				var = YAN_counter_insurgency_equipment
+				value > 10
+				compare = greater_than
+			}
+		}
+
+
+		on_map_mode = map_and_decisions_view
+
+		cost = 20
+
+		days_remove = 30
+
+		days_re_enable = 14 
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: decision start YAN_attack_resistance"
+
+			FROM = {
+				set_state_flag = YAN_being_attacked
+
+			}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: decision remove YAN_attack_resistance"
+			FROM = {
+				add_resistance = -10
+				clr_state_flag =  YAN_being_attacked
+			}
+			subtract_from_variable = {
+				var = YAN_counter_insurgency_strength
+				value = 50
+			}
+			subtract_from_variable = {
+				var = YAN_insurgency_strength
+				value = 100
+			}
+			random_list = {
+				90 = {
+					subtract_from_variable = {
+						var = YAN_counter_insurgency_equipment
+						value = 10
+					}
 				}
-				check_variable = {
-					var = YAN_counter_insurgency_equipment
-					value > 10
-					compare = greater_than
-				}
-				NOT = {
-					has_country_flag = YAN_clearing_resistance
-				}
-				OR = {
-					any_neighbor_state = {
-						AND = {
-							is_owned_by = YAN
-							is_demilitarized_zone = no
+				10 = {
+					90 = {
+						subtract_from_variable = {
+							var = YAN_counter_insurgency_equipment
+							value = 20
 						}
 					}
 				}
-
-			}
-		}
-
-
-		highlight_state_targets = {
-			state = 1189 
-		}	
-
-		#target_trigger = {
-		#FROM = {
-			#	state = 1189
-				#state = 1191 #state = 1143 #state = 1152 #state = 1150 #state = 1146 #state = 1144 #state = 1145 #state = 1140 #state = 1142
-				#state = 1147 #state = 1153 #state = 1190 #state = 1154 #state = 1149 #state = 1149 #state = 1139 #state = 1141 #state = 1192
-				##TODO: All the other decisions of this.
-			#}
-		#}
-		on_map_mode = map_and_decisions_view
-		cost = 20 
-		custom_cost_trigger = {
-			command_power > 19
-		}
-		days_remove = 28
-		days_re_enable = 7 
-		highlight_color_while_active = 1
-		complete_effect = {
-			set_country_flag = YAN_clearing_resistance
-
-
-		}
-		remove_effect = {
-			clr_country_flag = YAN_clearing_resistance
-
-			1189 = {
-				add_resistance = -10
-			}
-
-			subtract_from_variable = {
-				var = YAN_insurgency_strength
-				value = 100
-			}
-
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_strength
-				value = 70
-			}
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_equipment
-				value = 10
 			}
 		}
 	}
 
-	YAN_reduce_resistance_1191 = {
-		icon = GFX_decision_generic_ignite_civil_war
-		visible = {
-			has_country_flag = YAN_insurgency_occured
-			1191 = {
-				resistance > 30 
-			}
-		}
-		allowed = {
-			tag = YAN
-		}
-		available = {
-			AND = {
-				check_variable = {
-					var = YAN_counter_insurgency_strength
-					value > 100
-					compare = greater_than
-				}
-				check_variable = {
-					var = YAN_counter_insurgency_equipment
-					value > 10
-					compare = greater_than
-				}
-				NOT = {
-					has_country_flag = YAN_clearing_resistance
-				}
-				OR = {
-					any_neighbor_state = {
-						AND = {
-							is_owned_by = YAN
-							is_demilitarized_zone = no
-						}
-					}
-				}
-
-			}
-		}
-
-
-		highlight_state_targets = {
-			state = 1191 
-		}	
-
-		#target_trigger = {
-		#FROM = {
-				#state = 1191 #state = 1143 #state = 1152 #state = 1150 #state = 1146 #state = 1144 #state = 1145 #state = 1140 #state = 1142
-				#state = 1147 #state = 1153 #state = 1190 #state = 1154 #state = 1149 #state = 1149 #state = 1139 #state = 1141 #state = 1192
-				##TODO: All the other decisions of this.
-			#}
-		#}
-		on_map_mode = map_and_decisions_view
-		cost = 20 
-		custom_cost_trigger = {
-			command_power > 19
-		}
-		days_remove = 28
-		days_re_enable = 7 
-		highlight_color_while_active = 1
-		complete_effect = {
-			set_country_flag = YAN_clearing_resistance
-
-
-		}
-		remove_effect = {
-			clr_country_flag = YAN_clearing_resistance
-
-			1191 = {
-				add_resistance = -10
-			}
-
-			subtract_from_variable = {
-				var = YAN_insurgency_strength
-				value = 100
-			}
-
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_strength
-				value = 70
-			}
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_equipment
-				value = 10
-			}
-		}
-	}
-
-	YAN_reduce_resistance_1143 = {
-		icon = GFX_decision_generic_ignite_civil_war
-		visible = {
-			has_country_flag = YAN_insurgency_occured
-			1143 = {
-				resistance > 30 
-			}
-		}
-		allowed = {
-			tag = YAN
-		}
-		available = {
-			AND = {
-				check_variable = {
-					var = YAN_counter_insurgency_strength
-					value > 100
-					compare = greater_than
-				}
-				check_variable = {
-					var = YAN_counter_insurgency_equipment
-					value > 10
-					compare = greater_than
-				}
-				NOT = {
-					has_country_flag = YAN_clearing_resistance
-				}
-				OR = {
-					any_neighbor_state = {
-						AND = {
-							is_owned_by = YAN
-							is_demilitarized_zone = no
-						}
-					}
-				}
-
-			}
-		}
-
-
-		highlight_state_targets = {
-			state = 1143
-		}	
-
-		#target_trigger = {
-		#FROM = {
-				#state = 1143 #state = 1152 #state = 1150 #state = 1146 #state = 1144 #state = 1145 #state = 1140 #state = 1142
-				#state = 1147 #state = 1153 #state = 1190 #state = 1154 #state = 1149 #state = 1149 #state = 1139 #state = 1141 #state = 1192
-				##TODO: All the other decisions of this.
-			#}
-		#}
-		on_map_mode = map_and_decisions_view
-		cost = 20 
-		custom_cost_trigger = {
-			command_power > 19
-		}
-		days_remove = 28
-		days_re_enable = 7 
-		highlight_color_while_active = 1
-		complete_effect = {
-			set_country_flag = YAN_clearing_resistance
-
-
-		}
-		remove_effect = {
-						clr_country_flag = YAN_clearing_resistance
-
-			1143 = {
-				add_resistance = -10
-			}
-
-			subtract_from_variable = {
-				var = YAN_insurgency_strength
-				value = 100
-			}
-
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_strength
-				value = 70
-			}
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_equipment
-				value = 10
-			}
-		}
-	}
-
-	YAN_reduce_resistance_1152 = {
-		icon = GFX_decision_generic_ignite_civil_war
-		visible = {
-			has_country_flag = YAN_insurgency_occured
-			1152 = {
-				resistance > 30 
-			}
-		}
-		allowed = {
-			tag = YAN
-		}
-		available = {
-			AND = {
-				check_variable = {
-					var = YAN_counter_insurgency_strength
-					value > 100
-					compare = greater_than
-				}
-				check_variable = {
-					var = YAN_counter_insurgency_equipment
-					value > 10
-					compare = greater_than
-				}
-				NOT = {
-					has_country_flag = YAN_clearing_resistance
-				}
-				OR = {
-					any_neighbor_state = {
-						AND = {
-							is_owned_by = YAN
-							is_demilitarized_zone = no
-						}
-					}
-				}
-
-			}
-		}
-
-
-		highlight_state_targets = {
-			state = 1152
-		}	
-
-		#target_trigger = {
-		#FROM = {
-				#state = 1152 #state = 1150 #state = 1146 #state = 1144 #state = 1145 #state = 1140 #state = 1142
-				#state = 1147 #state = 1153 #state = 1190 #state = 1154 #state = 1149 #state = 1149 #state = 1139 #state = 1141 #state = 1192
-				##TODO: All the other decisions of this.
-			#}
-		#}
-		on_map_mode = map_and_decisions_view
-		cost = 20 
-		custom_cost_trigger = {
-			command_power > 19
-		}
-		days_remove = 28
-		days_re_enable = 7 
-		highlight_color_while_active = 1
-		complete_effect = {
-			set_country_flag = YAN_clearing_resistance
-
-		}
-		remove_effect = {
-			clr_country_flag = YAN_clearing_resistance
-
-			1152 = {
-				add_resistance = -10
-			}
-
-			subtract_from_variable = {
-				var = YAN_insurgency_strength
-				value = 100
-			}
-
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_strength
-				value = 70
-			}
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_equipment
-				value = 10
-			}
-		}
-	}
-
-	YAN_reduce_resistance_1150 = {
-		icon = GFX_decision_generic_ignite_civil_war
-		visible = {
-			has_country_flag = YAN_insurgency_occured
-			1150 = {
-				resistance > 30 
-			}
-		}
-		allowed = {
-			tag = YAN
-		}
-		available = {
-			AND = {
-				check_variable = {
-					var = YAN_counter_insurgency_strength
-					value > 100
-					compare = greater_than
-				}
-				check_variable = {
-					var = YAN_counter_insurgency_equipment
-					value > 10
-					compare = greater_than
-				}
-				NOT = {
-					has_country_flag = YAN_clearing_resistance
-				}
-				OR = {
-					any_neighbor_state = {
-						AND = {
-							is_owned_by = YAN
-							is_demilitarized_zone = no
-						}
-					}
-				}
-
-			}
-		}
-
-
-		highlight_state_targets = {
-			state = 1150
-		}	
-
-		#target_trigger = {
-		#FROM = {
-				#state = 1150 #state = 1146 #state = 1144 #state = 1145 #state = 1140 #state = 1142
-				#state = 1147 #state = 1153 #state = 1190 #state = 1154 #state = 1149 #state = 1149 #state = 1139 #state = 1141 #state = 1192
-				##TODO: All the other decisions of this.
-			#}
-		#}
-		on_map_mode = map_and_decisions_view
-		cost = 20 
-		custom_cost_trigger = {
-			command_power > 19
-		}
-		days_remove = 28
-		days_re_enable = 7 
-		highlight_color_while_active = 1
-		complete_effect = {
-			set_country_flag = YAN_clearing_resistance
-
-		}
-		remove_effect = {
-			clr_country_flag = YAN_clearing_resistance
-
-			1150 = {
-				add_resistance = -10
-			}
-
-			subtract_from_variable = {
-				var = YAN_insurgency_strength
-				value = 100
-			}
-
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_strength
-				value = 70
-			}
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_equipment
-				value = 10
-			}
-		}
-	}
-
-	YAN_reduce_resistance_1146 = {
-		icon = GFX_decision_generic_ignite_civil_war
-		visible = {
-			has_country_flag = YAN_insurgency_occured
-			1146 = {
-				resistance > 30 
-			}
-		}
-		allowed = {
-			tag = YAN
-		}
-		available = {
-			AND = {
-				check_variable = {
-					var = YAN_counter_insurgency_strength
-					value > 100
-					compare = greater_than
-				}
-				check_variable = {
-					var = YAN_counter_insurgency_equipment
-					value > 10
-					compare = greater_than
-				}
-				NOT = {
-					has_country_flag = YAN_clearing_resistance
-				}
-				OR = {
-					any_neighbor_state = {
-						AND = {
-							is_owned_by = YAN
-							is_demilitarized_zone = no
-						}
-					}
-				}
-
-			}
-		}
-
-
-		highlight_state_targets = {
-			state = 1146
-		}	
-
-		#target_trigger = {
-		#FROM = {
-				#state = 1146 #state = 1144 #state = 1145 #state = 1140 #state = 1142
-				#state = 1147 #state = 1153 #state = 1190 #state = 1154 #state = 1149 #state = 1149 #state = 1139 #state = 1141 #state = 1192
-				##TODO: All the other decisions of this.
-			#}
-		#}
-		on_map_mode = map_and_decisions_view
-		cost = 20 
-		custom_cost_trigger = {
-			command_power > 19
-		}
-		days_remove = 28
-		days_re_enable = 7 
-		highlight_color_while_active = 1
-		complete_effect = {
-			set_country_flag = YAN_clearing_resistance
-
-
-		}
-		remove_effect = {
-			clr_country_flag = YAN_clearing_resistance
-
-			1146 = {
-				add_resistance = -10
-			}
-
-			subtract_from_variable = {
-				var = YAN_insurgency_strength
-				value = 100
-			}
-
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_strength
-				value = 70
-			}
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_equipment
-				value = 10
-			}
-		}
-	}
-
-	YAN_reduce_resistance_1144 = {
-		icon = GFX_decision_generic_ignite_civil_war
-		visible = {
-			has_country_flag = YAN_insurgency_occured
-			1144 = {
-				resistance > 30 
-			}
-		}
-		allowed = {
-			tag = YAN
-		}
-		available = {
-			AND = {
-				check_variable = {
-					var = YAN_counter_insurgency_strength
-					value > 100
-					compare = greater_than
-				}
-				check_variable = {
-					var = YAN_counter_insurgency_equipment
-					value > 10
-					compare = greater_than
-				}
-				NOT = {
-					has_country_flag = YAN_clearing_resistance
-				}
-				OR = {
-					any_neighbor_state = {
-						AND = {
-							is_owned_by = YAN
-							is_demilitarized_zone = no
-						}
-					}
-				}
-
-			}
-		}
-
-
-		highlight_state_targets = {
-			state = 1144
-		}	
-
-		#target_trigger = {
-		#FROM = {
-				 #state = 1144 #state = 1145 #state = 1140 #state = 1142
-				#state = 1147 #state = 1153 #state = 1190 #state = 1154 #state = 1149 #state = 1149 #state = 1139 #state = 1141 #state = 1192
-				##TODO: All the other decisions of this.
-			#}
-		#}
-		on_map_mode = map_and_decisions_view
-		cost = 20 
-		custom_cost_trigger = {
-			command_power > 19
-		}
-		days_remove = 28
-		days_re_enable = 7 
-		highlight_color_while_active = 1
-		complete_effect = {
-			set_country_flag = YAN_clearing_resistance
-		}
-		remove_effect = {
-			clr_country_flag = YAN_clearing_resistance
-
-			1144 = {
-				add_resistance = -10
-			}
-
-			subtract_from_variable = {
-				var = YAN_insurgency_strength
-				value = 100
-			}
-
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_strength
-				value = 70
-			}
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_equipment
-				value = 10
-			}
-		}
-	}
-
-
-	YAN_reduce_resistance_1145 = {
-		icon = GFX_decision_generic_ignite_civil_war
-		visible = {
-			has_country_flag = YAN_insurgency_occured
-			1145 = {
-				resistance > 30 
-			}
-		}
-		allowed = {
-			tag = YAN
-		}
-		available = {
-			AND = {
-				check_variable = {
-					var = YAN_counter_insurgency_strength
-					value > 100
-					compare = greater_than
-				}
-				check_variable = {
-					var = YAN_counter_insurgency_equipment
-					value > 10
-					compare = greater_than
-				}
-				NOT = {
-					has_country_flag = YAN_clearing_resistance
-				}
-				OR = {
-					any_neighbor_state = {
-						AND = {
-							is_owned_by = YAN
-							is_demilitarized_zone = no
-						}
-					}
-				}
-
-			}
-		}
-
-
-		highlight_state_targets = {
-			state = 1145
-		}	
-
-		#target_trigger = {
-		#FROM = {
-				#state = 1145 #state = 1140 #state = 1142
-				#state = 1147 #state = 1153 #state = 1190 #state = 1154 #state = 1149 #state = 1149 #state = 1139 #state = 1141 #state = 1192
-				##TODO: All the other decisions of this.
-			#}
-		#}
-		on_map_mode = map_and_decisions_view
-		cost = 20 
-		custom_cost_trigger = {
-			command_power > 19
-		}
-		days_remove = 28
-		days_re_enable = 7 
-		highlight_color_while_active = 1
-		complete_effect = {
-			set_country_flag = YAN_clearing_resistance
-		}
-		remove_effect = {
-			clr_country_flag = YAN_clearing_resistance
-
-			1145 = {
-				add_resistance = -10
-			}
-
-			subtract_from_variable = {
-				var = YAN_insurgency_strength
-				value = 100
-			}
-
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_strength
-				value = 70
-			}
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_equipment
-				value = 10
-			}
-		}
-	}
-	YAN_reduce_resistance_1140 = {
-		icon = GFX_decision_generic_ignite_civil_war
-		visible = {
-			has_country_flag = YAN_insurgency_occured
-			1140 = {
-				resistance > 30 
-			}
-		}
-		allowed = {
-			tag = YAN
-		}
-		available = {
-			AND = {
-				check_variable = {
-					var = YAN_counter_insurgency_strength
-					value > 100
-					compare = greater_than
-				}
-				check_variable = {
-					var = YAN_counter_insurgency_equipment
-					value > 10
-					compare = greater_than
-				}
-				NOT = {
-					has_country_flag = YAN_clearing_resistance
-				}
-				OR = {
-					any_neighbor_state = {
-						AND = {
-							is_owned_by = YAN
-							is_demilitarized_zone = no
-						}
-					}
-				}
-
-			}
-		}
-
-
-		highlight_state_targets = {
-			state = 1140
-		}	
-
-		#target_trigger = {
-		#FROM = {
-				#state = 1140 #state = 1142
-				#state = 1147 #state = 1153 #state = 1190 #state = 1154 #state = 1149 #state = 1149 #state = 1139 #state = 1141 #state = 1192
-				##TODO: All the other decisions of this.
-			#}
-		#}
-		on_map_mode = map_and_decisions_view
-		cost = 20 
-		custom_cost_trigger = {
-			command_power > 19
-		}
-		days_remove = 28
-		days_re_enable = 7 
-		highlight_color_while_active = 1
-		complete_effect = {
-			set_country_flag = YAN_clearing_resistance
-		}
-		remove_effect = {
-			clr_country_flag = YAN_clearing_resistance
-
-			1140 = {
-				add_resistance = -10
-			}
-
-			subtract_from_variable = {
-				var = YAN_insurgency_strength
-				value = 100
-			}
-
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_strength
-				value = 70
-			}
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_equipment
-				value = 10
-			}
-		}
-	}
-
-	YAN_reduce_resistance_1142 = {
-		icon = GFX_decision_generic_ignite_civil_war
-		visible = {
-			has_country_flag = YAN_insurgency_occured
-			1142 = {
-				resistance > 30 
-			}
-		}
-		allowed = {
-			tag = YAN
-		}
-		available = {
-			AND = {
-				check_variable = {
-					var = YAN_counter_insurgency_strength
-					value > 100
-					compare = greater_than
-				}
-				check_variable = {
-					var = YAN_counter_insurgency_equipment
-					value > 10
-					compare = greater_than
-				}
-				NOT = {
-					has_country_flag = YAN_clearing_resistance
-				}
-				OR = {
-					any_neighbor_state = {
-						AND = {
-							is_owned_by = YAN
-							is_demilitarized_zone = no
-						}
-					}
-				}
-
-			}
-		}
-
-
-		highlight_state_targets = {
-			state = 1142
-		}	
-
-		#target_trigger = {
-		#FROM = {
-				#state = 1142
-				#state = 1147 #state = 1153 #state = 1190 #state = 1154 #state = 1149 #state = 1149 #state = 1139 #state = 1141 #state = 1192
-				##TODO: All the other decisions of this.
-			#}
-		#}
-		on_map_mode = map_and_decisions_view
-		cost = 20 
-		custom_cost_trigger = {
-			command_power > 19
-		}
-		days_remove = 28
-		days_re_enable = 7 
-		highlight_color_while_active = 1
-		complete_effect = {
-			set_country_flag = YAN_clearing_resistance
-		}
-		remove_effect = {
-			clr_country_flag = YAN_clearing_resistance
-
-			1142 = {
-				add_resistance = -10
-			}
-
-			subtract_from_variable = {
-				var = YAN_insurgency_strength
-				value = 100
-			}
-
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_strength
-				value = 70
-			}
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_equipment
-				value = 10
-			}
-		}
-	}
-
-
-	YAN_reduce_resistance_1147 = {
-		icon = GFX_decision_generic_ignite_civil_war
-		visible = {
-			has_country_flag = YAN_insurgency_occured
-			1147 = {
-				resistance > 30 
-			}
-		}
-		allowed = {
-			tag = YAN
-		}
-		available = {
-			AND = {
-				check_variable = {
-					var = YAN_counter_insurgency_strength
-					value > 100
-					compare = greater_than
-				}
-				check_variable = {
-					var = YAN_counter_insurgency_equipment
-					value > 10
-					compare = greater_than
-				}
-				NOT = {
-					has_country_flag = YAN_clearing_resistance
-				}
-				OR = {
-					any_neighbor_state = {
-						AND = {
-							is_owned_by = YAN
-							is_demilitarized_zone = no
-						}
-					}
-				}
-
-			}
-		}
-
-
-		highlight_state_targets = {
-			state = 1147
-		}	
-
-		#target_trigger = {
-		#FROM = {
-				#state = 1147 #state = 1153 #state = 1190 #state = 1154 #state = 1149 #state = 1149 #state = 1139 #state = 1141 #state = 1192
-				##TODO: All the other decisions of this.
-			#}
-		#}
-		on_map_mode = map_and_decisions_view
-		cost = 20 
-		custom_cost_trigger = {
-			command_power > 19
-		}
-		days_remove = 28
-		days_re_enable = 7 
-		highlight_color_while_active = 1
-		complete_effect = {
-			set_country_flag = YAN_clearing_resistance
-		}
-		remove_effect = {
-			clr_country_flag = YAN_clearing_resistance
-
-			1147 = {
-				add_resistance = -10
-			}
-
-			subtract_from_variable = {
-				var = YAN_insurgency_strength
-				value = 100
-			}
-
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_strength
-				value = 70
-			}
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_equipment
-				value = 10
-			}
-		}
-	}
-
-	YAN_reduce_resistance_1153 = {
-		icon = GFX_decision_generic_ignite_civil_war
-		visible = {
-			has_country_flag = YAN_insurgency_occured
-			1153 = {
-				resistance > 30 
-			}
-		}
-		allowed = {
-			tag = YAN
-		}
-		available = {
-			AND = {
-				check_variable = {
-					var = YAN_counter_insurgency_strength
-					value > 100
-					compare = greater_than
-				}
-				check_variable = {
-					var = YAN_counter_insurgency_equipment
-					value > 10
-					compare = greater_than
-				}
-				NOT = {
-					has_country_flag = YAN_clearing_resistance
-				}
-				OR = {
-					any_neighbor_state = {
-						AND = {
-							is_owned_by = YAN
-							is_demilitarized_zone = no
-						}
-					}
-				}
-
-			}
-		}
-
-
-		highlight_state_targets = {
-			state = 1153
-		}	
-
-		#target_trigger = {
-		#FROM = {
-				#state = 1153 #state = 1190 #state = 1154 #state = 1149 #state = 1149 #state = 1139 #state = 1141 #state = 1192
-				##TODO: All the other decisions of this.
-			#}
-		#}
-		on_map_mode = map_and_decisions_view
-		cost = 20 
-		custom_cost_trigger = {
-			command_power > 19
-		}
-		days_remove = 28
-		days_re_enable = 7 
-		highlight_color_while_active = 1
-		complete_effect = {
-			set_country_flag = YAN_clearing_resistance
-		}
-		remove_effect = {
-			clr_country_flag = YAN_clearing_resistance
-
-			1153 = {
-				add_resistance = -10
-			}
-
-			subtract_from_variable = {
-				var = YAN_insurgency_strength
-				value = 100
-			}
-
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_strength
-				value = 70
-			}
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_equipment
-				value = 10
-			}
-		}
-	}
-
-	YAN_reduce_resistance_1190 = {
-		icon = GFX_decision_generic_ignite_civil_war
-		visible = {
-			has_country_flag = YAN_insurgency_occured
-			1190 = {
-				resistance > 30 
-			}
-		}
-		allowed = {
-			tag = YAN
-		}
-		available = {
-			AND = {
-				check_variable = {
-					var = YAN_counter_insurgency_strength
-					value > 100
-					compare = greater_than
-				}
-				check_variable = {
-					var = YAN_counter_insurgency_equipment
-					value > 10
-					compare = greater_than
-				}
-				NOT = {
-					has_country_flag = YAN_clearing_resistance
-				}
-				OR = {
-					any_neighbor_state = {
-						AND = {
-							is_owned_by = YAN
-							is_demilitarized_zone = no
-						}
-					}
-				}
-
-			}
-		}
-
-
-		highlight_state_targets = {
-			state = 1190
-		}	
-
-		#target_trigger = {
-		#FROM = {
-				#state = 1190 #state = 1154 #state = 1149 #state = 1149 #state = 1139 #state = 1141 #state = 1192
-				##TODO: All the other decisions of this.
-			#}
-		#}
-		on_map_mode = map_and_decisions_view
-		cost = 20 
-		custom_cost_trigger = {
-			command_power > 19
-		}
-		days_remove = 28
-		days_re_enable = 7 
-		highlight_color_while_active = 1
-		complete_effect = {
-			set_country_flag = YAN_clearing_resistance
-		}
-		remove_effect = {
-			clr_country_flag = YAN_clearing_resistance
-
-			1190 = {
-				add_resistance = -10
-			}
-
-			subtract_from_variable = {
-				var = YAN_insurgency_strength
-				value = 100
-			}
-
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_strength
-				value = 70
-			}
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_equipment
-				value = 10
-			}
-		}
-	}
-
-	YAN_reduce_resistance_1154 = {
-		icon = GFX_decision_generic_ignite_civil_war
-		visible = {
-			has_country_flag = YAN_insurgency_occured
-			1154 = {
-				resistance > 30 
-			}
-		}
-		allowed = {
-			tag = YAN
-		}
-		available = {
-			AND = {
-				check_variable = {
-					var = YAN_counter_insurgency_strength
-					value > 100
-					compare = greater_than
-				}
-				check_variable = {
-					var = YAN_counter_insurgency_equipment
-					value > 10
-					compare = greater_than
-				}
-				NOT = {
-					has_country_flag = YAN_clearing_resistance
-				}
-			}
-		}
-
-
-		highlight_state_targets = {
-			state = 1154
-		}	
-
-		#target_trigger = {
-		#FROM = {
-				#state = 1154 #state = 1149 #state = 1149 #state = 1139 #state = 1141 #state = 1192
-				##TODO: All the other decisions of this.
-			#}
-		#}
-		on_map_mode = map_and_decisions_view
-		cost = 20 
-		custom_cost_trigger = {
-			command_power > 19
-		}
-		days_remove = 28
-		days_re_enable = 7 
-		highlight_color_while_active = 1
-		complete_effect = {
-			set_country_flag = YAN_clearing_resistance
-		}
-		remove_effect = {
-			clr_country_flag = YAN_clearing_resistance
-
-			1154 = {
-				add_resistance = -10
-			}
-
-			subtract_from_variable = {
-				var = YAN_insurgency_strength
-				value = 100
-			}
-
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_strength
-				value = 70
-			}
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_equipment
-				value = 10
-			}
-		}
-	}
-
-	YAN_reduce_resistance_1149 = {
-		icon = GFX_decision_generic_ignite_civil_war
-		visible = {
-			has_country_flag = YAN_insurgency_occured
-			1149 = {
-				resistance > 30 
-			}
-		}
-		allowed = {
-			tag = YAN
-		}
-		available = {
-			AND = {
-				check_variable = {
-					var = YAN_counter_insurgency_strength
-					value > 100
-					compare = greater_than
-				}
-				check_variable = {
-					var = YAN_counter_insurgency_equipment
-					value > 10
-					compare = greater_than
-				}
-				NOT = {
-					has_country_flag = YAN_clearing_resistance
-				}
-			}
-		}
-
-
-		highlight_state_targets = {
-			state = 1149
-		}	
-
-		#target_trigger = {
-		#FROM = {
-				#state = 1149 #state = 1149 #state = 1139 #state = 1141 #state = 1192
-				##TODO: All the other decisions of this.
-			#}
-		#}
-		on_map_mode = map_and_decisions_view
-		cost = 20 
-		custom_cost_trigger = {
-			command_power > 19
-		}
-		days_remove = 28
-		days_re_enable = 7 
-		highlight_color_while_active = 1
-		complete_effect = {
-			set_country_flag = YAN_clearing_resistance
-		}
-		remove_effect = {
-			clr_country_flag = YAN_clearing_resistance
-
-			1149 = {
-				add_resistance = -10
-			}
-
-			subtract_from_variable = {
-				var = YAN_insurgency_strength
-				value = 100
-			}
-
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_strength
-				value = 70
-			}
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_equipment
-				value = 10
-			}
-		}
-	}
-
-	YAN_reduce_resistance_1139 = {
-		icon = GFX_decision_generic_ignite_civil_war
-		visible = {
-			has_country_flag = YAN_insurgency_occured
-			1139 = {
-				resistance > 30 
-			}
-		}
-		allowed = {
-			tag = YAN
-		}
-		available = {
-			AND = {
-				check_variable = {
-					var = YAN_counter_insurgency_strength
-					value > 100
-					compare = greater_than
-				}
-				check_variable = {
-					var = YAN_counter_insurgency_equipment
-					value > 10
-					compare = greater_than
-				}
-				NOT = {
-					has_country_flag = YAN_clearing_resistance
-				}
-				OR = {
-					any_neighbor_state = {
-						AND = {
-							is_owned_by = YAN
-							is_demilitarized_zone = no
-						}
-					}
-				}
-
-			}
-		}
-
-
-		highlight_state_targets = {
-			state = 1139
-		}	
-
-		#target_trigger = {
-		#FROM = {
-				#state = 1139 #state = 1141 #state = 1192
-				##TODO: All the other decisions of this.
-			#}
-		#}
-		on_map_mode = map_and_decisions_view
-		cost = 20 
-		custom_cost_trigger = {
-			command_power > 19
-		}
-		days_remove = 28
-		days_re_enable = 7 
-		highlight_color_while_active = 1
-		complete_effect = {
-			set_country_flag = YAN_clearing_resistance
-		}
-		remove_effect = {
-			clr_country_flag = YAN_clearing_resistance
-
-			1139 = {
-				add_resistance = -10
-			}
-
-			subtract_from_variable = {
-				var = YAN_insurgency_strength
-				value = 100
-			}
-
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_strength
-				value = 70
-			}
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_equipment
-				value = 10
-			}
-		}
-	}
-
-	YAN_reduce_resistance_1141 = {
-		icon = GFX_decision_generic_ignite_civil_war
-		visible = {
-			has_country_flag = YAN_insurgency_occured
-			1141 = {
-				resistance > 30 
-			}
-		}
-		allowed = {
-			tag = YAN
-		}
-		available = {
-			AND = {
-				check_variable = {
-					var = YAN_counter_insurgency_strength
-					value > 100
-					compare = greater_than
-				}
-				check_variable = {
-					var = YAN_counter_insurgency_equipment
-					value > 10
-					compare = greater_than
-				}
-				NOT = {
-					has_country_flag = YAN_clearing_resistance
-				}
-
-
-			}
-		}
-
-
-		highlight_state_targets = {
-			state = 1141
-		}	
-
-		#target_trigger = {
-		#FROM = {
-				#state = 1141 #state = 1192
-				##TODO: All the other decisions of this.
-			#}
-		#}
-		on_map_mode = map_and_decisions_view
-		cost = 20 
-		custom_cost_trigger = {
-			command_power > 19
-		}
-		days_remove = 28
-		days_re_enable = 7 
-		highlight_color_while_active = 1
-		complete_effect = {
-			set_country_flag = YAN_clearing_resistance
-		}
-		remove_effect = {
-			clr_country_flag = YAN_clearing_resistance
-
-			1141 = {
-				add_resistance = -10
-			}
-
-			subtract_from_variable = {
-				var = YAN_insurgency_strength
-				value = 100
-			}
-
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_strength
-				value = 70
-			}
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_equipment
-				value = 10
-			}
-		}
-	}
-
-	YAN_reduce_resistance_1192 = {
-		icon = GFX_decision_generic_ignite_civil_war
-		visible = {
-			has_country_flag = YAN_insurgency_occured
-			1192 = {
-				resistance > 30 
-			}
-		}
-		allowed = {
-			tag = YAN
-		}
-		available = {
-			AND = {
-				check_variable = {
-					var = YAN_counter_insurgency_strength
-					value > 100
-					compare = greater_than
-				}
-				check_variable = {
-					var = YAN_counter_insurgency_equipment
-					value > 10
-					compare = greater_than
-				}
-				NOT = {
-					has_country_flag = YAN_clearing_resistance
-				}
-			}
-		}
-
-
-		highlight_state_targets = {
-			state = 1192
-		}	
-
-		#target_trigger = {
-		#FROM = {
-				#state = 1192
-				##TODO: All the other decisions of this.
-			#}
-		#}
-		on_map_mode = map_and_decisions_view
-		cost = 20 
-		custom_cost_trigger = {
-			command_power > 19
-		}
-		days_remove = 28
-		days_re_enable = 7 
-		highlight_color_while_active = 1
-		complete_effect = {
-			set_country_flag = YAN_clearing_resistance
-		}
-		remove_effect = {
-			clr_country_flag = YAN_clearing_resistance
-
-			1192 = {
-				add_resistance = -10
-			}
-
-			subtract_from_variable = {
-				var = YAN_insurgency_strength
-				value = 100
-			}
-
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_strength
-				value = 70
-			}
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_equipment
-				value = 10
-			}
-		}
-	}
-
-	###TODO: FIGURE OUT HOW TO FIX THIS
 	YAN_propaganda_campaign = {
 		icon = GFX_decision_eng_propaganda_campaigns
+		#Player gets compliance in states. 
 
 		state_target = yes
 		
@@ -4323,6 +2939,8 @@ YAN_loterijen_chaos = {
 		days_re_enable = 14 
 
 		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: decision start YAN_propaganda_campaign"
+
 			FROM = {
 				set_state_flag = YAN_propaganda_ing
 
@@ -4330,6 +2948,7 @@ YAN_loterijen_chaos = {
 		}
 
 		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: decision remove YAN_propaganda_campaign"
 			FROM = {
 				add_compliance = 10
 				clr_state_flag =  YAN_propaganda_ing
@@ -4363,17 +2982,36 @@ YAN_loterijen_chaos = {
 
 	YAN_bomb_insurgency_targets = {
 		icon = GFX_decision_eng_propaganda_campaigns
+
+
+		allowed = {
+			tag = YAN
+		}
+
+		state_target = yes
+		
+		target_trigger = {
+			FROM = {
+				NOT = { is_core_of = ROOT }
+				OR = {
+					is_core_of = IST
+					is_core_of = DEL
+					is_core_of = IDO
+				}
+				is_demilitarized_zone = yes
+
+			}
+		}
+
 		visible = {
 			has_country_flag = YAN_insurgency_occured
 
-			any_owned_state = {
+			FROM = {
 				resistance > 50 
 			}
 			has_completed_focus = YAN_deploy_airforce
 		}
-		allowed = {
-			tag = YAN
-		}
+
 		available = {
 			check_variable = {
 				var = YAN_counter_insurgency_strength
@@ -4386,40 +3024,22 @@ YAN_loterijen_chaos = {
 				compare = greater_than
 			}
 		}
-		state_target = yes
-		target_trigger = {
-			FROM = {
-				state = 1189
-				state = 1191
-				state = 1143
-				state = 1152
-				state = 1150
-				state = 1146
-				state = 1144
-				state = 1145
-				state = 1140
-				state = 1142
-				state = 1147
-				state = 1153
-				state = 1190
-				state = 1154
-				state = 1149
-				state = 1149
-				state = 1139
-				state = 1141
-				state = 1192
 
-			}
-		}
+
+		
 		on_map_mode = map_and_decisions_view
 		cost = 50
 		days_remove = 7
-		days_re_enable = 14 
+		days_re_enable = 14
 
 		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: decision start YAN_bomb_insurgency_targets"
+
 
 		}
 		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: decision remove YAN_bomb_insurgency_targets"
+
 			FROM = {
 				add_resistance = -20 
 				add_compliance = -10
@@ -4435,18 +3055,36 @@ YAN_loterijen_chaos = {
 	YAN_root_out_resistance = {
 		#This decision serves to properly, "End a rebellion" in a given state. Ensuring that no resistance occurs here. 
 		icon = GFX_decision_infiltrate_state
+
+		state_target = yes
+		
+		target_trigger = {
+			FROM = {
+				NOT = { is_core_of = ROOT }
+				OR = {
+					is_core_of = IST
+					is_core_of = DEL
+					is_core_of = IDO
+				}
+				is_demilitarized_zone = no
+
+			}
+		}
+
 		visible = {
 			has_country_flag = YAN_insurgency_occured
 
-			any_owned_state = {
+			FROM = {
 				resistance > 10 
-				resistance < 30 
+				resistance < 50 
 			}
 
 		}
+
 		allowed = {
 			tag = YAN
 		}
+
 		available = {
 			check_variable = {
 				var = YAN_counter_insurgency_strength
@@ -4460,39 +3098,19 @@ YAN_loterijen_chaos = {
 			}
 		}
 
-		state_target = yes
-		target_trigger = {
-			FROM = {
-				state = 1189
-				state = 1191
-				state = 1143
-				state = 1152
-				state = 1150
-				state = 1146
-				state = 1144
-				state = 1145
-				state = 1140
-				state = 1142
-				state = 1147
-				state = 1153
-				state = 1190
-				state = 1154
-				state = 1149
-				state = 1149
-				state = 1139
-				state = 1141
-				state = 1192
 
-			}
-		}
 		on_map_mode = map_and_decisions_view
 		cost = 100
 		days_remove = 60
 		days_re_enable = 14 
 		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: decision start YAN_root_out_resistance"
+
 
 		}
 		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: decision start YAN_root_out_resistance"
+
 			FROM = {
 				cancel_resistance = yes 
 				set_resistance = 0
