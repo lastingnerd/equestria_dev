@@ -1,6 +1,7 @@
 add_namespace = Indozeeb
 add_namespace = YANintro
 add_namespace = YANinsurgency
+add_namespace = Thundertiger
 
 ##PLEASE REMEMBER THIS YOU FUCK
 #country_event = {
@@ -1717,7 +1718,47 @@ country_event = {
 	desc = Indozeeb.117.d
 	is_triggered_only = yes
 
+	trigger = {
+		OR = {
+			AND = {
+				DEL = {
+					exists = no
+				}
+				IST = {
+					exists = no
+				}
+				IDO = {
+					exists = no 
+				}
+				YAN = {
+					AND = {
+						controls_state = 1139
+						controls_state = 1149
+						controls_state = 1190 
+					}
+				}
+			}
+			AND = {
+				DEL = {
+					is_puppet = yes 
+					is_puppet_of = YAN
+				}
+				IST = {
+					is_puppet = yes 
+					is_puppet_of = YAN
+				}
+				IDO = {
+					is_puppet = yes 
+					is_puppet_of = YAN
+				}
+			}
+		}
+
+	}
+
 	immediate = { log = "[GetDateText]: [Root.GetName]: event Indozeeb.117" }
+
+	
 
 	option = {
 		name = Indozeeb.117.a
@@ -1815,7 +1856,7 @@ country_event = {
 				set_resistance = 30
 			}
 			1139 = {
-				set_resistance = 30
+				set_resistance = 100
 			}
 			1141 = {
 				set_resistance = 30

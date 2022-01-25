@@ -7580,8 +7580,10 @@ shared_focus = {
 	}
 }
 
+######SPLIT
 shared_focus = {
 	id = YAN_begin_negotiations
+	#icon = 
 	#Attempt to talk with the local leaders for peace
 	x = 15
 	y = 16
@@ -7603,13 +7605,14 @@ shared_focus = {
 }
 
 
-
+######SPLIT
 shared_focus = {
 	id = YAN_never_again
+	#icon = 
 	#"Never again will we let our chance get out of our claws! South East for us! Or no one's! "
 	x = 23
 	y = 16
-	cost = 5
+	cost = 2
 
 	prerequisite = {
 		focus = YAN_deploy_airforce
@@ -7625,3 +7628,257 @@ shared_focus = {
 		set_country_flag = YAN_never_again_flag 		
 	}
 }
+
+shared_focus = {
+	id = YAN_advanced_chemistry
+	#Get the Willy Pete! 
+	#icon = 
+	x = 21
+	y = 17
+	cost = 6
+
+	prerequisite = {
+		focus = YAN_never_again
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_advanced_chemistry"
+		custom_effect_tooltip = YAN_advanced_chemistry_tt
+		add_to_variable = {
+			var = YAN_counter_insurgency_strength
+			value = 200 
+		}
+	}
+}
+
+shared_focus = {
+	id = YAN_check_records
+	## Event where Government checks records of the previous evidence to find ways not to fail 
+	#icon = 
+	x = 23
+	y = 17
+	cost = 2
+
+	prerequisite = {
+		focus = YAN_never_again
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_check_records"
+		country_event = { id = Thundertiger.1 }
+		##TODO: This
+	}
+}
+
+shared_focus = {
+	id = YAN_investigate_pulalap_records
+	#icon = 
+	##Event whrre Government breaks in and tries to find any records on the Tiger
+	x = 24
+	y = 18 
+	cost = 3
+
+	prerequisite = {
+		focus = YAN_check_records
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_investigate_pulalap_records"
+		country_event = { id = Thundertiger.2 }
+	}
+}
+
+shared_focus = {
+	id = YAN_investigate_feathisian_accounts 
+	#icon = 
+	##Event where Loterijen receives a report from the archives about the failed Expedition of 902 why they shouldn't go into the South East
+	x = 22 
+	y = 18
+	cost = 3
+
+	prerequisite = {
+		focus = YAN_check_records
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_investigate_feathisian_accounts"
+		country_event = { id = Thundertiger.3 }
+	}
+}
+
+shared_focus = {
+	id = YAN_ascertain_the_truth
+	#icon = 
+	##Event where the Colonial Government can ascertain if its true that the Thunder Tiger exists from the locals
+	x = 22 
+	y = 19
+	cost = 3
+
+	prerequisite = {
+		focus = YAN_investigate_feathisian_accounts
+	}
+
+	available = {
+		OR = {
+			1144 = {
+				is_demilitarized_zone = no
+			}
+			1145 = {
+				is_demilitarized_zone = no
+			}
+			1140 = {
+				is_demilitarized_zone = no
+			}
+		}
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_ascertain_the_truth"
+		country_event = { id = Thundertiger.4 }
+	}
+}
+
+shared_focus = {
+	id = YAN_interrogate_pulalap_preists
+	#icon = 
+	##Event where Government arrests some preists to ask what the fuck is the Thunder TIger and why is it there
+	x = 24
+	y = 19
+	cost = 3
+
+	prerequisite = {
+		focus = YAN_investigate_pulalap_records
+	}
+
+	available = {
+		has_political_power > 50 
+		1144 = {
+			is_demilitarized_zone = no
+		}
+		1145 = {
+			is_demilitarized_zone = no
+		}
+		1140 = {
+			is_demilitarized_zone = no
+		}
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_investigate_pulalap_preists"
+		country_event = { id = Thundertiger.5 }
+	}
+	
+}
+
+shared_focus = {
+	id = YAN_secure_the_golden_city
+	#icon =
+	x = 23
+	y = 20
+	cost = 5
+
+	prerequisite = {
+		focus = YAN_interrogate_pulalap_preists
+	}
+	prerequisite = {
+		focus = YAN_ascertain_the_truth
+	}
+
+
+	available = {
+		1144 = {
+			AND = {
+				is_demilitarized_zone = no
+				divisions_in_state > 2
+			}
+		}
+		1145 = {
+			AND = {
+				is_demilitarized_zone = no
+				divisions_in_state > 2
+			}		}
+		1140 = {
+			AND = {
+				is_demilitarized_zone = no
+				divisions_in_state > 2
+			}	
+		}
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_secure_the_golden_city"
+		add_political_power = 50 
+		1144 = {
+			add_resistance = -10
+		}
+		1145 = {
+			add_resistance = -10
+		}
+		1140 = {
+			add_resistance = -10
+		}
+	}
+}
+
+shared_focus = {
+	id = YAN_the_golden_zone
+	#icon = 
+	#Event where the Colonial forces retreat from the Golden City. Preventing the Thunder Tiger from appearing 
+	x = 23
+	y = 21
+	cost  5
+
+	prerequisite = {
+		focus = YAN_secure_the_golden_city
+	}
+
+	available = {
+		1144 = {
+			is_demilitarized_zone = no
+		}
+		1145 = {
+			is_demilitarized_zone = no
+		}
+		1140 = {
+			is_demilitarized_zone = no
+		}
+	}
+
+	
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_the_golden_zone"
+		country_event = { id = Thundertiger.6 }
+		1139 = {
+			set_resistance = 0
+			set_compliance = 60 
+			set_demilitarized_zone = yes
+		}
+		add_stability = 0.05 
+
+	}
+}
+
+
+
+shared_focus = {
+	id = YAN_control_populace
+	## where the Government tries to convince everyone. It's not that bad! 
+	#icon = 
+	x = 25
+	y = 17 
+	cost = 6
+
+	prerequisite = {
+		focus = YAN_never_again
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_control_populace"
+		swap_ideas = {
+			remove_idea = YAN_the_insurgency2
+			add_idea = YAN_the_insurgency3
+		}
+	}
+}
+

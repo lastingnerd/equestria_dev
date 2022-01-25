@@ -2667,6 +2667,9 @@ YAN_loterijen_chaos = {
 					random_owned_controlled_state = {
 						limit = {
 							resistance > 40 
+							is_core_of = IST
+							is_core_of = DEL
+							is_core_of = IDO
 						}
 
 						add_resistance = 15 
@@ -2681,6 +2684,9 @@ YAN_loterijen_chaos = {
 					random_owned_controlled_state = {
 						limit = {
 							resistance > 40 
+							is_core_of = IST
+							is_core_of = DEL
+							is_core_of = IDO
 						}
 
 						add_compliance = -15
@@ -2713,6 +2719,9 @@ YAN_loterijen_chaos = {
 								resistance > 20
 								resistance < 40 
 							}
+							is_core_of = IST
+							is_core_of = DEL
+							is_core_of = IDO
 						}
 
 						add_resistance = 10 
@@ -2734,6 +2743,9 @@ YAN_loterijen_chaos = {
 					random_owned_controlled_state = {
 						limit = {
 							resistance > 30 
+							is_core_of = IST
+							is_core_of = DEL
+							is_core_of = IDO
 						}
 
 						damage_building = {
@@ -2846,23 +2858,42 @@ YAN_loterijen_chaos = {
 
 			FROM = {
 				set_state_flag = YAN_being_attacked
-
 			}
 		}
 
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: decision remove YAN_attack_resistance"
-			FROM = {
-				add_resistance = -10
-				clr_state_flag =  YAN_being_attacked
+			if = {
+				limit = {
+					has_completed_focus = YAN_advanced_chemistry
+				}
+				FROM = {
+					add_resistance = -15
+					add_compliance = -5
+					clr_state_flag =  YAN_being_attacked
+				}
+				subtract_from_variable = {
+					var = YAN_counter_insurgency_strength
+					value = 65
+				}
+				subtract_from_variable = {
+					var = YAN_insurgency_strength
+					value = 120
+				}
 			}
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_strength
-				value = 50
-			}
-			subtract_from_variable = {
-				var = YAN_insurgency_strength
-				value = 100
+			else = {
+				FROM = {
+					add_resistance = -10
+					clr_state_flag =  YAN_being_attacked
+				}
+				subtract_from_variable = {
+					var = YAN_counter_insurgency_strength
+					value = 50
+				}
+				subtract_from_variable = {
+					var = YAN_insurgency_strength
+					value = 100
+				}
 			}
 			random_list = {
 				90 = {
@@ -3095,6 +3126,9 @@ YAN_loterijen_chaos = {
 				var = YAN_counter_insurgency_equipment
 				value > 20
 				compare = greater_than
+			}
+			FROM = {
+				divisions_in_state > 2
 			}
 		}
 
