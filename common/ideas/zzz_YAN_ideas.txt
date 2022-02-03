@@ -2056,6 +2056,23 @@ ideas = {
 			}
 		}
 
+		YAN_crackdown_harder_idea = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			#picture = 
+			modifier = {
+				political_power_gain = -0.50
+				stability_weekly = -0.25
+				resistance_growth_on_our_occupied_states = -0.15
+				resistance_damage_to_garrison_on_our_occupied_states = -0.20
+				
+			}
+		}
+
 		#####ANCHOR LOTERIJEN INSURGENCY 
 		YAN_the_insurgency = {
 			allowed = {

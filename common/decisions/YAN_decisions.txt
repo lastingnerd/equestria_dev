@@ -2772,6 +2772,32 @@ YAN_loterijen_chaos = {
 		}
 	}
 
+	YAN_insurgency_countdown = {
+		#Decision that simulates insurgency doing stuff
+		icon = GFX_decision_rifles
+		visible = {
+			has_country_flag = YAN_insurgency_occured
+		}
+		activation = {
+			has_country_flag = YAN_insurgency_occured
+		}
+		available = {
+			always = no
+		}
+		allowed = {
+			tag = YAN
+		}
+		days_mission_timeout = 365
+		selectable_mission = yes
+		is_good = no
+		days_remove = 0
+		fixed_random_seed = no
+		timeout_effect = {
+			set_country_flag = YAN_failed_counter_insurgency
+			custom_effect_tooltip = YAN_failed_counter_insurgency_tt
+		}	
+	}
+
 	YAN_recruit_garrisons = {
 		##Player recruits more troops
 		icon = GFX_decision_generic_industry
@@ -2782,7 +2808,7 @@ YAN_loterijen_chaos = {
 			tag = YAN
 		}
 		available = {
-			has_manpower > 3000
+			has_manpower > 1999
 		}
 		cost = 50 
 		days_remove = 30
@@ -2791,7 +2817,7 @@ YAN_loterijen_chaos = {
 			log = "[GetDateText]: [Root.GetName]: decision YAN_recruit_garrisons"
 			add_to_variable = {
 				value = YAN_counter_insurgency_strength
-				value = 300
+				value = 200
 			}
 			add_manpower = -2000
 		}
@@ -2845,9 +2871,12 @@ YAN_loterijen_chaos = {
 		}
 
 
-		on_map_mode = map_and_decisions_view
+		on_map_mode = map_only
 
-		cost = 20
+		custom_cost_trigger = {
+			has_political_power > 9
+			check_variable = { YAN_counter_insurgency_strength > 30 }
+		}
 
 		days_remove = 30
 
@@ -2867,6 +2896,7 @@ YAN_loterijen_chaos = {
 				limit = {
 					has_completed_focus = YAN_advanced_chemistry
 				}
+				add_political_power = -10
 				FROM = {
 					add_resistance = -15
 					add_compliance = -5
@@ -2874,7 +2904,7 @@ YAN_loterijen_chaos = {
 				}
 				subtract_from_variable = {
 					var = YAN_counter_insurgency_strength
-					value = 65
+					value = 30
 				}
 				subtract_from_variable = {
 					var = YAN_insurgency_strength
@@ -2886,31 +2916,58 @@ YAN_loterijen_chaos = {
 					add_resistance = -10
 					clr_state_flag =  YAN_being_attacked
 				}
+				add_political_power = -10 
 				subtract_from_variable = {
 					var = YAN_counter_insurgency_strength
-					value = 50
+					value = 30
 				}
 				subtract_from_variable = {
 					var = YAN_insurgency_strength
 					value = 100
 				}
 			}
-			random_list = {
-				90 = {
-					subtract_from_variable = {
-						var = YAN_counter_insurgency_equipment
-						value = 10
-					}
+			if = {
+				YAN = {
+					has_completed_focus  = YAN_logistics_control
 				}
-				10 = {
-					90 = {
+
+				random_list = {
+					70 = {
+						subtract_from_variable = {
+							var = YAN_counter_insurgency_equipment
+							value = 10
+						}
+					}
+					30 = {
+			
 						subtract_from_variable = {
 							var = YAN_counter_insurgency_equipment
 							value = 20
 						}
+						
+					}
+				}
+
+			}
+			else = {
+				random_list = {
+					50 = {
+						subtract_from_variable = {
+							var = YAN_counter_insurgency_equipment
+							value = 10
+						}
+					}
+					50 = {
+			
+						subtract_from_variable = {
+							var = YAN_counter_insurgency_equipment
+							value = 20
+						}
+						
 					}
 				}
 			}
+
 		}
 	}
 
@@ -2961,9 +3018,13 @@ YAN_loterijen_chaos = {
 		}
 
 
-		on_map_mode = map_and_decisions_view
+		on_map_mode = map_only
 
-		cost = 30
+		custom_cost_trigger = {
+			has_political_power > 29
+			check_variable = { YAN_counter_insurgency_strength > 19 }
+			check_variable = { YAN_counter_insurgency_strength_equipment > 9 }
+		}
 
 		days_remove = 24
 
@@ -2984,30 +3045,36 @@ YAN_loterijen_chaos = {
 				add_compliance = 10
 				clr_state_flag =  YAN_propaganda_ing
 			}
+
+			add_political_power = -30
+
 			subtract_from_variable = {
 				var = YAN_counter_insurgency_strength
-				value = 50
+				value = 20
 			}
 			subtract_from_variable = {
 				var = YAN_insurgency_strength
 				value = 100
 			}
-			random_list = {
-				90 = {
-					subtract_from_variable = {
-						var = YAN_counter_insurgency_equipment
-						value = 10
-					}
+	
+				
+			if = {
+				YAN = {
+					has_completed_focus = YAN_logistics_control
 				}
-				10 = {
-					90 = {
-						subtract_from_variable = {
-							var = YAN_counter_insurgency_equipment
-							value = 20
-						}
-					}
+				subtract_from_variable = {
+					var = YAN_counter_insurgency_equipment
+					value = 5
 				}
 			}
+			else = {
+				subtract_from_variable = {
+					var = YAN_counter_insurgency_equipment
+					value = 10
+				}
+			}
+
+			
 		}
 	}
 
@@ -3056,12 +3123,16 @@ YAN_loterijen_chaos = {
 			}
 		}
 
-
+		custom_cost_trigger = {
+			has_political_power > 14
+			check_variable = { YAN_counter_insurgency_strength > 10 }
+			check_variable = { YAN_counter_insurgency_strength_equipment > 5 }
+		}
+		custom_cost_text = YAN_bomb_insurgency_targets_cost_tt
 		
-		on_map_mode = map_and_decisions_view
-		cost = 50
+		on_map_mode = map_only
 		days_remove = 7
-		days_re_enable = 14
+		days_re_enable = 21
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: decision start YAN_bomb_insurgency_targets"
@@ -3070,15 +3141,56 @@ YAN_loterijen_chaos = {
 		}
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: decision remove YAN_bomb_insurgency_targets"
+			if = {
+				NOT = {
+					has_completed_focus = YAN_naplam
+				}
 
-			FROM = {
-				add_resistance = -20 
-				add_compliance = -10
+				add_political_power = -15
+
+				FROM = {
+					add_resistance = -20 
+					add_compliance = -10
+				}
+	
+				subtract_from_variable = {
+					var = YAN_insurgency_strength
+					value = 100
+				}
 			}
+			else = {
 
-			subtract_from_variable = {
-				var = YAN_insurgency_strength
-				value = 100
+				add_political_power = -15 
+				FROM = {
+					add_resistance = -20 
+					add_compliance = -15
+				}
+	
+				subtract_from_variable = {
+					var = YAN_insurgency_strength
+					value = 110
+				}
+
+				subtract_from_variable = {
+					var = YAN_counter_insurgency_strength
+					value = 10
+				}
+
+				if = {
+					YAN = {
+						has_completed_focus = YAN_logistics_control
+					}
+					subtract_from_variable = {
+						var = YAN_counter_insurgency_equipment
+						value = 0
+					}
+				}
+				else = {
+					subtract_from_variable = {
+						var = YAN_counter_insurgency_equipment
+						value = 5
+					}
+				}
 			}
 		}
 	}
@@ -3133,8 +3245,14 @@ YAN_loterijen_chaos = {
 		}
 
 
-		on_map_mode = map_and_decisions_view
-		cost = 100
+		on_map_mode = map_only
+
+		custom_cost_trigger = {
+			has_political_power > 79
+			check_variable = { YAN_counter_insurgency_strength > 40 }
+			check_variable = { YAN_counter_insurgency_strength_equipment > 15 }
+		}
+		custom_cost_text = YAN_bomb_insurgency_targets_cost_tt
 		days_remove = 60
 		days_re_enable = 14 
 		complete_effect = {
@@ -3151,6 +3269,8 @@ YAN_loterijen_chaos = {
 				add_compliance = 15 
 			}
 
+			add_political_power = -80
+
 			subtract_from_variable = {
 				var = YAN_insurgency_strength
 				value = 150
@@ -3158,11 +3278,22 @@ YAN_loterijen_chaos = {
 
 			subtract_from_variable = {
 				var = YAN_counter_insurgency_strength
-				value = 100
+				value = 40
 			}
-			subtract_from_variable = {
-				var = YAN_counter_insurgency_equipment
-				value = 15
+			if = {
+				YAN = {
+					has_completed_focus = YAN_logistics_control
+				}
+				subtract_from_variable = {
+					var = YAN_counter_insurgency_equipment
+					value = 10
+				}
+			}
+			else = {
+				subtract_from_variable = {
+					var = YAN_counter_insurgency_equipment
+					value = 15
+				}
 			}
 
 		}
@@ -3172,7 +3303,7 @@ YAN_loterijen_chaos = {
 YAN_local_markets_decision_category = {
 	##NOTES OF GENERAL IDEA: 
 	#Essentially building up economic ties and relations to gloss over the warcrimes of the previous administrations 
-
+	##TODO: This shit. 
 	YAN_IDO_open_market_talks = {
 		visible = {
 			has_completed_focus = YAN_local_markets
