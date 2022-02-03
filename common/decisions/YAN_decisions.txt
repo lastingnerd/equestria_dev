@@ -2584,13 +2584,15 @@ YAN_semua_economy_category = {
 
 		available = {
 			NOT = {
-				has_idea = YAN_print_money
+				YAN = {
+					has_idea = YAN_print_money
+
+				}
 			}
 		}
 		
 
 		days_mission_timeout = 400
-		cost = 10
 
 		activation = {
 			has_completed_focus = YAN_saving_economy
@@ -2598,6 +2600,10 @@ YAN_semua_economy_category = {
 		allowed = {
 			tag = YAN
 		}
+		cost = 10 
+
+		selectable_mission = yes 
+
 
 		fire_only_once = yes
 		fixed_random_seed = no
@@ -2927,8 +2933,10 @@ YAN_loterijen_chaos = {
 				}
 			}
 			if = {
-				YAN = {
-					has_completed_focus  = YAN_logistics_control
+				limit = {
+					YAN = {
+						has_completed_focus  = YAN_logistics_control
+					}
 				}
 
 				random_list = {
@@ -3059,8 +3067,10 @@ YAN_loterijen_chaos = {
 	
 				
 			if = {
-				YAN = {
-					has_completed_focus = YAN_logistics_control
+				limit = {
+					YAN = {
+						has_completed_focus = YAN_logistics_control
+					}
 				}
 				subtract_from_variable = {
 					var = YAN_counter_insurgency_equipment
@@ -3142,8 +3152,10 @@ YAN_loterijen_chaos = {
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: decision remove YAN_bomb_insurgency_targets"
 			if = {
-				NOT = {
-					has_completed_focus = YAN_naplam
+				limit = {
+					NOT = {
+						has_completed_focus = YAN_naplam
+					}
 				}
 
 				add_political_power = -15
@@ -3177,8 +3189,10 @@ YAN_loterijen_chaos = {
 				}
 
 				if = {
-					YAN = {
-						has_completed_focus = YAN_logistics_control
+					limit = {
+						YAN = {
+							has_completed_focus = YAN_logistics_control
+						}
 					}
 					subtract_from_variable = {
 						var = YAN_counter_insurgency_equipment
@@ -3253,12 +3267,11 @@ YAN_loterijen_chaos = {
 			check_variable = { YAN_counter_insurgency_strength_equipment > 15 }
 		}
 		custom_cost_text = YAN_bomb_insurgency_targets_cost_tt
+
 		days_remove = 60
 		days_re_enable = 14 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: decision start YAN_root_out_resistance"
-
-
 		}
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: decision start YAN_root_out_resistance"
