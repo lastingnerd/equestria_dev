@@ -2073,6 +2073,153 @@ country_event = {
 
 
 
+############################################
+###Thunder Tiger
+
+country_event = {
+	id = Thundertiger.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event Thundertiger.1" }
+	title = Thundertiger.1.t
+	desc = Thundertiger.1.d
+	#picture
+	is_triggered_only = yes 
+	option = {
+		##Event where report comes in of mysertious stuff happening about the Golden Zone. Leading to the Government needing to investigate about it. 
+		name = Thundertiger.1.a
+		add_manpower = -23
+	}
+}
+
+country_event = {
+	id = Thundertiger.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event Thundertiger.2" }
+	title = Thundertiger.2.t
+	desc = Thundertiger.2.d
+	#picture
+	is_triggered_only = yes 
+	option = {
+		##Event where they investigate what the Pulalpans say about it. 
+		##Should be describing what it does
+		name = Thundertiger.2.a
+	}
+}
+
+country_event = {
+	id = Thundertiger.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event Thundertiger.3" }
+	title = Thundertiger.3.t
+	desc = Thundertiger.3.d
+	#picture
+	is_triggered_only = yes 
+	option = {
+		##What the Feathisians say about the Thunder Tiger
+		##Should be describing how dangerous it is
+		name = Thundertiger.4.a
+	}
+}
+
+country_event = {
+	id = Thundertiger.4
+	immediate = { log = "[GetDateText]: [Root.GetName]: event Thundertiger.4" }
+	title = Thundertiger.4.t
+	desc = Thundertiger.4.d
+	#picture
+	is_triggered_only = yes 
+	option = {
+		##Should show wherter or not the locals believe the Thunder Tiger exists
+		##Should be vague
+		name = Thundertiger.4.a
+	}
+}
+
+country_event = {
+	id = Thundertiger.5
+	immediate = { log = "[GetDateText]: [Root.GetName]: event Thundertiger.5" }
+	title = Thundertiger.5.t
+	desc = Thundertiger.5.d
+	#picture
+	is_triggered_only = yes 
+	option = {
+		##What the Preists say about the Thunder Tiger
+		##Should make it seem like the Tiger is benevolent and can protect those it deems worthy
+		name = Thundertiger.5.a
+	}
+}
+
+country_event = {
+	id = Thundertiger.6
+	immediate = { log = "[GetDateText]: [Root.GetName]: event Thundertiger.6" }
+	title = Thundertiger.6.t
+	desc = Thundertiger.6.d
+	#picture
+	is_triggered_only = yes 
+	option = {
+		##Loterijen believes its best not to touch the temple. Reasoning its to win support and not because he's scared
+		name = Thundertiger.6.a
+		set_country_flag = YAN_retreat_golden_city
+	}
+	option = {
+		##Loteirjen does not believe in the legends
+		name = Thundertiger.6.b
+		set_country_flag = YAN_stay_golden_cuty
+	}
+}
+
+country_event = {
+	id = Thundertiger.7
+	immediate = { log = "[GetDateText]: [Root.GetName]: event Thundertiger.7" }
+	title = Thundertiger.7.t
+	desc = Thundertiger.7.d
+	#picture
+	is_triggered_only = yes 
+	option = {
+		##Should be about the Locals being shocked that the Feathisians left the golden temple. 
+		name = Thundertiger.7.a
+	}
+}
+
+country_event = {
+	id = Thundertiger.8
+	immediate = { log = "[GetDateText]: [Root.GetName]: event Thundertiger.8" }
+	title = Thundertiger.8.t
+	desc = Thundertiger.8.d
+	#picture
+	is_triggered_only = yes 
+	option = {
+		##Fake out event
+		name = Thundertiger.8.a
+	}
+}
+
+country_event = {
+	id = Thundertiger.9
+	immediate = { log = "[GetDateText]: [Root.GetName]: event Thundertiger.9" }
+	title = Thundertiger.9.t
+	desc = Thundertiger.9.d
+	#picture
+	is_triggered_only = yes 
+	option = {
+		##Tiger is angry. 
+		name = Thundertiger.9.a 
+		add_political_power = -100
+		add_to_variable = {
+			var = YAN_insurgency_strength
+			value = 5000
+		}
+		all_owned_states = {
+			limit = {
+				NOT = {
+					is_core_of = YAN
+				}
+				add_resistance = 50 
+				add_compliance = -30
+			}
+		}
+		add_ideas = YAN_you_fucked_up
+		
+	}
+}
+
 ######################################ghjkl
 ##YAN INTRO EVENTS##
 
@@ -2178,8 +2325,18 @@ country_event = {
 	trigger = {
 		has_country_flag = YAN_insurgency_occured
 		any_owned_state = {
+			limit = {
+				if = {
+					YAN = {
+						has_completed_focus = YAN_the_golden_zone
+					}
+					NOT = {
+						state = 1139 
+					}
+				}
+			}
 			AND = {
-				resistance <40
+				resistance < 40
 				is_demilitarized_zone = yes 
 			}
 		}

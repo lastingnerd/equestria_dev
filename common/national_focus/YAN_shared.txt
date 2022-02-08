@@ -7784,7 +7784,7 @@ shared_focus = {
 	#Event where the Colonial forces retreat from the Golden City. Preventing the Thunder Tiger from appearing 
 	x = 19
 	y = 21
-	cost  5
+	cost = 5
 
 	prerequisite = {
 		focus = YAN_secure_the_golden_city
@@ -7819,6 +7819,40 @@ shared_focus = {
 	}
 }
 
+shared_focus = {
+	id = YAN_our_zone
+	#icon =
+	#Event where the Colonial Forces stay in the Golden City... getting a response from the Thunder Tiger. 
+
+	prerequisite = {
+		focus = YAN_secure_the_golden_city
+	}
+
+	available = {
+		1144 = {
+			is_demilitarized_zone = no
+		}
+		1145 = {
+			is_demilitarized_zone = no
+		}
+		1140 = {
+			is_demilitarized_zone = no
+		}
+	}
+	
+	select_effect = {
+		country_event = { id = Thundertiger.9 }
+	}
+	allow_branch = {
+		has_country_flag = YAN_stay_golden_cuty
+	}
+
+	completion_reward = {
+		log = "[GetDaetText]: [Root.GetName]: focus YAN_our_zone"
+		country_event = { id = Thundertiger.8 }
+		##Stuff goes south. 
+	}
+}
 
 ######SPLIT
 shared_focus = {
