@@ -1763,7 +1763,6 @@ country_event = {
 	option = {
 		name = Indozeeb.117.a
 		add_stability = -0.10
-		add_political_power = -50 
 		add_ideas = YAN_the_insurgency
 		set_variable = {
 			var = YAN_insurgency_strength
@@ -2033,7 +2032,7 @@ country_event = {
 			} 
 		}
 
-		ai_will_do = {
+		ai_chance = {
 			factor = 5 
 
 			modifier = {
@@ -2057,7 +2056,7 @@ country_event = {
 			}
 		}
 
-		ai_will_do = {
+		ai_chance = {
 			factor = 8 
 
 			modifier = {
@@ -2206,14 +2205,15 @@ country_event = {
 			var = YAN_insurgency_strength
 			value = 5000
 		}
-		all_owned_states = {
+		every_owned_state = {
 			limit = {
 				NOT = {
 					is_core_of = YAN
 				}
-				add_resistance = 50 
-				add_compliance = -30
+
 			}
+			add_resistance = 50 
+			add_compliance = -30
 		}
 		add_ideas = YAN_you_fucked_up
 		
@@ -2295,8 +2295,8 @@ country_event = {
 	}
 	option = {
 		name = YANinsurgency.1.a
-		any_owned_state = {
-			AND = {
+		every_owned_state = {
+			limit = {
 				resistance > 39
 				NOT = {
 					is_demilitarized_zone = yes 
@@ -2343,8 +2343,8 @@ country_event = {
 	}
 	option = {
 		name = YANinsurgency.2.a
-		any_owned_state = {
-			AND = {
+		every_owned_state	 = {
+			limit = {
 				resistance < 40
 				is_demilitarized_zone = yes 
 			}

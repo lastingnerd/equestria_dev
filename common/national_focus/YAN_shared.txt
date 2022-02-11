@@ -7743,21 +7743,19 @@ shared_focus = {
 
 
 	available = {
-		1144 = {
-				is_demilitarized_zone = no
-				divisions_in_state > 2
-			
+		divisions_in_state = {
+			size > 2
+			state = 1144
 		}
-		1145 = {
-				is_demilitarized_zone = no
-				divisions_in_state > 2
+		divisions_in_state = {
+			size > 2
+			state = 1145
 		}
-		1140 = {
+		divisions_in_state = {
+			size > 2
+			state = 1140
+		}
 
-			is_demilitarized_zone = no
-				divisions_in_state > 2
-		
-		}
 	}
 
 	completion_reward = {
@@ -7883,7 +7881,7 @@ shared_focus = {
 	id = YAN_never_again
 	#icon = 
 	#"Never again will we let our chance get out of our claws! South East for us! Or no one's! "
-	x = 23
+	x = 24
 	y = 16
 	cost = 2
 
@@ -7906,7 +7904,7 @@ shared_focus = {
 	id = YAN_advanced_chemistry
 	#Get the Willy Pete! 
 	#icon = 
-	x = 22
+	x = 23
 	y = 17
 	cost = 5
 
@@ -7928,7 +7926,7 @@ shared_focus = {
 	id = YAN_control_populace
 	## where the Government tries to convince everyone. It's not that bad! 
 	#icon = 
-	x = 24
+	x = 25
 	y = 17 
 	cost = 5
 
@@ -7948,7 +7946,7 @@ shared_focus = {
 shared_focus = {
 	id = YAN_naplam
 	#icon = 
-	x = 21 
+	x = 22
 	y = 18
 	cost = 5 
 
@@ -7964,7 +7962,7 @@ shared_focus = {
 
 shared_focus = {
 	id = YAN_crackdown_harder
-	x = 25
+	x = 26
 	y = 18
 	cost = 5
 	#icon = 
@@ -7985,7 +7983,7 @@ shared_focus = {
 shared_focus = {
 	id = YAN_logistics_control
 	#icon = 
-	x = 23
+	x = 24
 	y = 18 
 	cost = 5
 	#icon = 
@@ -8005,7 +8003,7 @@ shared_focus = {
 shared_focus = {
 	id = YAN_naplam_harder 
 	#icon = 
-	x = 21
+	x = 22
 	y = 19
 	cost = 5
 
@@ -8021,6 +8019,6 @@ shared_focus = {
 
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_naplam_harder"
-		
+		custom_effect_tooltip = YAN_naplam_harder_tt
 	}
 }

@@ -812,7 +812,20 @@
  YAN_never_again_tt:0 "§YWe will not history repeat, the South East shall be Feathisia's and Feathisia's alone!§!"
  YAN_advanced_chemistry_tt:0 "§YThis will give our troops an edge on the battlefield, albeit at a cost of support.§! "
  YAN_logistics_control_tt:0 "§YWe will lose less equipment during operations!§!"
- YAN_failed_counter_insurgency_tt:0 "§RCitizens never like an unwanted and a failure of a war...§!"
+ YAN_naplam_harder_tt:0 "§YBombing campaigns will be much more effective...§!"
+ YAN_failed_counter_insurgency_tt:0 "§RCitizens never like a failure of a war...§!"
+
+ YAN_propaganda_campaign_tt:0 "£pol_power §Y30§! £helmet_text §Y100§! £infequip_text §Y10§!"
+ YAN_propaganda_campaign_tt_blocked:0 "£pol_power §R30§! £helmet_text §R100§! £infequip_text §R10§!"
+ YAN_bomb_insurgency_targets_cost_tt:0 "£pol_power §Y15§! £helmet_text §Y10§! £infequip_text §Y5§!"
+ YAN_bomb_insurgency_targets_cost_tt_blocked:0 "£pol_power §R15§! £helmet_text §R10§! £infequip_text §R5§!"
+ YAN_attack_resistance_cost_tt:0 "£pol_power §Y10§! £helmet_text §Y30§! £infequip_text §Y20§!"
+ YAN_attack_resistance_cost_tt_blocked:0 "£pol_power §R10§! £helmet_text §R30§! £infequip_text §R20§!"
+ YAN_root_out_resistance_cost_tt:0 "£pol_power §Y50§! £helmet_text §Y40§! £infequip_text §Y15§!"
+ YAN_root_out_resistance_cost_tt_blocked:0 "£pol_power §R50§! £helmet_text §R40§! £infequip_text §R15§!"
+
+
+
 
 
  YAN_Sopan_navy_commission1_tt:0 "§YThe Sopan will build for us§! §B8 Destroyers§! §Yand§! §B1 Light Crusier§!"

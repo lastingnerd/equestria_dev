@@ -2863,26 +2863,15 @@ YAN_loterijen_chaos = {
 			tag = YAN
 		}
 
-		available = {
-			check_variable = {
-				var = YAN_counter_insurgency_strength
-				value > 80
-				compare = greater_than
-			}
-			check_variable = {
-				var = YAN_counter_insurgency_equipment
-				value > 10
-				compare = greater_than
-			}
-		}
-
-
-		on_map_mode = map_only
+		on_map_mode = map_and_decisions_view
 
 		custom_cost_trigger = {
 			has_political_power > 9
 			check_variable = { YAN_counter_insurgency_strength > 30 }
+			check_variable = { YAN_counter_insurgency_equipment > 20 }
 		}
+
+		custom_cost_text = YAN_attack_resistance_cost_tt
 
 		days_remove = 30
 
@@ -3012,27 +3001,15 @@ YAN_loterijen_chaos = {
 			tag = YAN
 		}
 
-		available = {
-			check_variable = {
-				var = YAN_counter_insurgency_strength
-				value > 100
-				compare = greater_than
-			}
-			check_variable = {
-				var = YAN_counter_insurgency_equipment
-				value > 10
-				compare = greater_than
-			}
-		}
-
-
-		on_map_mode = map_only
+		on_map_mode = map_and_decisions_view
 
 		custom_cost_trigger = {
 			has_political_power > 29
 			check_variable = { YAN_counter_insurgency_strength > 19 }
-			check_variable = { YAN_counter_insurgency_strength_equipment > 9 }
+			check_variable = { YAN_counter_insurgency_equipment > 9 }
 		}
+
+		custom_cost_text = YAN_propaganda_campaign_tt
 
 		days_remove = 24
 
@@ -3120,27 +3097,14 @@ YAN_loterijen_chaos = {
 			has_completed_focus = YAN_deploy_airforce
 		}
 
-		available = {
-			check_variable = {
-				var = YAN_counter_insurgency_strength
-				value > 100
-				compare = greater_than
-			}
-			check_variable = {
-				var = YAN_counter_insurgency_equipment
-				value > 50
-				compare = greater_than
-			}
-		}
-
 		custom_cost_trigger = {
 			has_political_power > 14
-			check_variable = { YAN_counter_insurgency_strength > 10 }
-			check_variable = { YAN_counter_insurgency_strength_equipment > 5 }
+			check_variable = { YAN_counter_insurgency_strength > 9 }
+			check_variable = { YAN_counter_insurgency_equipment > 4 }
 		}
 		custom_cost_text = YAN_bomb_insurgency_targets_cost_tt
 		
-		on_map_mode = map_only
+		on_map_mode = map_and_decisions_view
 		days_remove = 7
 		days_re_enable = 21
 
@@ -3159,21 +3123,82 @@ YAN_loterijen_chaos = {
 				add_political_power = -15
 
 				FROM = {
-					add_resistance = -20 
-					add_compliance = -10
+					add_resistance = -10
+					add_compliance = -5
 				}
 	
 				subtract_from_variable = {
 					var = YAN_insurgency_strength
 					value = 100
 				}
+				if = {
+					limit = {
+						YAN = {
+							has_completed_focus = YAN_logistics_control
+						}
+					}
+					subtract_from_variable = {
+						var = YAN_counter_insurgency_equipment
+						value = 0
+					}
+				}
+				else = {
+					subtract_from_variable = {
+						var = YAN_counter_insurgency_equipment
+						value = 5
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					AND = {
+						has_completed_focus = YAN_naplam
+						NOT = {
+							has_completed_focus = YAN_naplam_harder
+						}
+					}
+				}
+
+				add_political_power = -15 
+				FROM = {
+					add_resistance = -12.5
+					add_compliance = -7.5
+				}
+	
+				subtract_from_variable = {
+					var = YAN_insurgency_strength
+					value = 110
+				}
+
+				subtract_from_variable = {
+					var = YAN_counter_insurgency_strength
+					value = 10
+				}
+
+				if = {
+					limit = {
+						YAN = {
+							has_completed_focus = YAN_logistics_control
+						}
+					}
+					subtract_from_variable = {
+						var = YAN_counter_insurgency_equipment
+						value = 0
+					}
+				}
+				else = {
+					subtract_from_variable = {
+						var = YAN_counter_insurgency_equipment
+						value = 5
+					}
+				}
 			}
 			else = {
 
 				add_political_power = -15 
 				FROM = {
-					add_resistance = -20 
-					add_compliance = -15
+					add_resistance = -15
+					add_compliance = -10
 				}
 	
 				subtract_from_variable = {
@@ -3230,7 +3255,7 @@ YAN_loterijen_chaos = {
 			has_country_flag = YAN_insurgency_occured
 
 			FROM = {
-				resistance > 10 
+				resistance > 5 
 				resistance < 50 
 			}
 
@@ -3241,24 +3266,18 @@ YAN_loterijen_chaos = {
 		}
 
 		available = {
-			check_variable = {
-				var = YAN_counter_insurgency_strength
-				value > 200
-				compare = greater_than
-			}
-			check_variable = {
-				var = YAN_counter_insurgency_equipment
-				value > 20
-				compare = greater_than
+			divisions_in_state = {
+				size > 1
+				state = FROM
 			}
 		}
 
-		on_map_mode = map_only
+		on_map_mode = map_and_decisions_view
 
 		custom_cost_trigger = {
-			has_political_power > 79
-			check_variable = { YAN_counter_insurgency_strength > 40 }
-			check_variable = { YAN_counter_insurgency_strength_equipment > 15 }
+			has_political_power > 49
+			check_variable = { YAN_counter_insurgency_strength > 39 }
+			check_variable = { YAN_counter_insurgency_equipment > 14 }
 		}
 		custom_cost_text = YAN_root_out_resistance_cost_tt
 

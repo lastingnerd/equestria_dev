@@ -2115,7 +2115,7 @@ ideas = {
 			}
 		}
 
-		YAN_the_insurgency2 = {
+		YAN_the_insurgency3 = {
 			allowed = {
 				always = yes
 			}
@@ -2128,8 +2128,8 @@ ideas = {
 				war_support_factor = -0.075
 				resistance_damage_to_garrison_on_our_occupied_states = 0.10
 				resistance_growth_on_our_occupied_states = 0.150
-				required_garrison_factor = 0.125
-				compliance_growth_on_our_occupied_states = -0.25
+				required_garrison_factor = 0.10
+				compliance_growth_on_our_occupied_states = -0.20
 				
 
 			}
