@@ -7536,7 +7536,7 @@ shared_focus = {
 		custom_effect_tooltip = YAN_deploy_troops_tt
 		add_to_variable = {
 			var = YAN_counter_insurgency_strength 
-			value = 3000
+			value = 500
 		}
 	}
 }
@@ -7990,7 +7990,7 @@ shared_focus = {
 
 	prerequisite = {
 		focus = YAN_advanced_chemistry
-		focus = YAN_crackdown_harder
+		focus = YAN_control_populace
 	}
 
 	completion_reward = {

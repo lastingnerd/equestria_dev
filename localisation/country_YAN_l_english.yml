@@ -806,7 +806,7 @@
 
  YAN_a_leak_tt:0 "§YThis will force the Sopan to cooperate with us!§!"
  YAN_a_direction_tt:0 "§YThis will force the Tegas to cooperate with us!§!"
- YAN_deploy_troops_tt:9 "§YWe will deploy our reserves onto the field to quell the insurrection.§! \n "§Y3000§! additional personnel will be deployed. And §Yunlocks decisions to deploy more troops in the future!§!"
+ YAN_deploy_troops_tt:9 "§YWe will deploy our reserves onto the field to quell the insurrection.§! \n §Y3000§! additional personnel will be deployed. And §Yunlocks decisions to deploy more troops in the future!§!"
  YAN_deploy_airforce_tt:0 "§YWill unlock decisions to allow us to utilise the air force in quelling the insurrection.§!"
  YAN_begin_negotiations_tt:0 "§YWe will attempt to engage in negotiations with the insurgents§!"
  YAN_never_again_tt:0 "§YWe will not history repeat, the South East shall be Feathisia's and Feathisia's alone!§!"

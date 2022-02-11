@@ -2051,7 +2051,7 @@ country_event = {
 
 		YAN = {
 			create_wargoal = {
-				type = annex_wargoal_focus
+				type = annex_everything
 				target = ROOT
 			}
 		}
@@ -2285,13 +2285,12 @@ country_event = {
 	trigger = {
 		has_country_flag = YAN_insurgency_occured
 		any_owned_state = {
-			AND = {
-				resistance > 39
-				NOT = {
-					is_demilitarized_zone = yes 
-				}
+			resistance > 39
+			NOT = {
+				is_demilitarized_zone = yes 
 			}
-		}
+			
+		}s
 	}
 	option = {
 		name = YANinsurgency.1.a
@@ -2324,22 +2323,29 @@ country_event = {
 	is_triggered_only = yes
 	trigger = {
 		has_country_flag = YAN_insurgency_occured
-		any_owned_state = {
+		if = {
 			limit = {
-				if = {
-					YAN = {
-						has_completed_focus = YAN_the_golden_zone
-					}
+				YAN = {
+					has_completed_focus = YAN_the_golden_zone
+				}
+			}
+			any_owned_state = {
+				limit = {
 					NOT = {
 						state = 1139 
 					}
 				}
-			}
-			AND = {
-				resistance < 40
-				is_demilitarized_zone = yes 
+				resistance < 40 
+				is_demilitarized_zone = yes
 			}
 		}
+		else = {
+			any_owned_state = {
+				resistance < 40 
+				is_demilitarized_zone = yes
+			}
+		}
+
 	}
 	option = {
 		name = YANinsurgency.2.a
