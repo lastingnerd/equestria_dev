@@ -2073,6 +2073,39 @@ ideas = {
 			}
 		}
 
+		YAN_integrated_support_system = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			#picture = 
+			modifier = {
+				resistance_damage_to_garrison_on_our_occupied_states = -0.10
+				production_speed_buildings_factor = 0.05
+				compliance_growth_on_our_occupied_states = 0.05
+			}
+		}
+
+		YAN_lying_to_public = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			#picture = 
+			modifier = {
+				stability_weekly = -0.005
+				war_support = 0.10
+				fascism_drift = 0.02
+				communism_drift = 0.02
+				democratic_drift = 0.02
+				
+			}
+		}
+
 		#####ANCHOR LOTERIJEN INSURGENCY 
 		YAN_the_insurgency = {
 			allowed = {

@@ -7732,7 +7732,7 @@ shared_focus = {
 	#icon =
 	x = 19
 	y = 20
-	cost = 5
+	cost = 2
 
 	prerequisite = {
 		focus = YAN_interrogate_pulalap_preists
@@ -7782,7 +7782,7 @@ shared_focus = {
 	#Event where the Colonial forces retreat from the Golden City. Preventing the Thunder Tiger from appearing 
 	x = 19
 	y = 21
-	cost = 5
+	cost = 2
 
 	prerequisite = {
 		focus = YAN_secure_the_golden_city
@@ -7826,6 +7826,8 @@ shared_focus = {
 		focus = YAN_secure_the_golden_city
 	}
 
+	cost = 2
+
 	available = {
 		1144 = {
 			is_demilitarized_zone = no
@@ -7839,7 +7841,7 @@ shared_focus = {
 	}
 	
 	select_effect = {
-		country_event = { id = Thundertiger.9 }
+		country_event = { id = Thundertiger.9 days = 7 }
 	}
 	allow_branch = {
 		has_country_flag = YAN_stay_golden_cuty
@@ -7875,6 +7877,25 @@ shared_focus = {
 		set_country_flag = YAN_negotiations_begun 		
 	}
 }
+
+shared_focus = {
+	id = YAN_ascertain_what_they_want
+	#icon = 
+	##Figure out the demands of theinusgrnet
+	x = 14
+	y = 17
+	cost = 5 
+
+	prerequisite = {
+		focus = YAN_begin_negotiations
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_ascetain_what_they_want"
+	}
+}
+
+##Idea, negotiation can split into hardliner and not hardliner choices. 
 
 ######SPLIT
 shared_focus = {
@@ -8005,7 +8026,7 @@ shared_focus = {
 	#icon = 
 	x = 22
 	y = 19
-	cost = 5
+	cost = 3
 
 	prerequisite = {
 		focus = YAN_naplam
@@ -8021,4 +8042,81 @@ shared_focus = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_naplam_harder"
 		custom_effect_tooltip = YAN_naplam_harder_tt
 	}
+}
+
+shared_focus = {
+	id = YAN_integrated_support_system
+	#icon = 
+	x = 24
+	y = 19
+	cost = 3
+
+	prerequisite = {
+		focus = YAN_logistics_control
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_integrated_support_system"
+		#Basically, dedicating ways to find more ways to get supply to our troops on the ground. 
+		add_ideas = YAN_integrated_support_system
+	}
+}
+
+shared_focus = {
+	id = YAN_just_start_lying 
+	#icon = 
+	x = 26
+	y = 19
+	cost = 3
+	
+	prerequisite = {
+		focus = YAN_crackdown_harder
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_just_start_lying"
+		##Just start doing propaganda to try and keep it all together. 
+		add_political_power = 50
+		add_stability = 0.10 
+		add_ideas = YAN_lying_to_public
+	}
+}
+
+shared_focus = {
+	id = YAN_fight_harder
+	#icon = 
+	x = 24
+	y = 20
+	cost = 5
+
+	prerequisite = {
+		focus = YAN_naplam_harder
+	}
+	prerequisite = {
+		focus = YAN_integrated_support_system
+	}
+	prerequisite = {
+		focus = YAN_just_start_lying
+	}
+
+	available = {
+		has_country_flag = YAN_insurgency_occured
+		OR = {
+			has_completed_focus = YAN_the_golden_zone
+			has_completed_focus = YAN_our_zone
+		}
+
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_fight_harder"
+		custom_effect_tooltip = YAN_fight_harder_tt
+		add_political_power = 100
+		add_to_variable = {
+			var = YAN_counter_insurgency_strength
+			value = 1000 
+		}
+
+	}
+
 }
