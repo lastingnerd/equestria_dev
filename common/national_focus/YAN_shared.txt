@@ -7892,11 +7892,92 @@ shared_focus = {
 
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_ascetain_what_they_want"
+		##TODO: Foci which unlocks bargaining tools 
 	}
 }
 
-##Idea, negotiation can split into hardliner and not hardliner choices. 
+shared_focus = {
+	id = YAN_assemble_a_team
+	#icon = 
+	x = 16
+	y = 17 
+	cost = 2 
 
+	prerequisite = {
+		focus = YAN_begin_negotiations
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_assemble_a_team"
+		##TODO: Mainly cosmetic event
+	}
+}
+
+###NOTE: The Idea here is that by picking a policy of this, they can negotiate for this over on the negotiation decisions. Meaning you too can make the South East into a literal slave state. 
+###With enough pressure militarily, anything is possible. 
+
+shared_focus = {
+	id = YAN_the_status_of_natives
+	#icon = 
+	x = 13
+	y = 18
+	cost = 5 
+
+	prerequisite = {
+		focus = YAN_ascertain_what_they_want
+	}
+	prerequisite = {
+		focus = YAN_assemble_a_team
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_the_status_of_natives"
+		##TODO: Event where Loterijen gets to decidie how they should deal with the natives with the options of; 'fuck you', 'fine, reservations', and 'equal representation'
+	}
+}
+
+shared_focus = {
+	id = YAN_the_economic_matters
+	#icon = 
+	x = 15
+	y = 18
+	cost = 5 
+
+	prerequisite = {
+		focus = YAN_ascertain_what_they_want
+	}
+	prerequisite = {
+		focus = YAN_assemble_a_team
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_the_economic_matters"
+		##TODO: Event where Loterijen determines if the economic status of the new found colonies should be 'Feaathisia's bitch', 'Subservient to Zava', or 'Free on their own'
+	}
+}
+
+shared_focus = {
+	id = YAN_insurgents_issue
+	#icon =
+	x = 17
+	y = 18
+	cost = 5
+
+	prerequisite = {
+		focus = YAN_ascertain_what_they_want
+	}
+	prerequisite = {
+		focus = YAN_assemble_a_team
+	}
+
+	available =  {
+		#Something about lower than how much insurgent skill
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_insurgents_issue"
+		##TODO: Event where Loterijen, an Insurgent representative, and native, walk into the negotiating room. 
+	}
+}
 ######SPLIT
 shared_focus = {
 	id = YAN_never_again
