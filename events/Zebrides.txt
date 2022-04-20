@@ -2308,8 +2308,9 @@ country_event = {
 
 		add_to_variable = {
 			variable = YAN_insurgency_strength
-			value = 50
+			value = 100
 		}
+
 	}
 }
 
@@ -2362,6 +2363,11 @@ country_event = {
 			variable = YAN_insurgency_strength
 			value = 50
 		}
+		subtract_from_variable = {
+			variable = YAN_insurgency_control
+			value = 1
+		}
+
 	}
 }
 

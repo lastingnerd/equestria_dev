@@ -7921,10 +7921,13 @@ shared_focus = {
 	#icon = 
 	x = 13
 	y = 18
-	cost = 5 
+	cost = 1
 
 	prerequisite = {
 		focus = YAN_ascertain_what_they_want
+	}
+	available = {
+		has_country_flag = YAN_negotiations_native_flag
 	}
 	prerequisite = {
 		focus = YAN_assemble_a_team
@@ -7940,8 +7943,11 @@ shared_focus = {
 	#icon = 
 	x = 15
 	y = 18
-	cost = 5 
+	cost = 1
 
+	available = {
+		has_country_flag = YAN_negotiations_economy_flag
+	}
 	prerequisite = {
 		focus = YAN_ascertain_what_they_want
 	}
@@ -7960,8 +7966,11 @@ shared_focus = {
 	#icon =
 	x = 17
 	y = 18
-	cost = 5
+	cost = 1
 
+	available = {
+		has_country_flag = YAN_negotiations_insurgent_flag
+	}
 	prerequisite = {
 		focus = YAN_ascertain_what_they_want
 	}
@@ -7978,6 +7987,101 @@ shared_focus = {
 		##TODO: Event where Loterijen, an Insurgent representative, and native, walk into the negotiating room. 
 	}
 }
+
+shared_focus = {
+	id = YAN_reorganise_state_admins
+	#icon = 
+	x = 13
+	y = 19
+	cost = 3
+
+	prerequisite = {
+		focus = YAN_the_status_of_natives
+	}
+
+	available = {
+		##TODO: Loc for Tooltip here
+		custom_trigger_tooltip = YAN_reorganise_state_admins_tt
+		check_variable = { YAN_insurgency_strength <= 500 }
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_reorganise_state_admins"
+		add_political_power = 50
+		##TODO: Depending National Spirit to get depending on what the status of natives is decided upon. 
+	}
+}
+
+shared_focus = {
+	id = YAN_reorganise_economic_legislation
+	#icon = 
+	x = 15
+	y = 19
+	cost = 5
+
+	prerequisite = {
+		focus = YAN_the_economic_matters
+	}
+
+	available = {
+		##TODO: Loc here as well
+		custom_trigger_tooltip = YAN_reorganise_eco_legislation_tt
+		check_variable = { YAN_insurgency_strength <= 500 }
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_reorganise_economic_legislation"
+		##TODO: Depending Nat. Spirit as before. 
+	}
+}
+
+shared_focus = {
+	id = YAN_reorganise_imprisonment_programs
+	#icon = 
+	x = 17
+	y = 19
+	cost = 3
+
+	prerequisite = {
+		focus = YAN_insurgents_issue
+	}
+
+	available = {
+		##TODO: Loc here as well
+		custom_trigger_tooltip = YAN_reorganise_imprisonment_programs_tt
+		check_variable = { YAN_insurgency_strength <= 500 }
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_reorganise_imprisonment_programs"
+		##TODO: Dependent Nat. Spirit as possibke
+	}
+}
+
+shared_focus = {
+	id = YAN_a_new_future
+	#icon = 
+	x = 15
+	y = 20
+	cost = 3
+
+	prerequisite = {
+		focus = YAN_reorganise_state_admins
+	}
+	prerequisite = {
+		focus = YAN_reorganise_economic_legislation
+	}
+	prerequisite = {
+		focus = YAN_reorganise_imprisonment_programs
+	}
+
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: focus YAN_a_new_future"
+		##Negotiation Strength Bonus or something. 
+	}
+}
+
+
 ######SPLIT
 shared_focus = {
 	id = YAN_never_again
@@ -8168,7 +8272,7 @@ shared_focus = {
 	#icon = 
 	x = 24
 	y = 20
-	cost = 5
+	cost = 1
 
 	prerequisite = {
 		focus = YAN_naplam_harder
@@ -8181,7 +8285,6 @@ shared_focus = {
 	}
 
 	available = {
-		has_country_flag = YAN_insurgency_occured
 		OR = {
 			has_completed_focus = YAN_the_golden_zone
 			has_completed_focus = YAN_our_zone

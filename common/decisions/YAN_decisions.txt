@@ -2680,6 +2680,10 @@ YAN_loterijen_chaos = {
 
 						add_resistance = 15 
 					}
+					add_to_variable = {
+						variable = YAN_insurgency_control
+						value = 1
+					}
 
 					subtract_from_variable = {
 						var = YAN_insurgency_strength
@@ -3325,6 +3329,124 @@ YAN_loterijen_chaos = {
 		}
 	}
 
+}
+
+YAN_loterijen_negotiator_category = {
+	##NOTOES OF GENERAL IDEA: Its literally just Rebel Inc negotiation mechanic
+	YAN_just_negotiate_button = {
+		visible = {
+			has_country_flag = YAN_negotiations_begun
+		}
+		#icon = 
+		cost = 20
+		days_remove = 7 
+		complete_effect = {
+			subtract_from_variable = {
+				var = YAN_negotiation_strength 
+				value = 10 
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						var = YAN_insurgency_control
+						value = 10
+						compare = less_than_or_equals
+					}
+				}
+
+				add_to_variable = {
+					var = YAN_negotiation_strength
+					value = 15
+				}
+			}
+		}
+	}
+
+	YAN_negotiate_natives_decision = {
+		visible = {
+			has_country_flag = YAN_negotiations_begun
+		}
+		#icon = 
+		cost = 20 
+		days_remove = 14
+		available = {
+			check_variable = { YAN_insurgency_strength < 1501 }
+			check_variable = { YAN_negotiation_strength > 10 }
+		}
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			set_country_flag = YAN_negotiations_native_flag
+		}
+		##TODO: This
+	}
+
+	YAN_negotiate_economy_decision = {
+		visible = {
+			has_country_flag = YAN_negotiations_begun
+		}
+		#icon = 
+		cost = 30 
+		days_remove = 14
+		available = {
+			check_variable = { YAN_insurgency_strength < 1001 }
+			check_variable = { YAN_negotiation_strength > 15 }
+
+		}
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			set_country_flag = YAN_negotiations_economy_flag
+		}
+		##TODO: This
+	}
+
+	YAN_negotiate_insurgent = {
+		visible = {
+			has_country_flag = YAN_negotiations_begun
+		}
+		#icon = 
+		cost = 40 
+		days_remove = 14
+		available = {
+			check_variable = { YAN_insurgency_strength < 501 }
+			check_variable = { YAN_negotiation_strength > 20 }
+
+		}
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			set_country_flag = YAN_negotiations_insurgent_flag
+		}
+		##TODO: This
+	}
+
+	YAN_settle_a_deal = {
+		visible = {
+			has_country_flag = YAN_negotiations_begun
+		}
+		cost = 50
+		days_remove = 14
+		available = {
+			has_country_flag = YAN_negotiations_economy_flag
+			has_country_flag = YAN_negotiations_insurgent_flag
+			has_country_flag = YAN_negotiations_native_flag
+			check_variable = { YAN_insurgency_control < YAN_insurgency_control_requirement   }
+		}
+		complete_effect = {
+			##TODO: Event? 
+		}
+		remove_effect = {
+			##TODO: Definitely Event where this is settled. 
+		}
+
+
+	}
 }
 
 YAN_local_markets_decision_category = {
