@@ -1580,469 +1580,9 @@ shared_focus = {
 
 }
 
-
 shared_focus = {
-	id = YAN_greatest_trader
-	#icon = 
-	x = 15 
-	y = 11
-	cost = 5
-
-	ai_will_do = {
-		factor = 200
-	}
-
-	prerequisite = {
-		focus = YAN_governor_election
-	}
-
-	available = {
-		has_country_flag = YAN_business_kuda_check_1
-	}
-	available = {
-		has_country_flag = YAN_business_kuda_check_2
-	}
-	available = {
-		has_country_flag = YAN_election_kuda_check
-	}
-	available = {
-		has_country_flag = YAN_welfare_kuda_check
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_greatest_trader"
-		load_focus_tree = kudakelasi_governor
-		set_temp_variable = { YANtemp1 = YAN_populace_support_kuda } 
-		multiply_temp_variable = { YANtemp1 = 0.05 }
-		set_variable = { YAN_populace_support_kuda_final = YANtemp1 }
-		set_temp_variable = { YANtemp2 = YAN_sistem_support_kuda } 
-		multiply_temp_variable = { YANtemp2 = 0.05 }
-		set_variable = { YAN_sistem_support_kuda_final = YANtemp2 }
-		set_temp_variable = { YANtemp3 = YAN_independence_support_kuda } 
-		multiply_temp_variable = { YANtemp3 = 0.05 }
-		set_variable = { YAN_independence_support_kuda_final = YANtemp3 }
-	}
-}
-shared_focus = {
-	id = YAN_mistress_of_zebridies
-	#icon = 
-	x = 15 
-	y = 12
-	cost = 5 
-
-	ai_will_do = {
-		factor = 135
-	}
-
-	prerequisite = {
-		focus = YAN_greatest_trader
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_mistress_of_zebridies"
-		add_stability = 0.05
-		add_dynamic_modifier = {
-			modifier = YAN_Kuda_end_mod
-		}
-	}
-}
-
-shared_focus = {
-	id = YAN_checkmate_loterijen
-	#icon = 
-	x = 14
-	y = 13
-	cost = 9
-
-	ai_will_do = {
-		factor = 134
-	}
-
-	prerequisite = {
-		focus = YAN_mistress_of_zebridies
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_checkmate_loterijen"
-		#We're retiring Loterijen today!
-		country_event = {
-			id = Indozeeb.85 days = 10
-		}
-	}
-}
-
-shared_focus = {
-	id = YAN_arrest_semuakawan
-	#icon = 
-	x = 16
-	y = 13
-	cost = 3
-
-	ai_will_do = {
-		factor = 134
-	}
-
-	prerequisite = {
-		focus = YAN_mistress_of_zebridies
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_arrest_semuakawan"
-		country_event = { id = Indozeeb.86 hours = 8 }
-	}
-}
-
-shared_focus = {
-	id = YAN_contact_Feathisia
-	#icon = 
-	x = 15
-	y = 14
-	cost = 10
-
-	ai_will_do = {
-		factor = 133
-	}
-
-	prerequisite = {
-		focus = YAN_checkmate_loterijen
-	}
-	prerequisite = {
-		focus = YAN_arrest_semuakawan
-	}
-
-	bypass = {
-		OR = {	
-			FEA = {
-				exists = no
-			}
-			NOT = {
-				FEA = {
-					has_autonomy_state = autonomy_free
-				}
-			}
-		}
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_contact_Feathisia"
-		country_event = { id = Indozeeb.87 hours = 6 }
-	}
-
-
-}
-
-shared_focus = {
-	id = YAN_friends_not_subjects
-	#icon = 
-	x = 14
-	y = 16
-	cost = 2
-
-	ai_will_do = {
-		factor = 132
-	}
-
-	mutually_exclusive = {
-		focus = YAN_greater_autonomy
-	}
-
-	prerequisite = {
-		focus = YAN_contact_Feathisia
-	}
-
-	bypass = {
-		OR = {	
-			FEA = {
-				exists = no
-			}
-			NOT = {
-				FEA = {
-					has_autonomy_state = autonomy_free
-				}
-			}
-		}
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_friends_not_subjects"
-		set_autonomy = {
-			target = YAN
-			autonomy_state = autonomy_free
-		}
-	}
-
-}
-
-shared_focus = {
-	id = YAN_greater_autonomy
-	#icon = 
-	x = 16
-	y = 16
-	cost = 2
-
-	ai_will_do = {
-		factor = 132
-	}
-
-	mutually_exclusive = {
-		focus = YAN_friends_not_subjects
-	}
-
-	prerequisite = {
-		focus = YAN_contact_Feathisia
-	}
-
-	bypass = {
-		OR = {	
-			FEA = {
-				exists = no
-			}
-			NOT = {
-				FEA = {
-					has_autonomy_state = autonomy_free
-				}
-			}
-		}
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_greater_autonomy"
-		##Oh cool Dominion Status
-		FEA = {
-			set_autonomy = {
-				target = YAN
-				autonomy_state = dominion
-			}
-		}
-	}
-
-}
-
-shared_focus = {
-	id = YAN_looking_outward
-	#icon = 
-	x = 15
-	y = 17
-	cost = 5
-
-	ai_will_do = {
-		factor = 131
-	}
-
-	prerequisite = {
-		focus = YAN_friends_not_subjects
-		focus = YAN_greater_autonomy
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_looking_outward"
-		IDO = {
-			add_opinion_modifier = {
-				target = YAN
-				modifier = Kuda_begin_diplomacy 
-			}
-		}
-		DEL = {
-			add_opinion_modifier = {
-				target = YAN
-				modifier = Kuda_begin_diplomacy 
-			}		}
-		IST = {
-			add_opinion_modifier = {
-				target = YAN
-				modifier = Kuda_begin_diplomacy 
-			}	
-		}
-		YAN = {
-			add_political_power = 50
-		}
-	}
-}
-
-shared_focus = {
-	id = YAN_our_dear_friends
-	#icon = 
-	x = 15
-	y = 18
-	cost = 2
-
-	ai_will_do = {
-		factor = 130 
-	}
-
-	prerequisite = {
-		focus = YAN_looking_outward
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_our_dear_friends"
-		##Something about our neighbouring states
-		give_guarantee = IDO
-		give_guarantee = DEL
-		give_guarantee = IST
-	}
-}
-
-shared_focus = {
-	id = YAN_SEZO
-	#icon = 
-	x = 15
-	y = 19
-	cost = 10
-
-	ai_will_do = {
-		factor = 129
-	}
-
-	prerequisite = {
-		focus = YAN_our_dear_friends
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_SEZO"
-		create_faction = "The Association of South East Zebrican Nations"
-		IST = { country_event = { id = Indozeeb.88 days = 3 } }
-		IDO = { country_event = { id = Indozeeb.88 days = 3 } }
-		DEL = { country_event = { id = Indozeeb.88 days = 3 } }
-		
-	}
-}
-
-shared_focus = {
-	id = YAN_SEZO_infra_plan
-	#icon = 
-	x = 12
-	y = 20
-	cost = 8
-
-	ai_will_do = {
-		factor = 128
-	}
-
-	prerequisite = {
-		focus = YAN_SEZO
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_SEZO_infra_plan"
-		every_other_country = {
-			limit = {
-				has_idea = YAN_business
-			}
-			add_ideas = YAN_infra_investment
-		}
-		1154 = {
-			add_building_construction = {
-				type = naval_base
-				level = 2
-				instant_build = yes
-				province = 16127
-			}
-		}
-		1141 = {
-			add_building_construction = {
-				type = naval_base
-				level = 1
-				instant_build = yes
-				province = 15929
-			}
-		}
-		1192 = {
-			add_building_construction = {
-				type = naval_base
-				level = 2
-				instant_build = yes
-				province = 15947
-			}
-		}
-		1149 = {	
-			add_building_construction = {
-				type = naval_base
-				level = 1
-				instant_build = yes
-				province = 16229
-			}
-		}
-		custom_effect_tooltip = YAN_SE_business1_tip
-	}
-}
-
-shared_focus = {
-	id = YAN_SEZO_Industry_Plan
-	#icon = 
-	x = 14
-	y = 20
-	cost = 10 
-
-	ai_will_do = {
-		factor = 128
-	}
-
-	prerequisite = {
-		focus = YAN_SEZO
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_SEZO_Industry_Plan"
-		every_other_country = {
-			limit = {
-				has_idea = YAN_business
-			}
-			add_ideas = YAN_business_investment_1
-		}
-		custom_effect_tooltip = YAN_SE_business2_tip
-		set_country_flag = YAN_SEZO_industry_flag
-	
-	}
-}
-
-shared_focus = {
-	id = YAN_SEZO_FTA
-	#icon = 
-	x = 16
-	y = 20
-	cost = 10
-
-	ai_will_do = {
-		factor = 128
-	}
-
-	prerequisite = {
-		focus = YAN_SEZO
-	}
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_SEZO_FTA"
-		##Free Trade Zone
-		every_other_country = {
-			limit = {
-				has_idea = YAN_business
-			}
-			add_ideas = YAN_SE_FTA
-		}
-	}
-}
-
-
-
-shared_focus = {
-	id = YAN_SEZO_coordinated_military
-	#icon = 
-	x = 18
-	y = 20
-	cost = 10
-
-	ai_will_do = {
-		factor = 128
-	}
-
-	prerequisite = {
-		focus = YAN_SEZO
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_SEZO_coordinated_military"
-		add_ideas = YAN_SE_CM
-	}
+	id = YAN_loose_ends
+	##Dealing with Loterijen
 }
 
 ###I am Semuakawan, *cocks gun* gib me independence###
@@ -7874,7 +7414,11 @@ shared_focus = {
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_begin_negotiations"
 		custom_effect_tooltip = YAN_begin_negotiations_tt
-		set_country_flag = YAN_negotiations_begun 		
+		set_country_flag = YAN_negotiations_begun 	
+		set_variable = {
+			var = YAN_negotiation_var
+			value = 0 
+		}	
 	}
 }
 
@@ -7999,10 +7543,15 @@ shared_focus = {
 		focus = YAN_the_status_of_natives
 	}
 
+
+
 	available = {
 		##TODO: Loc for Tooltip here
-		custom_trigger_tooltip = YAN_reorganise_state_admins_tt
-		check_variable = { YAN_insurgency_strength <= 500 }
+		custom_trigger_tooltip = {
+			tooltip = YAN_reorganise_state_admins_tt
+			check_variable = { YAN_insurgency_strength < 501 }
+		}
+
 	}
 
 	completion_reward = {
@@ -8025,9 +7574,15 @@ shared_focus = {
 
 	available = {
 		##TODO: Loc here as well
-		custom_trigger_tooltip = YAN_reorganise_eco_legislation_tt
-		check_variable = { YAN_insurgency_strength <= 500 }
+		custom_trigger_tooltip = {
+			tooltip  = YAN_reorganise_eco_legislation_tt
+			check_variable = { YAN_insurgency_strength < 501 }
+
+		}
+
 	}
+
+
 
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_reorganise_economic_legislation"
@@ -8046,10 +7601,16 @@ shared_focus = {
 		focus = YAN_insurgents_issue
 	}
 
+
+
 	available = {
 		##TODO: Loc here as well
-		custom_trigger_tooltip = YAN_reorganise_imprisonment_programs_tt
-		check_variable = { YAN_insurgency_strength <= 500 }
+		custom_trigger_tooltip = {
+			tooltip = YAN_reorganise_imprisonment_programs_tt
+			check_variable = { YAN_insurgency_strength < 501 }
+
+		} 
+
 	}
 
 	completion_reward = {

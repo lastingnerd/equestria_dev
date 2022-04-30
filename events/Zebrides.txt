@@ -978,6 +978,10 @@ country_event = {
 			remove_idea = YAN_tonguetied2
 			add_idea = YAN_tonguetied3
 		}
+		swap_ideas = {
+			remove_idea = lack_of_scientists1
+			add_idea = lack_of_scientists
+		}
 
 		hidden_effect = {
 			country_event = { id = Indozeeb.76 days = 234 }
@@ -2350,7 +2354,7 @@ country_event = {
 	}
 	option = {
 		name = YANinsurgency.2.a
-		every_owned_state	 = {
+		every_owned_state = {
 			limit = {
 				resistance < 40
 				is_demilitarized_zone = yes 

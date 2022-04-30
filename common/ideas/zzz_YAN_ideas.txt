@@ -2000,7 +2000,7 @@ ideas = {
 			targeted_modifier = {
 				tag = FEA
 				cic_to_target_factor = 0.075
-				trade_cost_for_target = -0.10
+				trade_cost_for_target_factor = -0.10
 				extra_trade_to_target_factor = 0.05
 			}
 		}
@@ -2016,7 +2016,7 @@ ideas = {
 			targeted_modifier = {
 				tag = YAN
 				cic_to_target_factor = 0.05
-				trade_cost_for_target = -0.35
+				trade_cost_for_target_factor = -0.35
 				extra_trade_to_target_factor = 0.25
 			}
 		}
@@ -2032,7 +2032,7 @@ ideas = {
 			targeted_modifier = {
 				tag = YAN
 				cic_to_target_factor = 0.025
-				trade_cost_for_target = -0.50
+				trade_cost_for_target_factor = -0.50
 				extra_trade_to_target_factor = 0.333
 			}
 			modifier = {
@@ -2098,7 +2098,7 @@ ideas = {
 			#picture = 
 			modifier = {
 				stability_weekly = -0.005
-				war_support = 0.10
+				war_support_factor = 0.10
 				fascism_drift = 0.02
 				communism_drift = 0.02
 				democratic_drift = 0.02

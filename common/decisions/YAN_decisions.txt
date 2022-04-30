@@ -3311,8 +3311,10 @@ YAN_loterijen_chaos = {
 				value = 40
 			}
 			if = {
-				YAN = {
-					has_completed_focus = YAN_logistics_control
+				limit = {
+					YAN = {
+						has_completed_focus = YAN_logistics_control
+					}
 				}
 				subtract_from_variable = {
 					var = YAN_counter_insurgency_equipment
