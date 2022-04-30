@@ -3351,13 +3351,8 @@ YAN_loterijen_negotiator_category = {
 		remove_effect = {
 			if = {
 				limit = {
-					check_variable = {
-						var = YAN_insurgency_control
-						value = 10
-						compare = less_than_or_equals
-					}
+					check_variable = { YAN_insurgency_control < 11 }
 				}
-
 				add_to_variable = {
 					var = YAN_negotiation_strength
 					value = 15
@@ -3417,7 +3412,6 @@ YAN_loterijen_negotiator_category = {
 		available = {
 			check_variable = { YAN_insurgency_strength < 501 }
 			check_variable = { YAN_negotiation_strength > 20 }
-
 		}
 		complete_effect = {
 			
@@ -3438,7 +3432,7 @@ YAN_loterijen_negotiator_category = {
 			has_country_flag = YAN_negotiations_economy_flag
 			has_country_flag = YAN_negotiations_insurgent_flag
 			has_country_flag = YAN_negotiations_native_flag
-			check_variable = { YAN_insurgency_control < YAN_insurgency_control_requirement   }
+			check_variable = { YAN_insurgency_control < YAN_insurgency_control_requirement }
 		}
 		complete_effect = {
 			##TODO: Event? 
@@ -3446,8 +3440,6 @@ YAN_loterijen_negotiator_category = {
 		remove_effect = {
 			##TODO: Definitely Event where this is settled. 
 		}
-
-
 	}
 }
 
