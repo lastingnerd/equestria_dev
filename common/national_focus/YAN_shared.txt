@@ -7472,6 +7472,11 @@ shared_focus = {
 	prerequisite = {
 		focus = YAN_assemble_a_team
 	}
+
+	custom_trigger_tooltip = {
+		tooltip = YAN_the_status_of_natives
+		check_variable = { YAN_insurgency_strength < 601 }
+	}
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_the_status_of_natives"
 		##TODO: Event where Loterijen gets to decidie how they should deal with the natives with the options of; 'fuck you', 'fine, reservations', and 'equal representation'
@@ -7493,6 +7498,14 @@ shared_focus = {
 	}
 	prerequisite = {
 		focus = YAN_assemble_a_team
+	}
+
+	available =  {
+		#Something about lower than how much insurgent skill
+		custom_trigger_tooltip = {
+			tooltip = YAN_the_economic_matters_tt
+			check_variable = { YAN_insurgency_strength < 601 }
+		}
 	}
 
 	completion_reward = {
@@ -7520,6 +7533,10 @@ shared_focus = {
 
 	available =  {
 		#Something about lower than how much insurgent skill
+		custom_trigger_tooltip = {
+			tooltip = YAN_reorganise_state_admins_tt
+			check_variable = { YAN_insurgency_strength < 701 }
+		}
 	}
 
 	completion_reward = {
@@ -7855,7 +7872,7 @@ shared_focus = {
 		add_political_power = 100
 		add_to_variable = {
 			var = YAN_counter_insurgency_strength
-			value = 1000 
+			value = 500 
 		}
 
 	}

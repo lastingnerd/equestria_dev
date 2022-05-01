@@ -2614,6 +2614,20 @@ YAN_loterijen_chaos = {
 				}
 			}
 
+			if = {
+				limit= {
+					FROM = {
+						resistance < 40
+						is_demilitarized_zone = yes
+					}
+				}
+
+				FROM = {
+					set_demilitarized_zone = no
+				}
+				
+			}
+
 		}
 	}
 
@@ -2878,6 +2892,19 @@ YAN_loterijen_chaos = {
 					}
 				}
 			}
+			if = {
+				limit= {
+					FROM = {
+						resistance < 40
+						is_demilitarized_zone = yes
+					}
+				}
+
+				FROM = {
+					set_demilitarized_zone = no
+				}
+				
+			}
 		}
 	}
 
@@ -2910,15 +2937,17 @@ YAN_loterijen_chaos = {
 
 		}
 
+
 		allowed = {
 			tag = YAN
 		}
 
 		available = {
-			divisions_in_state = {
-				size > 1
+			army_manpower_in_state = {
+				amount > 6000
 				state = FROM
 			}
+			
 		}
 
 		on_map_mode = map_and_decisions_view
