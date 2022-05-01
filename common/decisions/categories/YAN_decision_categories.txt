@@ -76,23 +76,6 @@ YAN_lineage_time_category = {
 	}
 }
 
-###Kudakelasi South East Nation Building Mechanics
-YAN_se_business_category = {
-	icon = generic_deal_with_the_devil
-	allowed = {
-		original_tag = YAN
-	}
-	visible_when_empty = no
-
-	visible = {
-		has_completed_focus = YAN_SEZO
-	}
-
-	priority = {
-		base = 100
-	}
-}
-
 ###Kudakelasi Welfare Mechanics - LEGACY, will remove when checking Kudakelasi Again
 YAN_Kuda_welfare_category = {
 	icon = GFX_decision_category_generic_economy

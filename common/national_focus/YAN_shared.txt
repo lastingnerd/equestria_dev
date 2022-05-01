@@ -1,4 +1,3 @@
-
 ###Lines : 
 ###Intial Tree Starts at Line 7, Military at 213, Loterijen at 914, Sane Kudakelasi at 2204
 
@@ -1580,10 +1579,7 @@ shared_focus = {
 
 }
 
-shared_focus = {
-	id = YAN_loose_ends
-	##Dealing with Loterijen
-}
+
 
 ###I am Semuakawan, *cocks gun* gib me independence###
 #####################################################
