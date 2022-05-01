@@ -1786,6 +1786,7 @@ country_event = {
 		set_country_flag = YAN_insurgency_occured
 		load_focus_tree = YAN_loterijen_insurgency
 		activate_mission = YAN_insurgent_activity
+		activate_mission = YAN_insurgency_countdown
 
 
 		hidden_effect = {
