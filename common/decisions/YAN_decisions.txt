@@ -2729,7 +2729,7 @@ YAN_loterijen_chaos = {
 	}
 
 	YAN_bomb_insurgency_targets = {
-		icon = GFX_decision_eng_propaganda_campaigns
+		icon = GFX_decision_generic_air
 
 
 		allowed = {
@@ -3033,67 +3033,6 @@ YAN_loterijen_negotiator_category = {
 				}
 			}
 		}
-	}
-
-	YAN_negotiate_natives_decision = {
-		visible = {
-			has_country_flag = YAN_negotiations_begun
-		}
-		#icon = 
-		cost = 20 
-		days_remove = 14
-		available = {
-			check_variable = { YAN_insurgency_strength < 1501 }
-			check_variable = { YAN_negotiation_strength > 10 }
-		}
-		complete_effect = {
-			
-		}
-		remove_effect = {
-			set_country_flag = YAN_negotiations_native_flag
-		}
-		##TODO: This
-	}
-
-	YAN_negotiate_economy_decision = {
-		visible = {
-			has_country_flag = YAN_negotiations_begun
-		}
-		#icon = 
-		cost = 30 
-		days_remove = 14
-		available = {
-			check_variable = { YAN_insurgency_strength < 1001 }
-			check_variable = { YAN_negotiation_strength > 15 }
-
-		}
-		complete_effect = {
-			
-		}
-		remove_effect = {
-			set_country_flag = YAN_negotiations_economy_flag
-		}
-		##TODO: This
-	}
-
-	YAN_negotiate_insurgent = {
-		visible = {
-			has_country_flag = YAN_negotiations_begun
-		}
-		#icon = 
-		cost = 40 
-		days_remove = 14
-		available = {
-			check_variable = { YAN_insurgency_strength < 501 }
-			check_variable = { YAN_negotiation_strength > 20 }
-		}
-		complete_effect = {
-			
-		}
-		remove_effect = {
-			set_country_flag = YAN_negotiations_insurgent_flag
-		}
-		##TODO: This
 	}
 
 	YAN_settle_a_deal = {

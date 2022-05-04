@@ -34,5 +34,20 @@ on_actions = {
 		}
 	}
 
+	on_daily_YAN = {
+		effect = {
+			if = {
+				limit = {
+					has_completed_focus = YAN_begin_negotiations
+				}
+
+				set_temp_variable = {
+					YAN_negotiation_strength = YAN_negotiation_progress
+				}
+				##TODO: Find way to count amount of states that are currently demilitarised
+			}
+		}
+	}
+
 
 }

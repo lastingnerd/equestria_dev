@@ -7415,6 +7415,14 @@ shared_focus = {
 			var = YAN_negotiation_var
 			value = 0 
 		}	
+		set_variable = {
+			var = YAN_negotiation_progress
+			value = 0.5 
+		}
+		set_variable = {
+			var = YAN_negotiation_cap
+			value = 200
+		}
 	}
 }
 
@@ -7430,9 +7438,17 @@ shared_focus = {
 		focus = YAN_begin_negotiations
 	}
 
+	mutually_exclusive = {
+		focus = YAN_assemble_a_team
+	}
+
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_ascetain_what_they_want"
-		##TODO: Foci which unlocks bargaining tools 
+		##TODO: Foci which lowers the target needed to reach a deal
+		set_variable = {
+			var = YAN_negotiation_cap
+			value = 150
+		}
 	}
 }
 
@@ -7447,9 +7463,17 @@ shared_focus = {
 		focus = YAN_begin_negotiations
 	}
 
+	mutually_exclusive = {
+		focus = YAN_ascertain_the_truth
+	}
+
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_assemble_a_team"
-		##TODO: Mainly cosmetic event
+		##TODO: Foci which speeds up negotiation speed
+		add_to_variable = {
+			var = YAN_negotiation_progress
+			value = 0.5
+		}
 	}
 }
 
