@@ -38,14 +38,65 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
-					has_completed_focus = YAN_begin_negotiations
+					YAN = {
+						has_country_flag = YAN_insurgency_occured
+					}
 				}
 
-				set_temp_variable = {
-					YAN_negotiation_strength = YAN_negotiation_progress
+				if = {
+					limit = {
+						has_completed_focus = YAN_begin_negotiations
+					}
+
+					set_temp_variable = {
+						YAN_negotiation_strength_temp = YAN_negotiation_progress  ##YAN_Negotiation_progress is how much gained per day
+					}
+					divide_temp_variable = { 
+						YAN_negotiation_strength_temp = YAN_insurgency_state_control ##Divide that by how much is effective based on how many states are under Insurgent control.
+					}
+					set_variable = {
+						YAN_negotiation_progress_actual = YAN_negotiation_strength_temp  ##Take this. 
+					}
+					add_to_variable = {
+						var = YAN_negotiation_done_progress #How much has been negotiated
+						value = YAN_negotiation_progress_actual #How much is actually being able to be negotiated everyday 
+					}
+					clamp_variable = {
+						var = YAN_negotiation_done_progress
+						min = 0
+						max = YAN_negotiation_cap
+					}
 				}
-				##TODO: Find way to count amount of states that are currently demilitarised
+
+				every_owned_state = {
+					limit = {
+						resistance > 40 
+						is_demilitarized_zone = no
+						is_core_of = IST
+						is_core_of = DEL
+						is_core_of = IDO
+					}
+					set_demilitarized_zone = yes 
+					add_to_variable = {
+						var = YAN_insurgency_state_control
+						value = 1 
+					}
+				}
+				every_owned_state = {
+					limit= {
+						resistance < 40
+						is_demilitarized_zone = yes
+						
+					}
+					set_demilitarized_zone = no
+					subtract_from_variable = {
+						var = YAN_insurgency_state_control
+						value = 1 	
+					}
+				}
 			}
+
+
 		}
 	}
 

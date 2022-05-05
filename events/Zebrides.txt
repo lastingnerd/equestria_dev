@@ -1716,6 +1716,7 @@ country_event = {
 	}
 }
 
+##INSURGENCY EVENT HERE
 country_event = {
 	id = Indozeeb.117 
 	title = Indozeeb.117.t 
@@ -1791,6 +1792,10 @@ country_event = {
 
 		hidden_effect = {
 			complete_national_focus = YAN_take_the_south_east
+			set_variable = {
+				var = YAN_insurgency_state_control
+				value = 11
+			}
 			1189 = {
 				set_demilitarized_zone = yes
 				set_resistance = 65

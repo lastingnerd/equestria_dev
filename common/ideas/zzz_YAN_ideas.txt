@@ -2136,10 +2136,7 @@ ideas = {
 			modifier = {
 				stability_factor = -0.15
 				war_support_factor = -0.10 
-				resistance_damage_to_garrison_on_our_occupied_states = -0.125
-				resistance_growth_on_our_occupied_states = 0.175
 				required_garrison_factor = 0.125
-				compliance_growth_on_our_occupied_states = -0.25
 				
 
 			}
@@ -2156,10 +2153,7 @@ ideas = {
 			modifier = {
 				stability_factor = -0.10
 				war_support_factor = -0.075
-				resistance_damage_to_garrison_on_our_occupied_states = 0.10
-				resistance_growth_on_our_occupied_states = 0.150
 				required_garrison_factor = 0.10
-				compliance_growth_on_our_occupied_states = -0.20
 				
 
 			}
@@ -2176,10 +2170,23 @@ ideas = {
 			modifier = {
 				stability_factor = -0.20
 				war_support_factor = -0.20
-				resistance_damage_to_garrison_on_our_occupied_states = 0.50
-				resistance_growth_on_our_occupied_states = 0.350
 				required_garrison_factor = 0.50
-				compliance_growth_on_our_occupied_states = -0.50
+			}
+		}
+
+		YAN_experienced_force = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			picture = ENG_the_war_to_end_all_wars
+			modifier = {
+				occupation_cost	 = 0.9
+				enemy_operative_capture_chance_factor = 1.1 
+				foreign_subversive_activites = 0.15
+				experience_gain_army_factor	= 0.05
 			}
 		}
 

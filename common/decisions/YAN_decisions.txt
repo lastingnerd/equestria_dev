@@ -2251,24 +2251,114 @@ YAN_semua_economy_category = {
 YAN_loterijen_chaos = {
 	##NOTES OF GENERAL IDEA:
 	##Resistance -> Dictates if you can enter the zone. >50% No
-	##Compliance -> Dictates if a zone is stablisied 
-	##If Compliance across all states >50%, victory.
-	##If Resistance in all states >50%, Lost. 
+	##Compliance -> Just makes it easier for you to holdonto zones.
 	##Idea: Move troops around to decrease Resistance using another decision to click on.
-	##You can't deploy a certain amount of troops because it'll just make shit go even worse. 
 	##You can firebomb them
-
-	##Gotta check this
-
-
-	##Current thought process. Take the current number of divisions, divide by four. This gives the total limit of troops allowed to be deployed
-	##to counter the insurgency. This is called YAN_max_deployable. Proceed to subtract YAN_max_deployable with the number of troops deployed in
-	##in each South East state. Set this as YAN_deployed_divisions. Proceed to check if YAN_deployed_divisions > YAN_max_deployable. If not, thi
-	##-s decision does not fire.
 	##New THOUGHT process
 	# We have YAN_insurgency_strength determing how much shenaniagsn they can do. YAN_counter_insurgency_strength will determine how much resources the player has.
 	# And we have YAN_counter_insurgency_equipment determing *how well* the player can do stuff.
 	##TODO: All the other decisions
+	YAN_end_the_insurgency = {
+		#DECISION THAT ENDS THE INSURGENCY
+		icon = GFX_decision_unknown
+		available = {
+			1189 = {
+				is_demilitarized_zone = no
+				resistance < 40 
+			}
+			1191 = {
+				is_demilitarized_zone = no
+				resistance < 40 
+			}
+			1143 = {
+				is_demilitarized_zone = no
+				resistance < 40 
+			}
+			1152 = {
+				is_demilitarized_zone = no
+				resistance < 40 
+			}
+			1150 = {
+				is_demilitarized_zone = no
+				resistance < 40 
+			}
+			1146 = {
+				is_demilitarized_zone = no
+				resistance < 40 
+			}
+			1144 = {
+				is_demilitarized_zone = no
+				resistance < 40 
+			}
+			1145 = {
+				is_demilitarized_zone = no
+				resistance < 40 
+			}
+			1140 = {
+				is_demilitarized_zone = no
+				resistance < 40 
+			}
+			1142 = {
+				is_demilitarized_zone = no
+				resistance < 40 
+			}
+			1147 = {
+				is_demilitarized_zone = no
+				resistance < 40 
+			}
+			1153 = {
+				is_demilitarized_zone = no
+				resistance < 40 
+			}
+			1190 = {
+				is_demilitarized_zone = no
+				resistance < 40 
+			}
+			1154 = {
+				is_demilitarized_zone = no
+				resistance < 40 
+			}
+			1149 = {
+				is_demilitarized_zone = no
+				resistance < 40 
+			}
+			1148 = {
+				is_demilitarized_zone = no
+				resistance < 40 
+			}
+			1139 = {
+				is_demilitarized_zone = no
+				resistance < 40 
+			}
+			1141 = {
+				is_demilitarized_zone = no
+				resistance < 40 
+			}
+			1192 = {
+				is_demilitarized_zone = no
+				resistance < 40 
+			}
+		}
+		allowed = {
+			tag = YAN
+		}
+		days_remove = 7 
+		cost = 50 
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: decision YAN_end_the_insurgency"
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: decision YAN_end_the_insurgency"
+			set_country_flag = YAN_the_insurgency_end
+			hidden_effect = {
+				remove_ideas = YAN_the_insurgency
+				remove_ideas = YAN_the_insurgency2
+				remove_ideas = YAN_the_insurgency3
+
+			}
+			load_focus_tree = YAN_loterijen_insurgency_end_tree
+		}
+	}
 
 	YAN_insurgent_activity = {
 		#Decision that simulates insurgency doing stuff
@@ -2400,28 +2490,6 @@ YAN_loterijen_chaos = {
 						var = YAN_insurgency_strength
 						value = 200
 					}
-				}
-			}
-
-			if = {
-				limit = {
-					every_owned_state = {
-						limit = {
-							resistance > 40 
-							is_demilitarized_zone = no
-						}
-					}
-				}
-
-				every_owned_state = {
-					limit = {
-						resistance > 40 
-						is_demilitarized_zone = no
-						is_core_of = IST
-						is_core_of = DEL
-						is_core_of = IDO
-					}
-					set_demilitarized_zone = yes 
 				}
 			}
 		}
@@ -2624,8 +2692,11 @@ YAN_loterijen_chaos = {
 
 				FROM = {
 					set_demilitarized_zone = no
+					subtract_from_variable = {
+						var = YAN_insurgency_state_control
+						value = 1 
+					}
 				}
-				
 			}
 
 		}
@@ -2667,7 +2738,7 @@ YAN_loterijen_chaos = {
 		on_map_mode = map_and_decisions_view
 
 		custom_cost_trigger = {
-			has_political_power > 14
+			has_political_power > 4
 			check_variable = { YAN_counter_insurgency_strength > 19 }
 			check_variable = { YAN_counter_insurgency_equipment > 9 }
 		}
@@ -2680,6 +2751,7 @@ YAN_loterijen_chaos = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: decision start YAN_propaganda_campaign"
+			add_political_power = -5
 
 			FROM = {
 				set_state_flag = YAN_propaganda_ing
@@ -2694,7 +2766,6 @@ YAN_loterijen_chaos = {
 				clr_state_flag =  YAN_propaganda_ing
 			}
 
-			add_political_power = -15
 
 			subtract_from_variable = {
 				var = YAN_counter_insurgency_strength
@@ -2721,6 +2792,23 @@ YAN_loterijen_chaos = {
 				subtract_from_variable = {
 					var = YAN_counter_insurgency_equipment
 					value = 10
+				}
+			}
+
+			if = {
+				limit= {
+					FROM = {
+						resistance < 40
+						is_demilitarized_zone = yes
+					}
+				}
+
+				FROM = {
+					set_demilitarized_zone = no
+					subtract_from_variable = {
+						var = YAN_insurgency_state_control
+						value = 1 
+					}
 				}
 			}
 
@@ -2773,6 +2861,8 @@ YAN_loterijen_chaos = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: decision start YAN_bomb_insurgency_targets"
+			add_political_power = -15
+
 		}
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: decision remove YAN_bomb_insurgency_targets"
@@ -2783,7 +2873,6 @@ YAN_loterijen_chaos = {
 					}
 				}
 
-				add_political_power = -15
 
 				FROM = {
 					add_resistance = -10
@@ -2902,7 +2991,13 @@ YAN_loterijen_chaos = {
 
 				FROM = {
 					set_demilitarized_zone = no
+					subtract_from_variable = {
+						var = YAN_insurgency_state_control
+						value = 1 
+					}
 				}
+
+
 				
 			}
 		}
@@ -2953,7 +3048,7 @@ YAN_loterijen_chaos = {
 		on_map_mode = map_and_decisions_view
 
 		custom_cost_trigger = {
-			has_political_power > 19
+			has_political_power > 14
 			check_variable = { YAN_counter_insurgency_strength > 39 }
 			check_variable = { YAN_counter_insurgency_equipment > 14 }
 		}
@@ -2963,6 +3058,8 @@ YAN_loterijen_chaos = {
 		days_re_enable = 14 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: decision start YAN_root_out_resistance"
+			add_political_power = -15
+
 		}
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: decision start YAN_root_out_resistance"
@@ -2973,7 +3070,6 @@ YAN_loterijen_chaos = {
 				add_compliance = 15 
 			}
 
-			add_political_power = -20
 
 			subtract_from_variable = {
 				var = YAN_insurgency_strength
@@ -3014,22 +3110,20 @@ YAN_loterijen_negotiator_category = {
 			has_country_flag = YAN_negotiations_begun
 		}
 		#icon = 
-		cost = 20
-		days_remove = 7 
+		cost = 50
+		days_remove = 14
+		days_re_enable = 7
 		complete_effect = {
-			subtract_from_variable = {
-				var = YAN_negotiation_strength 
-				value = 10 
-			}
+
 		}
 		remove_effect = {
 			if = {
 				limit = {
-					check_variable = { YAN_insurgency_control < 11 }
+					check_variable = { YAN_insurgency_state_control < 16 }
 				}
 				add_to_variable = {
-					var = YAN_negotiation_strength
-					value = 15
+					var = YAN_negotiation_done_progress
+					value = 2
 				}
 			}
 		}
@@ -3045,13 +3139,17 @@ YAN_loterijen_negotiator_category = {
 			has_country_flag = YAN_negotiations_economy_flag
 			has_country_flag = YAN_negotiations_insurgent_flag
 			has_country_flag = YAN_negotiations_native_flag
-			check_variable = { YAN_insurgency_control < YAN_insurgency_control_requirement }
+			check_variable = { YAN_negotiation_strength > 49 }
 		}
 		complete_effect = {
 			##TODO: Event? 
 		}
 		remove_effect = {
 			##TODO: Definitely Event where this is settled. 
+			add_to_variable = {
+				var = YAN_negotiation_progress_actual
+				value = 100
+			}
 		}
 	}
 }
