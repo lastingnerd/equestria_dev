@@ -122,7 +122,9 @@ YAN_loterijen_chaos = {
 
 	visible = {
 		has_country_flag = YAN_insurgency_occured
-		
+		NOT = {
+			has_country_flag = YAN_the_insurgency_end
+		}
 	}
 
 	priority = {
@@ -141,7 +143,9 @@ YAN_loterijen_negotiator_category = {
     visible = {
 		has_country_flag = YAN_insurgency_occured
 		has_completed_focus = YAN_begin_negotiations
-	   
+		NOT = {
+			has_country_flag = YAN_the_insurgency_end
+		}
     }
 
     priority = {

@@ -544,3 +544,11 @@
 		recruitable_population_factor = 0.15
 		state_production_speed_buildings_factor = 0.1
 	}
+
+	YAN_post_insurgent_modifier = {
+		enable = { always = yes }
+		
+		icon = neutrality_idea
+
+		local_resources_factor = YAN_negotiation_native_var
+	}

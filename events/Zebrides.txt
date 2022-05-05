@@ -2081,6 +2081,50 @@ country_event = {
 }
 
 
+country_event = {
+	id = Indozeeb.129
+	immediate = { log = "[GetDateText]: [Root.GetName]: event Indozeeb.129" }
+	title = Indozeeb.129.t
+	desc = Indozeeb.129.d 
+	is_triggered_only = yes
+	#picture = 
+	option = {
+		name = Indozeeb.129.a
+		##Natives shall still be slaves!
+		custom_effect_tooltip = YAN_negotiation_native_hard ##TODO, add the LOC for this
+		set_variable = {
+			var = YAN_negotiation_native_var
+			value = -0.1
+		}
+	} 
+	option = {
+		name = Indozeeb.129.b
+		##Fine, seperate but same
+		custom_effect_tooltip = YAN_negotiation_native_mod
+		set_variable = {
+			var = YAN_negotiation_native_var
+			value = 0
+		}
+	}
+	option = {
+		name = Indozeeb.129.c
+		##Equal under the authority of the Zebridies
+		custom_effect_tooltip = YAN_negotiation_native_soft
+		set_variable = {
+			var = YAN_negotiation_native_var
+			value = 0.1
+		}
+	}
+}
+
+country_event = {
+	id = Indozeeb.130
+	immediate = { log = "[GetDateText]: [Root.Getname]: event Indozeeb.130" }
+	title = Indozeeb.130.t
+	desc = Indozeeb.130.d
+	is_triggered_only = yes 
+}
+
 
 ############################################
 ###Thunder Tiger

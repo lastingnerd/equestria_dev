@@ -2354,7 +2354,6 @@ YAN_loterijen_chaos = {
 				remove_ideas = YAN_the_insurgency
 				remove_ideas = YAN_the_insurgency2
 				remove_ideas = YAN_the_insurgency3
-
 			}
 			load_focus_tree = YAN_loterijen_insurgency_end_tree
 		}
