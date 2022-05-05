@@ -2082,7 +2082,7 @@ country_event = {
 
 
 country_event = {
-	id = Indozeeb.129
+	id = Indozeeb.129 #Event where Loterijen gets to decidie how they should deal with the natives with the options of; 'fuck you', 'fine, reservations', and 'equal representation'
 	immediate = { log = "[GetDateText]: [Root.GetName]: event Indozeeb.129" }
 	title = Indozeeb.129.t
 	desc = Indozeeb.129.d 
@@ -2096,6 +2096,10 @@ country_event = {
 			var = YAN_negotiation_native_var
 			value = -0.1
 		}
+		set_variable = {
+			var = YAN_negotiation_native_var2
+			value = 0.1
+		}
 	} 
 	option = {
 		name = Indozeeb.129.b
@@ -2104,6 +2108,10 @@ country_event = {
 		set_variable = {
 			var = YAN_negotiation_native_var
 			value = 0
+		}
+		set_variable = {
+			var = YAN_negotiation_native_var2
+			value = -0.05
 		}
 	}
 	option = {
@@ -2114,15 +2122,101 @@ country_event = {
 			var = YAN_negotiation_native_var
 			value = 0.1
 		}
+		set_variable = {
+			var = YAN_negotiation_native_var2
+			value = -0.15
+		}
 	}
 }
 
 country_event = {
-	id = Indozeeb.130
+	id = Indozeeb.130 # Event where Loterijen determines if the economic status of the new found colonies should be 'Feaathisia's bitch', 'Subservient to Zava', or 'Free on their own'
 	immediate = { log = "[GetDateText]: [Root.Getname]: event Indozeeb.130" }
 	title = Indozeeb.130.t
 	desc = Indozeeb.130.d
 	is_triggered_only = yes 
+	#picture = 
+	option = {
+		name = Indozeeb.130.a
+		custom_effect_tooltip = YAN_negotiation_economic_hard
+		set_variable = {
+			var = YAN_negotiation_economy_var
+			value = -0.05
+		}
+		set_variable = {
+			var = YAN_negotiation_economy_var2
+			value = -0.03
+		}
+	}
+	option = {
+		name = Indozeeb.130.b
+		custom_effect_tooltip = YAN_negotiation_economic_mod
+		set_variable = {
+			var = YAN_negotiation_economy_var
+			value = 0.05
+		}
+		set_variable = {
+			var = YAN_negotiation_economy_var2
+			value = 0.01
+		}
+	}
+	option = {
+		name = Indozeeb.130.c
+		custom_effect_tooltip = YAN_negotiation_economic_soft
+		set_variable = {
+			var = YAN_negotiation_economy_var
+			value = 0.10
+		}
+		set_variable = {
+			var = YAN_negotiation_economy_var2
+			value = 0.04
+		}
+	}
+}
+
+country_event = {
+	id = Indozeeb.131 #Event where Loterijen, an Insurgent representative, and native, walk into the negotiating room. 
+	immediate = { log = "[GetDateText]: [Root.Getname]: event Indozeeb.131" }
+	title = Indozeeb.131.t
+	desc = Indozeeb.131.d
+	is_triggered_only = yes 
+	#picture = 
+	option = {
+		name = Indozeeb.131.a
+		custom_effect_tooltip = YAN_negotiation_admin_hard
+		set_variable = {
+			var = YAN_negotiation_admin_var
+			value = -0.05
+		}
+		set_variable = {
+			var = YAN_negotiation_admin_var2
+			value = 0.04 
+		}
+	}
+	option = {
+		name = Indozeeb.131.b
+		custom_effect_tooltip = YAN_negotiation_admin_mod
+		set_variable = {
+			var = YAN_negotiation_admin_var
+			value = 0.05
+		}
+		set_variable = {
+			var = YAN_negotiation_admin_var2
+			value = -0.01
+		}
+	}
+	option = {
+		name = Indozeeb.131.c
+		custom_effect_tooltip = YAN_negotiation_admin_soft
+		set_variable = {
+			var = YAN_negotiation_admin_var
+			value = 0.10
+		}
+		set_variable = {
+			var = YAN_negotiation_admin_var2
+			value = -0.06
+		}
+	}
 }
 
 

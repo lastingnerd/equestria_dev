@@ -7522,7 +7522,6 @@ shared_focus = {
 			id = Indozeeb.129
 			hours = 2 
 		}
-		##TODO: Event where Loterijen gets to decidie how they should deal with the natives with the options of; 'fuck you', 'fine, reservations', and 'equal representation'
 	}
 }
 
@@ -7555,7 +7554,6 @@ shared_focus = {
 			id = Indozeeb.130
 			hours = 2 
 		}
-		##TODO: Event where Loterijen determines if the economic status of the new found colonies should be 'Feaathisia's bitch', 'Subservient to Zava', or 'Free on their own'
 	}
 }
 
@@ -7588,7 +7586,6 @@ shared_focus = {
 			id = Indozeeb.131
 			hours = 2 
 		}
-		##TODO: Event where Loterijen, an Insurgent representative, and native, walk into the negotiating room. 
 	}
 }
 
@@ -7696,6 +7693,12 @@ shared_focus = {
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_a_new_future"
 		##Negotiation Strength Bonus or something. 
+		##TODO: Custom Effect Tooltip here
+		custom_effect_tooltip = YAN_a_new_future_tt
+		add_to_variable = {
+			var = YAN_negotiation_progress_actual
+			value = 15 
+		}
 	}
 }
 
@@ -7935,6 +7938,7 @@ shared_focus = {
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_end_of_insurgency"
 		##TODO: Event here that adds stability and stuff, along with a dynamic modifier based on choices taken
+		add_dynamic_modifier = YAN_post_insurgent_modifier
 	}
 }
 

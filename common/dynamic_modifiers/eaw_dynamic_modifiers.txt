@@ -551,4 +551,11 @@
 		icon = neutrality_idea
 
 		local_resources_factor = YAN_negotiation_native_var
+		political_power_factor	= YAN_negotiation_native_var2
+		production_speed_infrastructure_factor = YAN_negotiation_economic_var
+		consumer_goods_factor = YAN_negotiation_economic_var2
+		stability_factor = YAN_negotiation_admin_var
+		non_core_manpower = YAN_negotiation_admin_var2
+
+
 	}
