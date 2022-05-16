@@ -2,6 +2,7 @@ add_namespace = Indozeeb
 add_namespace = YANintro
 add_namespace = YANinsurgency
 add_namespace = Thundertiger
+add_namespace = YANstart
 
 ##PLEASE REMEMBER THIS YOU FUCK
 #country_event = {
@@ -15,15 +16,6 @@ add_namespace = Thundertiger
 		
 #}
 
-###This Mess is all about Loterijen. 
-###Starts at 24.
-###Kudakelasi's stuff starts at Line 1277
-###Intro Stuff is at Below Kudakelasi.
-
-#Please ignore
-
-
-#Choosing Pro-Independence or Pro-Colonial
 ##Tl;dr, does Oran Yamar get shot in the march. 
 country_event = {
 	id = Indozeeb.2
@@ -33,7 +25,7 @@ country_event = {
 	#picture = 
 	is_triggered_only = yes
 	option = {
-		##He does not get shot.
+		##Player chooses to take the eyes of Loterijen
 		name = Indozeeb.2.a
 		set_country_flag = YAN_freedom
 		hidden_effect = {
@@ -56,11 +48,11 @@ country_event = {
 		}
 	}
 	option = {
-		##Protestors gets fucking shot
+		##Player chooses to take the eyes of Loterijen
 		name = Indozeeb.2.b
 		set_country_flag = YAN_colonial
 		hidden_effect = {
-			country_event = { id = Indozeeb.4 days = 5 }
+			country_event = { id = YANstart.1 days = 2 }
 		}
 		ai_chance = {
 			factor = 10
@@ -69,6 +61,205 @@ country_event = {
 				factor = 30
 			}
 		}
+	}
+}
+
+country_event = {
+	id = YANstart.1 #Loterijen hearing about the Convention of the Kebangkitan
+	immediate = { log = "[GetDateText]: [Root.GetName]: event YANstart.1" }
+	title = YANstart.1.t
+	desc = YANstart.1.d
+	is_triggered_only = yes 
+	option = {
+		name = YANstart.1.a
+		add_political_power = 10 
+		add_stability = -0.05
+		hidden_effect = {
+			country_event = { id = YANstart.1 days = 2 }
+		}
+	}
+}
+
+country_event = {
+	id = YANstart.2 #Loterijen now deliberating over the march on Beakavia
+	immediate = { log = "[GetDateText]: [Root.GetName]: event YANstart.2" }
+	title = YANstart.2.t
+	desc = YANstart.2.d
+	is_triggered_only = yes
+	option = {
+		name = YANstart.2.a
+		##Stop them! - Basically what the Dutch was planning on doing
+		hidden_effect = {
+			country_event = { id = YANstart.3 days = 2 }
+		}
+
+	}
+	option = {
+		name = YANstart.2.b
+		##If Kuda's here, invite into government. 
+		trigger = {
+			has_country_flag = YAN_kuda_here
+		}
+		hidden_effect = {
+			country_event = { id = YANstart.10 days = 2 }
+		}
+	}
+}
+
+country_event = {
+	id = YANstart.3 ##Take a prespective change to one of the  Colonial Commanders - collaborator or Feathisian,
+					## equally ok - on the ground, hearing that they've spotted Oran Yamar heading to join the main march. 
+					##He/she could send a detachment to stop him from getting there, or risk the riot getting larger.
+	immediate = { log = "[GetDateText]: [Root.GetName]: event YANstart.3" }
+	title = YANstart.3.t
+	desc = YANstart.3.d
+	is_triggered_only = yes 
+	option = {
+		name = YANstart.3.a
+		##They intercept 
+		add_political_power = -10
+		add_stability = -0.05
+		hidden_effect = {
+			country_event = { id = YANstart.4 days = 7 }
+		}
+	}
+	option = {
+		name = YANstart.3.b
+		##They don't intercept
+		add_political_power = -5
+		add_stability = -0.10
+		hidden_effect = {
+			country_event = { id = YANstart.6 days = 5 }
+		}
+	}
+}
+
+country_event = {
+	id = YANstart.4 ##The March, a general description of the march from the prespective of Loterijen, watching it. MUST NOTE LACK OF ORAN YAMAR - THE FIGURE.
+					##Regardless he had emergency powers granted, allow him to crack down brutally, send in agigatators to alllow for Feathisian control.
+	immediate = { log = "[GetDateText]: [Root.GetName]: event YANstart.4" }
+	title = YANstart.4.t
+	desc = YANstart.4.d
+	is_triggered_only = yes
+	option = {
+		name = YANstart.4.a 
+		## The March fails and is pushed back as it devolves into chaos due to no rallying figure, with lots of arrests
+		hidden_effect = {
+			name = YANstart.4.a
+			swap_ideas = {
+				remove_idea = YAN_angery5
+				add_idea = YAN_angery4
+			}
+		}
+	}
+}
+
+country_event = {
+	id = YANstart.5 ##The Aftermath, and Loterijen smiling that the Kebangkitan has partly imploded due to the failure to properly organise the march. 
+	immediate = { log = "[GetDateText]: [Root.GetName]: event YANstart.5" }
+	title = YANstart.5.t
+	desc = YANstart.5.d
+	is_triggered_only = yes
+	option = {
+		name = YANstart.5.a
+		load_focus_tree = loterijen_governor
+		add_stability = 0.10
+		add_political_power = 50
+	}
+}
+
+country_event = {
+	id = YANstart.6 ##The March, a general decription from the prespective of Loterijen. And there's Oran Yamar. GEtting the cword organised and shit. Its clear there's no stopping the march.
+					## Loterijen's lackeys report they have a 
+					##shot on him... do they yield?
+	immediate = { log = "[GetDateText]: [Root.GetName]: event YANstart.6" }
+	title = YANstart.6.t
+	desc = YANstart.6.d
+	is_triggered_only = yes 
+	option = {
+		name = YANstart.6.a
+		#Fire! 
+		##YAN_OranYamar = {
+		#	retire = yes
+		#}
+		hidden_effect = {
+			country_event = { 
+				id = YANstart.8
+				hours = 12 
+			}
+		}
+		trigger = {
+			has_country_flag = YAN_powerful
+		}
+	}
+	option = {
+		name = YANstart.6.b
+		#Don't. Better to yield than let it get worse. 
+		country_event = { id = YANstart.7 days = 4 }
+		trigger = {
+			has_country_flag = YAN_Powerless
+		}
+	}
+}
+
+country_event = {
+	id = YANstart.7
+	#Loterijen Handing power over to a victorious Kebangkitan March
+	immediate = { log = "[GetDateText]: [Root.GetName]: event YANstart.7" }
+	title = YANstart.7.t
+	desc =  YANstart.7.d
+	is_triggered_only = yes 
+	option = {
+		name = YANstart.7.a
+		load_focus_tree = YAN_Oranyamar_tree
+		remove_ideas = YAN_angery5
+	}
+}
+
+country_event = {
+	id = YANstart.8 
+	##Describing the immediate aftermath of the chaos and how Loterijen needs to crush the insurgency within the islands to win. 
+	immediate = { log = "[GetDateText]: [Root.GetName]: event YANstart.8" }
+	title = YANstart.8.t
+	desc = YANstart.8.d
+	is_triggered_only = yes
+	option = {
+		name = YANstart.8.a
+		set_country_flag = YANstart_insurgency 
+		##Starts the first insurgency
+	}
+}
+
+country_event = {
+	id = YANstart.9
+	##Describing the aftermath of the insurgency. Showing that the enemy has been mostly destroyed. But not fully. 
+	immediate = { log = "[GetDateText]: [Root.GetName]: event YANstart.9" }
+	title = YANstart.9.t
+	desc = YANstart.9.d
+	is_triggered_only = yes
+	option = {
+		name = YANstart.9.a
+		add_stability = 0.10
+		add_political_power = 100
+		load_focus_tree = loterijen_governor
+	}
+}
+
+country_event = {
+	id = YANstart.10
+	##This time its a shift of prespective from Loterijen to Kudakelasi as Kudakelasi smiles in the first meeting where Loterijen allows the locals to work together in government. 
+	immediate = { log = "[GetDateText]: [Root.GetName]: event YANstart.10" }
+	title = YANstart.10.t
+	desc = YANstart.10.d
+	is_triggered_only = yes
+	option = {
+		name = YANstart.10
+		load_focus_tree = kudakelasi_tree
+		swap_ideas = {
+			remove_idea = YAN_angery5
+			add_idea = YAN_angery4
+		}
+		add_stability = 0.10
 	}
 }
 
@@ -122,94 +313,8 @@ country_event = {
 	}
 }
 
-#Break down Beakvia -> Beginning of crackdown
-country_event = {
-	id = Indozeeb.4
-	immediate = {log = "[GetDateText]: [Root.GetName]: event Indozeeb.4"}
-	title = Indozeeb.4.t
-	desc = Indozeeb.4.d
-	#picture =
-	is_triggered_only = yes
-	option = {
-		name = Indozeeb.4.a
-		
-		hidden_effect = {
-			1158 = { set_demilitarized_zone = yes }
-			1157 = { set_demilitarized_zone = yes }
-			1159 = { set_demilitarized_zone = yes }
-			1156 = { set_demilitarized_zone = yes }
-			1155 = { set_demilitarized_zone = yes }
-			1160 = { set_demilitarized_zone = yes }
-			swap_ideas = {
-				remove_idea = YAN_angery2
-				add_idea = YAN_angery3
-			}
-			set_country_flag = YAN_rebellion_flag
-			add_stability = -0.20
-		}
-	}
-}
 
-#Final Showdown 
-country_event = {
-	id = Indozeeb.5
-	immediate = {log = "[GetDateText]: [Root.GetName]: event Indozeeb.5"}
-	title = Indozeeb.5.t
-	desc = Indozeeb.5.d
-	#picture = 
-	is_triggered_only = yes
-	option = {
-		name = Indozeeb.5.a
-	}
-}
 
-#Aftermazth Event
-country_event = {
-	id = Indozeeb.6
-	immediate = {log = "[GetDateText]: [Root.GetName]: event Indozeeb.6"}
-	title = Indozeeb.6.t
-	desc = Indozeeb.6.d
-	#picture = 
-	is_triggered_only = yes
-	option = {
-		name = Indozeeb.6.a
-
-		load_focus_tree = loterijen_paradise
-		set_country_flag = loterijen_paradise
-		
-	}
-}
-
-country_event = {
-	id = Indozeeb.7
-	immediate = {log = "[GetDateText]: [Root.GetName]: event Indozeeb.7"}
-	title = Indozeeb.7.t
-	desc = Indozeeb.7.d
-	#picture = 
-	is_triggered_only = yes
-	option = {
-		name = Indozeeb.7.a
-		set_country_flag = YAN_powerful
-	}
-}
-
-country_event = {
-	id = Indozeeb.8
-	immediate = {log = "[GetDateText]: [Root.GetName]: event Indozeeb.8"}
-	title = Indozeeb.8.t
-	desc = Indozeeb.8.d
-	#picture = 
-	is_triggered_only = yes
-	option = {
-		name = Indozeeb.8.a
-		set_country_flag = YAN_powerless
-		hidden_effect = {
-			country_event = {
-				id = Indozeeb.50 days = 5 
-			}
-		}
-	}
-}
 ##Event of Loterijen inviting Kudakelasi Over for talks##
 country_event = {
 	id = YANintro.5

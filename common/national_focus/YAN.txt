@@ -160,3 +160,15 @@ focus_tree = {
 }
 
 
+focus_tree = {
+	id = YAN_Oranyamar_tree
+	country = {
+        factor = 0 
+        modifier = {
+            add = 10 
+            tag = YAN
+        }
+    }
+    default = no
+    continuous_focus_position = { x = 0 y = 1650 }
+}
