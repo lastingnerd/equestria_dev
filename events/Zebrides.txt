@@ -260,6 +260,27 @@ country_event = {
 			add_idea = YAN_angery4
 		}
 		add_stability = 0.10
+		#create_country_leader	to Kudakelasi
+		set_politics = {
+			ruling_party = democratic
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.10
+		}
+	}
+}
+
+country_event = {
+	id = YANstart.11 
+	##Shift of prespective to Loterijen surrendering to Semuakawan. 
+	immediate = { log = "[GetDateText]: [Root.GetName]: event YANstart.11" }
+	title = YANstart.11.t
+	desc = YANstart.11.d
+	is_triggered_only = yes
+	option = {
+		name = YANstart.11.a
+		load_focus_tree = semuakawan_land
 	}
 }
 

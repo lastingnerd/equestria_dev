@@ -26,9 +26,11 @@ YAN_insurgency_category = {
 			political_power_gain = -0.30
 		}
 
+		cost = 10
+
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision YAN_secure_beakvia"
-			1158 = { set_demilitarized_zone = no}
+			1158 = { set_demilitarized_zone = no }
 			hidden_effect = {
 				set_country_flag = YAN_going_battle
 			}
@@ -69,6 +71,8 @@ YAN_insurgency_category = {
 		modifier = {
 			political_power_gain = -0.30
 		}
+
+		cost = 10
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision YAN_secure_zava"
@@ -115,6 +119,8 @@ YAN_insurgency_category = {
 		}
 		days_remove = 20
 		fire_only_once = yes
+		cost = 10
+
 
 		modifier = {
 			political_power_gain = -0.30
@@ -165,6 +171,8 @@ YAN_insurgency_category = {
 		}
 		days_remove = 20
 		fire_only_once = yes
+		cost = 10
+
 
 		modifier = {
 			political_power_gain = -0.30
@@ -174,7 +182,7 @@ YAN_insurgency_category = {
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision YAN_the_showdown"
 			country_event = Indozeeb.5
-			1159 = { set_demilitarized_zone = no}
+			1159 = { set_demilitarized_zone = no }
 			hidden_effect = {
 				set_country_flag = YAN_going_battle
 			}
@@ -346,7 +354,7 @@ YAN_insurgency_category = {
 
 		}
 
-		days_remove = 30
+		days_remove = 20
 		fire_only_once = yes
 
 		modifier = {
@@ -364,7 +372,7 @@ YAN_insurgency_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision YAN_securing_power"
-			country_event = Indozeeb.6
+			country_event = { id = YANstart.9 }
 
 			hidden_effect = {
 				set_country_flag = YAN_going_battle
@@ -393,7 +401,7 @@ YAN_insurgency_category = {
 			1160 = { is_demilitarized_zone = yes }
 		}
 
-		days_remove = 200
+		days_remove = 50
 
 		modifier = {
 
@@ -414,6 +422,9 @@ YAN_insurgency_category = {
 			add_popularity = {
 				ideology = fascism
 				popularity = 0.15
+			}
+			country_event = {
+				id = YANstart.11 
 			}
 			add_stability = -0.05
 		}
