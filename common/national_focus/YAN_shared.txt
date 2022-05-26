@@ -503,298 +503,9 @@ shared_focus = {
 	}
 }
 
-shared_focus = {
-	id = YAN_buyup_small_bis
-	#icon = 
-	x = 18
-	y = 4
-	cost = 8 
-
-	ai_will_do = {
-		factor = 139
-	}
-
-	prerequisite = {
-		focus = YAN_Family_interests
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_buyup_small_bis"
-		1157 = {
-			add_extra_state_shared_building_slots = 2
-			add_building_construction = {
-				type = industrial_complex
-				level = 2
-				instant_build = yes
-			}
-		}
-	}
-}
-
-shared_focus = {
-	id = YAN_targeted_marketing
-	#icon = 
-	x = 20
-	y = 4
-	cost = 8
-
-	ai_will_do = {
-		factor = 139
-	}
-
-	prerequisite = {
-		focus = YAN_Family_interests
-
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_targeted_marketing"
-		add_popularity = {
-			ideology = democratic
-			popularity = 0.10
-		}
-		add_popularity = {
-			ideology = neutrality
-			popularity = 0.03
-		}
-	}
-}
-
-shared_focus = {
-	id = YAN_price_wars
-	#icon = 
-	x = 17 
-	y = 5
-	cost = 10
-
-	ai_will_do = {
-		factor = 138 
-	}
-
-	prerequisite = {
-		focus = YAN_buyup_small_bis
-	}
+##TODO: Redo Kudakelasi Family Mechanic
 
 
-	select_effect = {
-		hidden_effect = {
-			country_event = { id = Indozeeb.56 days = 5 }
-		}
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_price_wars"
-		##Something about Kudakelasi's faction gaining more support as they slash prices and Loterijen's and Semuakawan's begin deteiorating
-		##Add Decision to launch price wars in the future
-		if = {
-			limit = {
-				has_country_flag = YAN_event_56_check
-			}
-			country_event = { id = Indozeeb.57 hours = 6 }
-		}
-		else = {
-			country_event = { id = Indozeeb.56 hours = 6 }
-		}
-	}
-}
-
-shared_focus = {
-	id = YAN_lift_restrictions
-	#icon = 
-	x = 19
-	y = 5
-	cost = 10
-
-	ai_will_do = {
-		factor = 138
-	}
-
-	prerequisite = {
-		focus = YAN_buyup_small_bis
-		focus = YAN_targeted_marketing
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_lift_restrictions"
-		1156 = {
-			add_building_construction = {
-				type = industrial_complex
-				level = 2
-				instant_build = yes
-			}		
-		}
-		1155 = {
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
-			}
-		}
-	}
-}
-
-shared_focus = {
-	id = YAN_scandals
-	#icon = 
-	x = 21
-	y = 5
-	cost = 9 
-
-	ai_will_do = {
-		factor = 138
-	}
-
-	prerequisite = {
-		focus = YAN_targeted_marketing
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_scandals"
-		custom_effect_tooltip = YAN_decrease_sistem
-		1157 = {
-			remove_building = { type = arms_factory  level = 1 }
-		}
-		add_popularity = {
-			ideology = neutrality
-			popularity = -0.05
-		}
-		YAN_sistem_min = yes
-
-		
-	}
-}
-
-shared_focus = {
-	id = YAN_like_kelp 
-	#icon = 
-	x = 19
-	y = 6
-	cost = 10
-
-	ai_will_do = {
-		factor = 137
-	}
-
-	prerequisite = {
-		focus = YAN_price_wars
-	}
-	prerequisite = {
-		focus = YAN_lift_restrictions
-	}
-	prerequisite = {
-		focus = YAN_scandals
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_like_kelp"
-		##You know that Swordfish in Sicameon? Yeah this is something like that. But instead of like them. This is through shell companies. Add National Spirit, probably event as well
-		1160 = {
-			add_building_construction = {
-				type = infrastructure
-				level = 3
-				instant_build = yes
-			}	
-		}
-		1159 = {
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
-			}	
-		}
-		add_stability = 0.05
-		custom_effect_tooltip = YAN_decrease_sistem
-		custom_effect_tooltip = YAN_increase_movement
-		custom_effect_tooltip = YAN_increase_populace
-		YAN_sistem_min = yes
-		YAN_independence_add = yes
-		YAN_populace_add = yes
-
-
-	}
-}
-
-shared_focus = {
-	id = YAN_reshuffle_the_board
-	#icon = 
-	x = 19
-	y = 7 
-	cost = 2
-
-	ai_will_do = {
-		factor = 136
-	}
-
-	select_effect = {
-		hidden_effect = {
-			country_event = { id = Indozeeb.58 days = 3 }
-		}
-	}
-
-	prerequisite = {
-		focus = YAN_like_kelp
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_reshuffle_board"
-
-			if = {
-				limit = {
-					has_country_flag = YAN_event_58_check
-				}
-				country_event = { id = Indozeeb.59 hours = 6 }
-			}
-			else = {
-				country_event = { id = Indozeeb.58 hours = 6 }
-			}
-	}
-}
-
-shared_focus = {
-	id = YAN_a_leak
-	#icon = 
-	x = 18
-	y = 8 
-	cost = 10
-
-	ai_will_do = {
-		factor = 135
-	}
-
-	prerequisite = {
-		focus = YAN_reshuffle_the_board
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_a_leak"
-		##So sad, some other lineage's drug trade has been leaked, very sad. Add event
-		set_country_flag = YAN_business_kuda_check_1
-		custom_effect_tooltip = YAN_a_leak_tt
-	}
-}
-
-shared_focus = {
-	id = YAN_a_direction
-	#icon = 
-	x = 20 
-	y = 8
-	cost = 3
-
-	ai_will_do = {
-		factor = 135
-	}
-
-	prerequisite = {
-		focus = YAN_reshuffle_the_board
-	}
-
-	completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: focus YAN_a_direction"
-		##"Huh, why is money disappearing in this certain area?"
-		set_country_flag = YAN_business_kuda_check_2
-		custom_effect_tooltip = YAN_a_direction_tt
-	}
-}
 
 
 ##Democratic side of Kudakelasi's tree, focused on the Volksraad
@@ -6480,7 +6191,21 @@ shared_focus = {
 
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_local_nation_bank_money"
-		##TODO: This
+		IST = {
+			country_event = {
+				id = Indozeeb.132
+			}
+		}
+		IDO = {
+			country_event = {
+				id = Indozeeb.132
+			}
+		}
+		DEL = {
+			country_event = {
+				id = Indozeeb.132
+			}
+		}
 	}
 }
 
@@ -6589,7 +6314,8 @@ shared_focus = {
 
 	completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_local_workers"
-		add_ideas = YAN_local_workers_idea
+		add_stability = 0.05
+		add_political_power = 100
 	}
 }
 
@@ -7035,8 +6761,6 @@ shared_focus = {
 			country_event = { id = Indozeeb.127 days = 2 }
 
 		}
-
-		##TODO: Give the South East countries a chance to enter this alliance.
 	}
 }
 
@@ -7310,7 +7034,7 @@ shared_focus = {
 			add_resistance = -10
 		}
 		country_event = { id = Thundertiger.6 }
-		##TODO: Event where Loterijen chooses to retreat... or not.
+		#Event where Loterijen choose to or not to run away from the city. 
 
 	}
 }
@@ -7939,6 +7663,16 @@ shared_focus = {
 		log = "[GetDateText]: [Root.GetName]: focus YAN_end_of_insurgency"
 		##TODO: Event here that adds stability and stuff, along with a dynamic modifier based on choices taken
 		add_dynamic_modifier = YAN_post_insurgent_modifier
+		if = {
+			limit = {
+				YAN = {
+					has_completed_focus = YAN_fight_harder
+				}
+			}
+		}
+		else = {
+			
+		}
 	}
 }
 

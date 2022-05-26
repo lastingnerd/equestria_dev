@@ -2209,6 +2209,19 @@ ideas = {
 		}
 
 		#####ANCHOR LOTERIJEN BANKING SYSTEM 
+		YAN_foreigner_bank_idea = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			picture = Generic_bank_idea_icon
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				stability_factor = 0.05
+			}
+		}
 		YAN_bank_idea = {
 			allowed = {
 				always = yes
