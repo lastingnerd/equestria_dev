@@ -71563,10 +71563,10 @@ SpriteType = {
 	
 	SpriteType = {
 		name = "GFX_goal_KIR_battle_rifle_shine"
-		texturefile = "gfx/interface/goals/KIR/KIR_battle_rifle.tga"
+		texturefile = "gfx/interface/goals/KIR/KIR_battle_rifles.tga"
 		effectFile = "gfx/FX/buttonstate.lua"
 		animation = {
-			animationmaskfile = "gfx/interface/goals/KIR/KIR_battle_rifle.tga"
+			animationmaskfile = "gfx/interface/goals/KIR/KIR_battle_rifles.tga"
 			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
 			animationrotation = -90.0
 			animationlooping = no
@@ -71579,7 +71579,7 @@ SpriteType = {
 		}
 
 		animation = {
-			animationmaskfile = "gfx/interface/goals/KIR/KIR_battle_rifle.tga"
+			animationmaskfile = "gfx/interface/goals/KIR/KIR_battle_rifles.tga"
 			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
 			animationrotation = 90.0
 			animationlooping = no
