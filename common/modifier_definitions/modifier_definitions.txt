@@ -62,3 +62,13 @@ Fragrance_Land_Forts_Modifier = {
 	category = army
 	category = defensive
 }
+
+ADPE_Modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 0
+	category = naval
+	category = army
+	category = war_production
+	category = military_equipment
+}
