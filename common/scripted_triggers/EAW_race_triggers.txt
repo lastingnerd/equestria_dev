@@ -89,8 +89,9 @@ is_polar_race = {
 is_zebra_race = {
 	has_tech = zebra_race
 }
-is_other_race = {
-	has_tech = generic_race
+
+is_kirin_race = {
+	has_tech = kirin_race
 }
 
 is_generic_race = {
@@ -101,8 +102,8 @@ is_generic_race = {
 		is_deer_race = yes
 		is_griffon_race = yes
 		is_diamond_dog_race = yes
+		is_kirin_race = yes
 		is_zebra_race = yes
-		is_hippogriff_race = yes
 	}
 }
 
@@ -141,8 +142,8 @@ has_diamond_dog_race_tech = {
 	has_special_race_tech = no
 }
 
-has_hippogriff_race_tech = {
-	is_hippogriff_race = yes
+has_kirin_race_tech = {
+	is_kirin_race = yes
 	has_special_race_tech = no
 }
 
@@ -185,8 +186,8 @@ is_same_race_as_PREV = {
 			PREV = { is_diamond_dog_race = yes }
 		}
 		AND = {
-			is_hippogriff_race = yes
-			PREV = { is_hippogriff_race = yes }
+			is_kirin_race = yes
+			PREV = { is_kirin_race = yes }
 		}
 		AND = {
 			is_zebra_race = yes
@@ -206,7 +207,6 @@ is_same_race_as_PREV = {
 uses_pony_generic_portraits = {
 	OR = {
 		original_tag = BAT
-		original_tag = MDL
 		original_tag = MGY
 		original_tag = TBK
 		original_tag = MTO
@@ -375,6 +375,8 @@ uses_llama_portraits = {
 uses_kirin_portraits = {
 	OR = {
 		original_tag = KIR
+		original_tag = KIS
+		original_tag = KIC
 		original_tag = KHM
 		original_tag = KXN
 		original_tag = NVA
@@ -393,15 +395,15 @@ uses_minotaur_portraits = {
 }
 
 uses_penguin_portraits = {
-	original_tag = PNG
+	always = no
 }
 
 uses_bear_portraits = {
-	original_tag = PLB
+	always = no
 }
 
 uses_buffalo_portraits = {
-	original_tag = BUF
+	always = no
 }
 
 uses_dragon_portraits = {
@@ -551,6 +553,7 @@ is_country_main_culture_buffalo = {
 is_country_main_culture_aquileian = {
 	OR = {
 		original_tag = ERI
+		original_tag = EYR
 		original_tag = HEL
 		original_tag = AET
 		original_tag = JER
@@ -624,7 +627,6 @@ is_country_main_culture_great_laker = {
 
 is_country_main_culture_herzlander = {
 	OR = {
-		original_tag = EYR
 		original_tag = GRF
 		original_tag = GFF
 		original_tag = GRI
@@ -683,6 +685,8 @@ is_country_main_culture_hyena = {
 is_country_main_culture_kirin = {
 	OR = {
 		original_tag = KIR
+		original_tag = KIS
+		original_tag = KIC
 		original_tag = KHM
 		original_tag = KXN
 		original_tag = NVA
@@ -812,8 +816,6 @@ is_country_main_culture_north_zebrican_zebra = {
 		original_tag = CGI
 		original_tag = CTH
 		original_tag = CVA
-		original_tag = HIE
-		original_tag = TRO
 		original_tag = WAR
 		original_tag = ZAI
 		original_tag = ZAR
@@ -886,15 +888,10 @@ is_state_main_culture_camel = {
 is_state_main_culture_cat = {
 	OR = {
 		is_in_array = { state_original_cores = ABY }
-		is_in_array = { state_original_cores = KLG }
 	}
 }
 
 is_state_main_culture_diamond_dog = {
-	NOT = {
-		state = 424 # Raven Lakes
-		state = 479 # Pinesshade
-	}
 	OR = {
 		is_in_array = { state_original_cores = BRZ }
 		is_in_array = { state_original_cores = DMT }
@@ -937,8 +934,8 @@ is_state_main_culture_buffalo = {
 
 is_state_main_culture_aquileian = {
 	OR = {
-		state = 500 # Balefire
-		state = 673 # Comrick
+		is_in_array = { state_original_cores = ERI }
+		is_in_array = { state_original_cores = EYR }
 		is_in_array = { state_original_cores = HEL }
 		is_in_array = { state_original_cores = AET }
 		is_in_array = { state_original_cores = JER }
@@ -978,7 +975,6 @@ is_state_main_culture_equestrian = {
 
 is_state_main_culture_evi_valley = {
 	OR = {
-		state = 606 # Banditplace
 		is_in_array = { state_original_cores = GRW }
 		is_in_array = { state_original_cores = BRF }
 		is_in_array = { state_original_cores = GRY }
@@ -996,19 +992,6 @@ is_state_main_culture_giraffe = {
 
 is_state_main_culture_great_laker = {
 	OR = {
-		state = 952 # Zombori
-		state = 978 # Zwahile
-		state = 979 # Zalabar
-		state = 980 # Buckonny
-		state = 981 # Zena
-		state = 1024 # Zanzibuck
-		state = 1025 # Comereos
-		state = 1026 # Ijebi
-		state = 1027 # Mzizima
-		state = 1033 # Munmane
-		state = 1034 # Zumbana
-		state = 1035 # Zpasu
-		state = 1140 # Dodomane
 		is_in_array = { state_original_cores = ALO }
 		is_in_array = { state_original_cores = CZR }
 		is_in_array = { state_original_cores = HAY }
@@ -1025,23 +1008,12 @@ is_state_main_culture_great_laker = {
 }
 
 is_state_main_culture_herzlander = {
-	NOT = {
-		state = 500 # Balefire
-		state = 673 # Comrick
-		state = 446 # Creeper Mountains
-		state = 606 # Banditplace
-		state = 505 # Longbowgriff
-		state = 634 # Sondersune
-		state = 337 # Beside
-		state = 336 # Kluv Valley
-		state = 335 # Summer Camps
-		state = 277 # Amdral Nuur
-		state = 278 # Uulin Griffins
-	}
 	OR = {
 		is_in_array = { state_original_cores = GRF }
 		is_in_array = { state_original_cores = GFF }
 		is_in_array = { state_original_cores = GRI }
+		is_in_array = { state_original_cores = FAT }
+		is_in_array = { state_original_cores = FAW }
 		is_in_array = { state_original_cores = TRD }
 		is_in_array = { state_original_cores = FEA }
 		is_in_array = { state_original_cores = PYT }
@@ -1055,17 +1027,12 @@ is_state_main_culture_herzlander = {
 		is_in_array = { state_original_cores = KAT }
 		is_in_array = { state_original_cores = LNS }
 		is_in_array = { state_original_cores = HAU }
+		is_in_array = { state_original_cores = SRS }
 		is_in_array = { state_original_cores = LSM }
 		is_in_array = { state_original_cores = BAN }
 		is_in_array = { state_original_cores = JHZ }
 		is_in_array = { state_original_cores = JGF }
 		is_in_array = { state_original_cores = JOS }
-		is_in_array = { state_original_cores = ERI }
-		is_in_array = { state_original_cores = EYR }
-		state = 485 # Cloudbury
-		state = 522 # Skynavia
-		state = 424 # Raven Lakes
-		state = 479 # Pinesshade
 	}
 }
 
@@ -1076,17 +1043,6 @@ is_state_main_culture_hippogriff = {
 }
 
 is_state_main_culture_horse = {
-	NOT = {
-		state = 794 # Samanewat
-		state = 797 # Trotkrit
-		state = 804 # Hisanlab
-		state = 952 # Zombori
-		state = 1002 # Trotran
-		state = 1003 # Semane
-		state = 1004 # Trotbas
-		state = 1022 # Ardabucklan
-		state = 1023 # Zanjan
-	}
 	OR = {
 		is_in_array = { state_original_cores = EMR }
 		is_in_array = { state_original_cores = HMR }
@@ -1104,10 +1060,6 @@ is_state_main_culture_horse = {
 
 is_state_main_culture_hyena = {
 	OR = {
-		state = 1036 # Thunderbowl
-		state = 1050 # Dhir Cad
-		state = 1052 # Gajar
-		state = 1112 # Crimson Islands
 		is_in_array = { state_original_cores = HYE }
 	}
 }
@@ -1135,28 +1087,18 @@ is_state_main_culture_harpy = {
 }
 
 is_state_main_culture_minotaur = {
-	NOT = {
-		state = 671 # Thymiaushafen
-	}
 	OR = {
-		state = 446 # Creeper Mountains
 		is_in_array = { state_original_cores = MIT }
 		is_in_array = { state_original_cores = JAS }
-		is_in_array = { state_original_cores = CYA }
 	}
 }
 
 is_state_main_culture_northerner = {
-	NOT = {
-		state = 485 # Cloudbury
-	}
 	OR = {
 		is_in_array = { state_original_cores = HLR }
 		is_in_array = { state_original_cores = VED }
 		is_in_array = { state_original_cores = MNC }
 		is_in_array = { state_original_cores = JNG }
-		is_in_array = { state_original_cores = FAT }
-		is_in_array = { state_original_cores = FAW }
 	}
 }
 
@@ -1167,12 +1109,7 @@ is_state_main_culture_penguin = {
 }
 
 is_state_main_culture_riverlander = {
-	NOT = {
-		state = 522 # Skynavia
-	}
 	OR = {
-		state = 505 # Longbowgriff
-		state = 634 # Sondersune
 		is_in_array = { state_original_cores = FIR }
 		is_in_array = { state_original_cores = WAT }
 		is_in_array = { state_original_cores = FBK }
@@ -1188,19 +1125,13 @@ is_state_main_culture_riverlander = {
 		is_in_array = { state_original_cores = LSC }
 		is_in_array = { state_original_cores = JHP }
 		is_in_array = { state_original_cores = JRV }
-		is_in_array = { state_original_cores = SRS }
 	}
 }
 
 is_state_main_culture_southerner = {
-	NOT = {
-		state = 487 # Tarrin
-		state = 652 # Transista
-		state = 521 # Chateau Accueillant
-	}
 	OR = {
-		state = 671 # Thymiaushafen
 		is_in_array = { state_original_cores = SIC }
+		is_in_array = { state_original_cores = CYA }
 		is_in_array = { state_original_cores = FRN }
 		is_in_array = { state_original_cores = ARA }
 		is_in_array = { state_original_cores = WNG }
@@ -1219,35 +1150,12 @@ is_state_main_culture_undead = {
 
 is_state_main_culture_yak = {
 	OR = {
-		state = 337 # Beside
-		state = 336 # Kluv Valley
-		state = 335 # Summer Camps
-		state = 277 # Amdral Nuur
-		state = 278 # Uulin Griffins
 		is_in_array = { state_original_cores = YAK }
 		is_in_array = { state_original_cores = JAK }
 	}
 }
 
 is_state_main_culture_yeti = {
-	NOT = {
-		state = 978 # Zwahile
-		state = 979 # Zalabar
-		state = 980 # Buckonny
-		state = 981 # Zena
-		state = 1024 # Zanzibuck
-		state = 1025 # Comereos
-		state = 1026 # Ijebi
-		state = 1027 # Mzizima
-		state = 1033 # Munmane
-		state = 1034 # Zumbana
-		state = 1035 # Zpasu
-		state = 1036 # Thunderbowl
-		state = 1050 # Dhir Cad
-		state = 1052 # Gajar
-		state = 1112 # Crimson Islands
-		state = 1140 # Dodomane
-	}
 	OR = {
 		is_in_array = { state_original_cores = SLC }
 		is_in_array = { state_original_cores = GYZ }
@@ -1283,14 +1191,11 @@ is_state_main_culture_zongo = {
 
 is_state_main_culture_north_zebrican_zebra = {
 	OR = {
-		state = 745 # Zufra
 		is_in_array = { state_original_cores = BKH }
 		is_in_array = { state_original_cores = CDR }
 		is_in_array = { state_original_cores = CGI }
 		is_in_array = { state_original_cores = CTH }
 		is_in_array = { state_original_cores = CVA }
-		is_in_array = { state_original_cores = HIE }
-		is_in_array = { state_original_cores = TRO }
 		is_in_array = { state_original_cores = WAR }
 		is_in_array = { state_original_cores = ZAI }
 		is_in_array = { state_original_cores = ZAR }
@@ -1299,9 +1204,6 @@ is_state_main_culture_north_zebrican_zebra = {
 }
 
 is_state_main_culture_north_zebrican_pony = {
-	NOT = {
-		state = 745 # Zufra
-	}
 	OR = {
 		is_in_array = { state_original_cores = BAT }
 		is_in_array = { state_original_cores = MDL }
@@ -1312,14 +1214,6 @@ is_state_main_culture_north_zebrican_pony = {
 
 is_state_main_culture_hestrayan = {
 	OR = {
-		state = 794 # Samanewat
-		state = 797 # Trotkrit
-		state = 804 # Hisanlab
-		state = 1002 # Trotran
-		state = 1003 # Semane
-		state = 1004 # Trotbas
-		state = 1022 # Ardabucklan
-		state = 1023 # Zanjan
 		is_in_array = { state_original_cores = MTO }
 		is_in_array = { state_original_cores = AES }
 	}
@@ -1428,6 +1322,7 @@ is_operative_main_culture_buffalo = {
 is_operative_main_culture_aquileian = {
 	OR = {
 		has_nationality = ERI
+		has_nationality = EYR
 		has_nationality = HEL
 		has_nationality = AET
 		has_nationality = JER
@@ -1507,7 +1402,6 @@ is_operative_main_culture_great_laker = {
 
 is_operative_main_culture_herzlander = {
 	OR = {
-		has_nationality = EYR
 		has_nationality = GRF
 		has_nationality = GFF
 		has_nationality = GRI
@@ -1695,8 +1589,6 @@ is_operative_main_culture_north_zebrican_zebra = {
 		has_nationality = CGI
 		has_nationality = CTH
 		has_nationality = CVA
-		has_nationality = HIE
-		has_nationality = TRO
 		has_nationality = WAR
 		has_nationality = ZAI
 		has_nationality = ZAR
@@ -1782,8 +1674,8 @@ is_country_secondary_culture_donkey = {
 	}
 }
 is_country_secondary_culture_aquileian = {
+	always = no
 	OR = {
-		original_tag = EYR
 	}
 }
 is_country_secondary_culture_equestrian = {
@@ -1804,6 +1696,7 @@ is_country_secondary_culture_great_laker = {
 is_country_secondary_culture_herzlander = {
 	OR = {
 		original_tag = ERI
+		original_tag = EYR
 		original_tag = AVI
 		original_tag = FEZ
 		original_tag = LSC
@@ -1839,6 +1732,7 @@ is_country_secondary_culture_kirin = {
 	}
 }
 is_country_secondary_culture_llama = {
+	always = no
 	OR = {
 		original_tag = SPL
 	}
@@ -1866,9 +1760,8 @@ is_country_secondary_culture_north_zebrican_pony = {
 	}
 }
 is_country_secondary_culture_north_zebrican_zebra = {
+	always = no
 	OR = {
-		original_tag = BAT
-		original_tag = TBK
 	}
 }
 is_country_secondary_culture_penguin = {

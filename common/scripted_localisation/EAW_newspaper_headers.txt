@@ -17,7 +17,7 @@ defined_text = { # Country
 				AND = {
 					original_tag = BAL
 					has_country_leader = {
-						character = BAL_cricket_chafers
+						name = "Cricket Chafer"
 						ruling_only = yes
 					}
 				}
@@ -38,7 +38,7 @@ defined_text = { # Country
 					original_tag = BAL
 					NOT = {
 						has_country_leader = {
-							character = BAL_cricket_chafer
+							name = "Cricket Chafer"
 							ruling_only = yes
 						} 
 					}
@@ -257,13 +257,9 @@ defined_text = { # Country
 	text = {
 		trigger = {
 			OR = {
-				original_tag = CTH
-				original_tag = CVA
-				original_tag = CDR
-				original_tag = TRO
-				original_tag = HIE
-				original_tag = ZUM
-				original_tag = WAR
+				original_tag = KIR
+				original_tag = KIC
+				original_tag = KIS
 			}
 		}
 		localization_key = newspaper_header_28

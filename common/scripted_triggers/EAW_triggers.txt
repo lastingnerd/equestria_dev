@@ -15,10 +15,16 @@
 
 ## LUSHI
 has_elias_in_power = {
-	has_country_leader = { ruling_only = yes character = LUS_prince_elias_whitecrest }
+	OR = {
+		has_country_leader = { ruling_only = yes name = "King Elias I Whitecrest" }
+		has_country_leader = { ruling_only = yes name = "Prince Elias Whitecrest" }
+	}
 }
 has_gerar_in_power = {
-	has_country_leader = { ruling_only = yes character = LUS_prince_gerar_whitecrest }
+	OR = {
+		has_country_leader = { ruling_only = yes name = "King Gerar II Whitecrest" }
+		has_country_leader = { ruling_only = yes name = "Prince Gerar Whitecrest" }
+	}
 }
 owns_prywhen = {
 	590 = { is_owned_by = ROOT }
@@ -28,7 +34,7 @@ owns_prywhen = {
 	588 = { is_owned_by = ROOT }
 	605 = { is_owned_by = ROOT }
 	414 = { is_owned_by = ROOT }
-	651 = { is_owned_by = ROOT }
+	651 = { is_owned_by = ROOT}
 }
 
 has_super_force_attack = {
@@ -50,13 +56,9 @@ has_super_force_attack = {
 		has_completed_focus = NIM_with_your_shield
 		has_completed_focus = VED_Age_Of_Chivalry
 		has_completed_focus = VED_Doom_Of_Griffonia
-		has_completed_focus = BAT_combat_enhancers
-		has_completed_focus = HIP_glory_in_death
 		has_completed_focus = TEM_blood_sacrifice
 		has_completed_focus = FRN_priests_in_the_ranks
-		has_completed_focus = TBK_frenzied_horde
-		has_completed_focus = ZAR_no_remorse_no_retreat
-		has_country_flag = HIP_SIR_fanatic_tactics
+		has_completed_focus = KIR_republic_focus_BH_6
 	}
 }
 
@@ -77,14 +79,11 @@ has_super_last_stand = {
 		has_completed_focus = FIR_skeleton_armies
 		has_completed_focus = NIM_fascism_focus_15
 		has_completed_focus = NIM_with_your_shield
-		has_completed_focus = BAT_combat_enhancers
 		has_completed_focus = VED_Age_Of_Chivalry
 		has_completed_focus = VED_Doom_Of_Griffonia
 		has_completed_focus = TEM_blood_sacrifice
 		has_completed_focus = FRN_priests_in_the_ranks
-		has_completed_focus = TBK_frenzied_horde
-		has_completed_focus = ZAR_no_remorse_no_retreat
-		has_country_flag = HIP_SIR_fanatic_tactics
+		has_completed_focus = KIR_republic_focus_BH_6
 	}
 }
 
@@ -93,9 +92,9 @@ can_remove_DED = {
 		is_EQS_SOL = yes
 		tag = CHN
 		tag = NLR
-		has_country_leader = { ruling_only = yes character = AET_prelate_ludwig_ebonwing }
+		has_country_leader = { ruling_only = yes name = "Archon Erebus I" }
 		AND = {
-			has_country_leader = { ruling_only = yes character = MNC_eriviar_sunstriker }
+			has_country_leader = { ruling_only = yes name = "Eriviar Sunstriker" }
 			has_completed_focus = MNC_chosen_of_maar
 		}
 	}
@@ -175,29 +174,12 @@ is_not_original_EQS = {
 is_EQS_SOL = {
 	custom_trigger_tooltip = {
 		tooltip = is_EQS_SOL_tp
-		original_tag = EQS
+		tag = EQS
 		has_government = fascism
-		if = {
-			limit = {
-				has_character = EQS_princess_celestia
-			}
-			EQS_princess_celestia = {
-				has_character_flag = EQS_celestia_is_db 
-			}
+		has_country_leader = {
+			ruling_only = yes
+			name = "Daybreaker"
 		}
-		else = {
-			always = no
-		}
-	}
-}
-
-has_DB_ruler = {
-	custom_trigger_tooltip = {
-		tooltip = DB_is_in_lead_tt
-		EQS_princess_celestia = {
-			has_character_flag = EQS_celestia_is_db 
-		}
-		has_country_leader = { character = EQS_princess_celestia ruling_only = yes }
 	}
 }
 
@@ -211,7 +193,7 @@ is_original_EQS = {
 
 is_EQS_losing_war_20 = {
 	OR = {
-		surrender_progress > 0.15
+		surrender_progress > 0.1
 	}
 	has_defensive_war = yes
 	any_enemy_country = {
@@ -386,7 +368,7 @@ is_exempt_from_division_limit = {
 		has_idea = detached_country
 		AND = {
 			has_country_flag = FIR_is_necromancer
-			has_country_leader = { ruling_only = yes character = FIR_shinespark }
+			has_country_leader = { ruling_only = yes name = "Shinespark" }
 		}
 		AND = {
 			tag = ARA
@@ -398,12 +380,12 @@ is_exempt_from_division_limit = {
 		}
 		AND = {
 			tag = AET
-			has_country_leader = { ruling_only = yes character = AET_prelate_ludwig_ebonwing }
+			has_country_leader = { ruling_only = yes name = "Archon Erebus I" }
 		}
 		AND = {
 			tag = MNC
 			has_completed_focus = MNC_chosen_of_maar
-			has_country_leader = { ruling_only = yes character = MNC_eriviar_sunstriker }
+			has_country_leader = { ruling_only = yes name = "Eriviar Sunstriker" }
 		}
 		AND = {
 			tag = BAR
@@ -753,11 +735,13 @@ is_zebrican_continent_country = {
 		original_tag = ALO
 		original_tag = MSH
 		original_tag = ASS
-		original_tag = ANS
+		original_tag = MSP
 		original_tag = STM
 		original_tag = THU
 		original_tag = GYZ
 		original_tag = KIR
+		original_tag = KIS
+		original_tag = KIC
 		original_tag = NVA
 		original_tag = YMN
 		original_tag = MTA
@@ -804,8 +788,6 @@ is_zebrican_continent_country = {
 		original_tag = IST
 		original_tag = IDO
 		original_tag = KLG
-		original_tag = HIE
-		original_tag = TRO
 	}
 }
 
@@ -841,8 +823,6 @@ is_zebrican_zebra_country = {
 		original_tag = IDO
 		original_tag = IST
 		original_tag = MAZ
-		original_tag = HIE
-		original_tag = TRO
 	}
 }
 is_zebrican_pony_country = {
@@ -888,9 +868,6 @@ is_storm_king_country = {
 owns_major_zebra_city = {
 	OR = {
 		owns_state = 1165 # Mt Aris
-		owns_state = 734 # Alexmanedria
-		owns_state = 1059 # Hoofbei
-		owns_state = 875 # Colthage
 		owns_state = 868 # Trotgiers
 		owns_state = 712 # New ayawhatever
 		owns_state = 725 #  Rio de Arara
@@ -899,9 +876,6 @@ owns_major_zebra_city = {
 is_major_zebra_core = {
 	OR = {
 		1165 = { is_core_of = PREV } # Mt Aris
-		734 = { is_core_of = PREV } # Alexmanedria
-		1059 = { is_core_of = PREV } # Hoofbei
-		875 = { is_core_of = PREV } # Colthage
 		868 = { is_core_of = PREV } # Trotgiers
 		712 = { is_core_of = PREV } # New ayawhatever
 		725 = { is_core_of = PREV } # Rio de Arara
@@ -959,23 +933,18 @@ is_big_zebra_core = {
 
 #ROOT is country
 is_on_equestrian_continent = {
-	exists = yes
 	capital_scope = { is_on_continent = europe }
 }
 
 #ROOT is country
 is_on_griffon_continent = {
 	OR = {
-		AND = {
-			exists = yes
-			capital_scope = { is_on_continent = asia }
-		}
+		capital_scope = { is_on_continent = asia }
 		is_griffon_continent_country = yes
 	}
 }
 
 is_capital_on_griffon_continent = {
-	exists = yes
 	capital_scope = { is_on_continent = asia }
 }
 
@@ -1161,7 +1130,6 @@ country_with_custom_advisors = {
 		original_tag = EQC
 		original_tag = DED
 		original_tag = HLR
-		original_tag = EWI
 		original_tag = FAT
 		original_tag = FAW
 		original_tag = ZES
@@ -1211,25 +1179,20 @@ country_with_custom_advisors = {
 		original_tag = PYT
 		original_tag = AVI
 		original_tag = LAK
+		original_tag = NCR
 		original_tag = HIP
-	    original_tag = NCR
-		original_tag = BAT
 		original_tag = ABY
-		original_tag = WIN
 		original_tag = BAK
-		original_tag = CTL
+	    original_tag = NCR
+	    original_tag = KIR
+		original_tag = KIS
+		original_tag = KIC
+		original_tag = NCR
 		original_tag = MQA
-		original_tag = CVA
+		original_tag = NCR
 		original_tag = FRN
 		original_tag = JES
 		original_tag = TAL
-		original_tag = ARA
-		original_tag = TBK
-		original_tag = CTH
-		original_tag = HIE
-		original_tag = TRO
-		original_tag = ZAR
-		original_tag = WAR
 	}
 }
 country_with_custom_designers = {
@@ -1291,24 +1254,15 @@ country_with_custom_designers = {
 		original_tag = NCR
 		original_tag = HIP
 		original_tag = ZES
-		original_tag = MQA
+	    original_tag = NCR
 		original_tag = BAK
-		original_tag = BAT
 		original_tag = OLV
-		original_tag = WIN
+	    original_tag = KIR
+		original_tag = KIS
+		original_tag = KIC
 		original_tag = FRN
 		original_tag = JES
 		original_tag = TAL
-		original_tag = CTL
-		original_tag = FAT
-		original_tag = FAW
-		original_tag = CTH
-		original_tag = CVA
-		original_tag = HIE
-		original_tag = TRO
-		original_tag = CDR
-		original_tag = ZAR
-		original_tag = TBK
 	}
 }
 country_with_custom_spymaster = {
@@ -1317,19 +1271,16 @@ country_with_custom_spymaster = {
 		original_tag = EQS
 		original_tag = RCT
 		original_tag = GRI
-		original_tag = BAT
 		original_tag = ABY
-		original_tag = WIN
 		original_tag = STW
 		original_tag = BAR
+		original_tag = ABY
+		original_tag = KIR
+		original_tag = KIS
+		original_tag = KIC
 		original_tag = WNG
 		original_tag = JER
-		original_tag = ARA
 		original_tag = ELF
-		original_tag = NCR
-		original_tag = CTL
-		original_tag = CTH
-		original_tag = HIP
 	}
 }
 owns_major_griffon_city = {
@@ -1571,7 +1522,7 @@ is_bandit_nation = {
 		AND = {
 			tag = LNS
 			has_government = fascism
-			has_country_leader = { ruling_only = yes character = LNS_rosa_heidenreich }
+			has_country_leader = { ruling_only = yes name = "Rosa Heidenreich" }
 		}
 	}
 }
@@ -1972,26 +1923,26 @@ can_have_border_war_with_ROOT = {
 	}
 }
 
-#is_navy_leader = {
-#	owner = {
-#		is_in_array = {
-#			navy_leaders = PREV
-#		}
-#	}
-#}
+is_navy_leader = {
+	owner = {
+		is_in_array = {
+			navy_leaders = PREV
+		}
+	}
+}
 
-#is_operative = {
-#	is_army_leader = no
-#	is_navy_leader = no
-#}
+is_operative = {
+	is_army_leader = no
+	is_navy_leader = no
+}
 
-#is_army_leader = {
-#	owner = {
-#		is_in_array = {
-#			army_leaders = PREV
-#		}
-#	}
-#}
+is_army_leader = {
+	owner = {
+		is_in_array = {
+			army_leaders = PREV
+		}
+	}
+}
 
 has_puppet_cosmetic_flag = {
 	OR = {
@@ -2019,22 +1970,4 @@ democratic_greater_than_communism = {
 			party_popularity@democratic > party_popularity@communism
 		}
 	}
-}
-
-has_free_political_advisor_slot = {
-	# Broken in 1.11. Workaround below
-	# 		amount_taken_ideas = {
-	# 			amount < 3
-	# 			slot = {
-	# 				political_advisor
-	# 			}
-	# 		}
-	set_temp_variable = { num_advisors = 0 }
-`	all_character = {
-		if = {
-			limit = { is_political_advisor = yes }
-			add_to_temp_variable = { num_advisors = 1 }
-		}
-	}
-	check_variable = { num_advisors < 3 }
 }

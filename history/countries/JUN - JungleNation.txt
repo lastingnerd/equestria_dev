@@ -100,6 +100,18 @@ random_character = {
 	limit = { is_character = JUN_doctor_caballeron }
 	save_global_event_target_as = JUN_doctor_caballeron_target
 }
+create_corps_commander = {
+	name = "Tailcoatl"
+	picture = "JUN_Tailcoatl.tga"
+	female = yes
+	#desc = JUN_mexico_pone_desc
+	traits = { pony_race_trait jungle_rat }
+	skill = 1
+	attack_skill = 1
+	defense_skill = 2
+	planning_skill = 1
+	logistics_skill = 3
+}
 
 set_rule = {
 	can_generate_female_aces = yes
